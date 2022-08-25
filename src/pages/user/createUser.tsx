@@ -50,7 +50,7 @@ export const CreateUser = () => {
             name,
             institution: "asdasd",
             phoneNumber: "asdasd",
-            plcae: "aaa",
+            place: "aaa",
             rank: "aaa",
           },
         },

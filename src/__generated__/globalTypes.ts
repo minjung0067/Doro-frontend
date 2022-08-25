@@ -28,7 +28,7 @@ export interface CreateUserInput {
   name: string;
   institution: string;
   phoneNumber: string;
-  plcae: string;
+  place: string;
   rank?: string | null;
   role: UserRole;
 }
