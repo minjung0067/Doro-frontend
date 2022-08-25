@@ -1,27 +1,25 @@
 import React from "react";
 import { gql, useMutation } from "@apollo/client";
-import { UserRole } from "../../__generated__/globalTypes";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button";
 import {
-  createUserMutation,
-  createUserMutationVariables,
-} from "../../__generated__/createUserMutation";
+  editUserMutation,
+  editUserMutationVariables,
+} from "../../__generated__/editUserMutation";
 
-export const CREATE_USER_MUTATION = gql`
-  mutation createUserMutation($createUserInput: CreateUserInput!) {
-    createUser(input: $createUserInput) {
+export const EDIT_USER_MUTATION = gql`
+  mutation editUserMutation($editUserInput: editUserInput!) {
+    editUser(input: $editUserInput) {
       ok
       error
     }
   }
 `;
 
-interface ICreateUserForm {
+interface IEditUserForm {
   email: string;
   password: string;
-  role: UserRole;
   name: string;
   institution: string;
   phoneNumber: string;
@@ -29,33 +27,21 @@ interface ICreateUserForm {
   rank: string;
 }
 
-export const CreateUser = () => {
+export const EditUser = () => {
   const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } =
-    useForm<ICreateUserForm>({
+    useForm<IEditUserForm>({
       mode: "onChange",
-      defaultValues: {
-        role: UserRole.Client,
-      },
     });
   const onSubmit = () => {
     if (!loading) {
-      const {
-        email,
-        password,
-        role,
-        name,
-        institution,
-        phoneNumber,
-        place,
-        rank,
-      } = getValues();
-      createUserMutation({
+      const { email, password, name, institution, phoneNumber, place, rank } =
+        getValues();
+      editUserMutation({
         variables: {
-          createUserInput: {
+          editUserInput: {
             email,
             password,
-            role,
             name,
             institution,
             phoneNumber,
@@ -66,18 +52,18 @@ export const CreateUser = () => {
       });
     }
   };
-  const onCompleted = (data: createUserMutation) => {
+  const onCompleted = (data: editUserMutation) => {
     const {
-      createUser: { ok },
+      editUser: { ok },
     } = data;
     if (ok) {
       navigate("/", { replace: true });
     }
   };
-  const [createUserMutation, { data: createUserData, loading }] = useMutation<
-    createUserMutation,
-    createUserMutationVariables
-  >(CREATE_USER_MUTATION, {
+  const [editUserMutation, { data: editUserData, loading }] = useMutation<
+    editUserMutation,
+    editUserMutationVariables
+  >(EDIT_USER_MUTATION, {
     onCompleted,
   });
   return (
