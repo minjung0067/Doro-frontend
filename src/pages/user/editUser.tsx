@@ -27,7 +27,7 @@ interface IEditUserForm {
   rank: string;
 }
 
-export const CreateUser = () => {
+export const EditUser = () => {
   const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } =
     useForm<IEditUserForm>({
