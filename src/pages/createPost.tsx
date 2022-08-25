@@ -1,7 +1,9 @@
-import { gql, useMutation } from "@apollo/client";
-import React from "react";
+import { gql, useMutation, useReactiveVar } from "@apollo/client";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { isLoggedInVar } from "../apollo";
+import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
 
 const CREATE_POST_MUTATION = gql`
@@ -24,16 +26,30 @@ interface ICreatePostForm {
 }
 
 export const CreatePost = () => {
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
+  if (isLoggedIn) {
+  }
+  const { data: userData } = useMe();
+  console.log(userData?.me.email);
   const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } =
     useForm<ICreatePostForm>({
       mode: "onChange",
+      defaultValues: {
+        // ownerName: userData?.me.name,
+        // institution: userData?.me.institution,
+        // phoneNumber: userData?.me.phoneNumber,
+        email: userData?.me.email,
+      },
     });
   const [createPostMutation, { data: creataPostData, loading }] = useMutation<
     createPost,
     createPostVariables
   >(CREATE_POST_MUTATION);
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    const { ownerName, institution, phoneNumber, email, title, content } =
+      getValues();
+  };
 
   const onCompleted = (data: createPost) => {
     const {
@@ -47,27 +63,18 @@ export const CreatePost = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...(register("ownerName"), { required: true })}
+          {...register("ownerName", { required: true })}
           name="ownerName"
-        ></input>
-        <input {...register("institution")} name="institution"></input>
+        />
+        <input {...register("institution")} name="institution" />
         <input
-          {...(register("phoneNumber"), { required: true })}
+          {...register("phoneNumber", { required: true })}
           name="phoneNumber"
-        ></input>
-        <input
-          {...(register("email"), { required: true })}
-          name="email"
-        ></input>
-        <input {...register("password")} name="password"></input>
-        <input
-          {...(register("title"), { required: true })}
-          name="title"
-        ></input>
-        <input
-          {...(register("content"), { required: true })}
-          name="content"
-        ></input>
+        />
+        <input {...register("email", { required: true })} name="email" />
+        <input {...register("password")} name="password" />
+        <input {...register("title", { required: true })} name="title" />
+        <input {...register("content", { required: true })} name="content" />
       </form>
     </div>
   );
