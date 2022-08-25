@@ -12,11 +12,25 @@ export enum UserRole {
   Manager = "Manager",
 }
 
+export interface CreatePostInput {
+  title: string;
+  content: string;
+  password?: string | null;
+  ownerName: string;
+  institution?: string | null;
+  phoneNumber: string;
+  email?: string | null;
+}
+
 export interface CreateUserInput {
   email: string;
   password: string;
-  role: UserRole;
   name: string;
+  institution: string;
+  phoneNumber: string;
+  plcae: string;
+  rank?: string | null;
+  role: UserRole;
 }
 
 export interface LoginInput {

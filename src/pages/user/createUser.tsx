@@ -23,6 +23,10 @@ interface ICreateUserForm {
   password: string;
   role: UserRole;
   name: string;
+  institution: string;
+  phoneNumber: string;
+  place: string;
+  rank: string;
 }
 
 export const CreateUser = () => {
@@ -44,6 +48,10 @@ export const CreateUser = () => {
             password,
             role,
             name,
+            institution: "asdasd",
+            phoneNumber: "asdasd",
+            plcae: "aaa",
+            rank: "aaa",
           },
         },
       });
