@@ -28,7 +28,7 @@ export interface CreateUserInput {
   name: string;
   institution: string;
   phoneNumber: string;
-  plcae: string;
+  place: string;
   rank?: string | null;
   role: UserRole;
 }
@@ -36,6 +36,17 @@ export interface CreateUserInput {
 export interface LoginInput {
   email: string;
   password: string;
+}
+
+export interface editUserInput {
+  email?: string | null;
+  password?: string | null;
+  name?: string | null;
+  institution?: string | null;
+  phoneNumber?: string | null;
+  place?: string | null;
+  rank?: string | null;
+  role?: UserRole | null;
 }
 
 //==============================================================
