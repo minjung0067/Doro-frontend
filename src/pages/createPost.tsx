@@ -29,16 +29,16 @@ export const CreatePost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   if (isLoggedIn) {
   }
-  const { data: userData } = useMe();
+  const { data: userData, refetch } = useMe();
   console.log(userData?.me.email);
   const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } =
     useForm<ICreatePostForm>({
       mode: "onChange",
       defaultValues: {
-        // ownerName: userData?.me.name,
-        // institution: userData?.me.institution,
-        // phoneNumber: userData?.me.phoneNumber,
+        ownerName: userData?.me.name,
+        institution: userData?.me.institution,
+        phoneNumber: userData?.me.phoneNumber,
         email: userData?.me.email,
       },
     });
