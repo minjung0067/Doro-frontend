@@ -13,6 +13,8 @@ export interface meQuery_me {
   email: string;
   institution: string;
   phoneNumber: string;
+  rank: string | null;
+  place: string;
 }
 
 export interface meQuery {

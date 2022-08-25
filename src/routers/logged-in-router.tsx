@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
 import { Header } from "../components/header";
 import { CreatePost } from "../pages/createPost";
+import { EditUser } from "../pages/user/editUser";
 
 export const LoggedInRouter = () => {
   return (
@@ -10,6 +11,7 @@ export const LoggedInRouter = () => {
       <Header />
       <Routes>
         <Route path="/createPost" element={<CreatePost />} />
+        <Route path="/editUser" element={<EditUser />} />
       </Routes>
     </BrowserRouter>
   );
