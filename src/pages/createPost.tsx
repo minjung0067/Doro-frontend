@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
+import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
@@ -76,6 +77,7 @@ export const CreatePost = () => {
 
   return (
     <div>
+      <Banner></Banner>
       {isLoggedIn ? (
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
@@ -136,29 +138,18 @@ export const CreatePost = () => {
             defaultValue={userData?.me.name ? userData?.me.name : ""}
           />
           <input
-            {...register("institution", { required: true })}
+            {...register("institution")}
             name="institution"
             placeholder="institution"
-            defaultValue={
-              userData?.me.institution ? userData?.me.institution : ""
-            }
           />
           <input
             {...register("phoneNumber", { required: true })}
             name="phoneNumber"
             placeholder="phoneNumber"
-            defaultValue={
-              userData?.me.institution ? userData?.me.institution : ""
-            }
           />
+          <input {...register("email")} name="email" placeholder="email" />
           <input
-            {...register("email", { required: true })}
-            name="email"
-            placeholder="email"
-            defaultValue={userData?.me.email ? userData?.me.email : ""}
-          />
-          <input
-            {...register("password")}
+            {...register("password", { required: true })}
             name="password"
             placeholder="password"
           />
