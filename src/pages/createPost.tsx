@@ -65,16 +65,34 @@ export const CreatePost = () => {
         <input
           {...register("ownerName", { required: true })}
           name="ownerName"
+          placeholder="ownerName"
         />
         <input {...register("institution")} name="institution" />
         <input
           {...register("phoneNumber", { required: true })}
           name="phoneNumber"
+          placeholder="phoneNumber"
         />
-        <input {...register("email", { required: true })} name="email" />
-        <input {...register("password")} name="password" />
-        <input {...register("title", { required: true })} name="title" />
-        <input {...register("content", { required: true })} name="content" />
+        <input
+          {...register("email", { required: true })}
+          name="email"
+          placeholder="email"
+        />
+        <input
+          {...register("password")}
+          name="password"
+          placeholder="password"
+        />
+        <input
+          {...register("title", { required: true })}
+          name="title"
+          placeholder="title"
+        />
+        <input
+          {...register("content", { required: true })}
+          name="content"
+          placeholder="content"
+        />
       </form>
     </div>
   );
