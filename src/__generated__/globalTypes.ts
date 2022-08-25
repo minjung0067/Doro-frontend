@@ -33,6 +33,10 @@ export interface CreateUserInput {
   role: UserRole;
 }
 
+export interface FindAllPostsInput {
+  page?: number | null;
+}
+
 export interface LoginInput {
   email: string;
   password: string;
