@@ -6,24 +6,25 @@ import { LOCALSTORAGE_TOKEN } from "../../constants";
 import { login, loginVariables } from "../../__generated__/login";
 import { Button } from "../../components/button";
 import { FormError } from "../../components/formError";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+const LOGIN_MUTATION = gql`
+  mutation login($loginInput: LoginInput!) {
+    login(input: $loginInput) {
+      ok
+      error
+      token
+    }
+  }
+`;
+
+interface ILoginForm {
+  email: string;
+  password: string;
+}
 
 export const Login = () => {
-  const LOGIN_MUTATION = gql`
-    mutation login($loginInput: LoginInput!) {
-      login(input: $loginInput) {
-        ok
-        error
-        token
-      }
-    }
-  `;
-
-  interface ILoginForm {
-    email: string;
-    password: string;
-  }
-
+  const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } = useForm<ILoginForm>({
     mode: "onChange",
   });
@@ -50,6 +51,7 @@ export const Login = () => {
       localStorage.setItem(LOCALSTORAGE_TOKEN, token);
       authTokenVar(token);
       isLoggedInVar(true);
+      navigate("/", { replace: true });
     }
   };
 

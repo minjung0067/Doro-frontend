@@ -7,6 +7,8 @@ import {
   editUserMutation,
   editUserMutationVariables,
 } from "../../__generated__/editUserMutation";
+import { useMe } from "../../hooks/useMe";
+import { Helmet } from "react-helmet-async";
 
 export const EDIT_USER_MUTATION = gql`
   mutation editUserMutation($editUserInput: editUserInput!) {
@@ -28,6 +30,8 @@ interface IEditUserForm {
 }
 
 export const EditUser = () => {
+  const { data: userData } = useMe();
+  console.log(userData?.me.email);
   const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } =
     useForm<IEditUserForm>({
@@ -68,6 +72,9 @@ export const EditUser = () => {
   });
   return (
     <div>
+      <Helmet>
+        <title>Edit User | Nuber Eats</title>
+      </Helmet>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("email", {
@@ -79,6 +86,7 @@ export const EditUser = () => {
           required
           type="email"
           placeholder="User ID"
+          defaultValue={userData?.me.email}
         />
         <input
           {...register("password", {
@@ -97,6 +105,7 @@ export const EditUser = () => {
           name="name"
           type="text"
           placeholder="User Name"
+          defaultValue={userData?.me.name}
         />
         <input
           {...register("institution", {
@@ -106,6 +115,7 @@ export const EditUser = () => {
           name="institution"
           type="text"
           placeholder="Institition"
+          defaultValue={userData?.me.institution}
         />
         <input
           {...register("phoneNumber", {
@@ -115,6 +125,7 @@ export const EditUser = () => {
           name="phoneNumber"
           type="tel"
           placeholder="010-0000-0000"
+          defaultValue={userData?.me.phoneNumber}
         />
         <input
           {...register("place", {
@@ -124,6 +135,7 @@ export const EditUser = () => {
           name="place"
           type="text"
           placeholder="Ansan"
+          defaultValue={userData?.me.place}
         />
         <input
           {...register("rank", {
@@ -133,6 +145,7 @@ export const EditUser = () => {
           name="rank"
           type="text"
           placeholder="직급을 입력해주세요."
+          defaultValue={userData?.me.rank ? userData?.me.rank : ""}
         />
         <Button
           canClick={formState.isValid}

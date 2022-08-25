@@ -1,0 +1,35 @@
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+import { FindAllPostsInput } from "./globalTypes";
+
+// ====================================================
+// GraphQL query operation: postsPageQuery
+// ====================================================
+
+export interface postsPageQuery_findAllPosts_results {
+  __typename: "Post";
+  createdAt: any;
+  title: string;
+  ownerName: string;
+  id: number;
+}
+
+export interface postsPageQuery_findAllPosts {
+  __typename: "FindAllPostsOutput";
+  ok: boolean;
+  error: string | null;
+  totalPages: number | null;
+  totalResults: number | null;
+  results: postsPageQuery_findAllPosts_results[] | null;
+}
+
+export interface postsPageQuery {
+  findAllPosts: postsPageQuery_findAllPosts;
+}
+
+export interface postsPageQueryVariables {
+  input: FindAllPostsInput;
+}
