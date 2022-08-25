@@ -29,16 +29,16 @@ export const CreatePost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   if (isLoggedIn) {
   }
-  const { data: userData } = useMe();
+  const { data: userData, refetch } = useMe();
   console.log(userData?.me.email);
   const navigate = useNavigate();
   const { register, formState, getValues, handleSubmit } =
     useForm<ICreatePostForm>({
       mode: "onChange",
       defaultValues: {
-        // ownerName: userData?.me.name,
-        // institution: userData?.me.institution,
-        // phoneNumber: userData?.me.phoneNumber,
+        ownerName: userData?.me.name,
+        institution: userData?.me.institution,
+        phoneNumber: userData?.me.phoneNumber,
         email: userData?.me.email,
       },
     });
@@ -65,16 +65,34 @@ export const CreatePost = () => {
         <input
           {...register("ownerName", { required: true })}
           name="ownerName"
+          placeholder="ownerName"
         />
         <input {...register("institution")} name="institution" />
         <input
           {...register("phoneNumber", { required: true })}
           name="phoneNumber"
+          placeholder="phoneNumber"
         />
-        <input {...register("email", { required: true })} name="email" />
-        <input {...register("password")} name="password" />
-        <input {...register("title", { required: true })} name="title" />
-        <input {...register("content", { required: true })} name="content" />
+        <input
+          {...register("email", { required: true })}
+          name="email"
+          placeholder="email"
+        />
+        <input
+          {...register("password")}
+          name="password"
+          placeholder="password"
+        />
+        <input
+          {...register("title", { required: true })}
+          name="title"
+          placeholder="title"
+        />
+        <input
+          {...register("content", { required: true })}
+          name="content"
+          placeholder="content"
+        />
       </form>
     </div>
   );
