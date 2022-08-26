@@ -30,7 +30,6 @@ interface ICreatePostForm {
 
 export const CreatePost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
-
   const { data: userData, refetch } = useMe();
   const navigate = useNavigate();
 

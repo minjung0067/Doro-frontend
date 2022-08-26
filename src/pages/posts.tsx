@@ -4,12 +4,14 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { PostComponent } from "../components/postComponent";
 import {
   postsPageQuery,
   postsPageQueryVariables,
 } from "../__generated__/postsPageQuery";
+import postsRoute from "../images/postsRoute.png";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -52,6 +54,12 @@ export const Posts = () => {
       <Helmet>
         <title>Home | Nuber Eats</title>
       </Helmet>
+      <Banner
+        route={postsRoute}
+        title="문의 게시판"
+        subtitle="Education inquiry board"
+        content="문의 답변을 확인할 수 있습니다"
+      />
       {!loading && (
         <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
           <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
