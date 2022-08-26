@@ -39,6 +39,10 @@ export interface CreateUserInput {
   role: UserRole;
 }
 
+export interface DeletePostInput {
+  postId: number;
+}
+
 export interface FindAllPostsInput {
   page?: number | null;
 }

@@ -1,4 +1,4 @@
-import { gql, useLazyQuery, useQuery } from "@apollo/client";
+import { gql, useLazyQuery, useMutation, useQuery } from "@apollo/client";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
@@ -16,6 +16,7 @@ import {
   checkPassword,
   checkPasswordVariables,
 } from "../__generated__/checkPassword";
+import { deletePost, deletePostVariables } from "../__generated__/deletePost";
 
 export const POST_QUERY = gql`
   query findPostForPost($input: FindPostInput!) {
@@ -46,17 +47,31 @@ export const CHECK_PASSWORD = gql`
   }
 `;
 
+export const DELETE_POST = gql`
+  mutation deletePost($input: DeletePostInput!) {
+    deletePost(input: $input) {
+      ok
+      error
+    }
+  }
+`;
+
 export const Post = () => {
   const params = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
+  const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
   const [modalInputPassword, setModalInputPassword] = useState(false);
   const [passwordIsWrong, setPasswordIsWrong] = useState(false);
+  const [deleteIsDone, setDeleteIsDone] = useState(false);
   const { register, formState, getValues, handleSubmit, reset } = useForm({
     mode: "onChange",
   });
   const editButton = () => {
-    setModalIsOpen(true);
+    setEditModalIsOpen(true);
+  };
+  const deleteButton = () => {
+    setDeleteModalIsOpen(true);
   };
   const { data } = useQuery<findPostForPost, findPostForPostVariables>(
     POST_QUERY,
@@ -68,7 +83,7 @@ export const Post = () => {
       },
     }
   );
-  const onCompleted = (data: checkPassword) => {
+  const onCheckPasswordEditCompleted = (data: checkPassword) => {
     const {
       checkPassword: { isSame },
     } = data;
@@ -80,13 +95,52 @@ export const Post = () => {
       setPasswordIsWrong(true);
     }
   };
-  const [callQuery, { loading, data: passwordData, called }] = useLazyQuery<
+
+  const onDeleteCompleted = (data: deletePost) => {
+    if (data.deletePost.ok === true) {
+      setDeleteModalIsOpen(false);
+      setDeleteIsDone(true);
+    }
+  };
+  const onDeleteCompletedClick = () => {
+    setDeleteIsDone(false);
+    navigate("/posts", { state: true });
+  };
+  const [deletePostMutation] = useMutation<deletePost, deletePostVariables>(
+    DELETE_POST,
+    { onCompleted: onDeleteCompleted }
+  );
+
+  const onCheckPasswordDeleteCompleted = (data: checkPassword) => {
+    const {
+      checkPassword: { isSame },
+    } = data;
+    if (isSame === true) {
+      deletePostMutation({
+        variables: {
+          input: {
+            postId: +(params.id ?? ""),
+          },
+        },
+      });
+    } else {
+      reset();
+      setPasswordIsWrong(true);
+    }
+  };
+  const [callQueryForEdit] = useLazyQuery<
     checkPassword,
     checkPasswordVariables
-  >(CHECK_PASSWORD, { onCompleted });
-  const onSubmit = () => {
+  >(CHECK_PASSWORD, { onCompleted: onCheckPasswordEditCompleted });
+
+  const [callQueryForDelete] = useLazyQuery<
+    checkPassword,
+    checkPasswordVariables
+  >(CHECK_PASSWORD, { onCompleted: onCheckPasswordDeleteCompleted });
+
+  const onPasswordSubmit = () => {
     const { password } = getValues();
-    callQuery({
+    callQueryForEdit({
       variables: {
         input: {
           password,
@@ -95,6 +149,7 @@ export const Post = () => {
       },
     });
   };
+
   return (
     <div>
       <Helmet>
@@ -125,15 +180,15 @@ export const Post = () => {
         <div>
           <div>
             <Modal
-              isOpen={modalIsOpen}
+              isOpen={editModalIsOpen}
               onRequestClose={() => {
-                setModalInputPassword(false), setModalIsOpen(false);
+                setModalInputPassword(false), setEditModalIsOpen(false);
               }}
             >
               {modalInputPassword ? (
                 <>
                   <span>게시글 비밀번호를 입력해주세요</span>
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form onSubmit={handleSubmit(onPasswordSubmit)}>
                     {passwordIsWrong ? (
                       <input
                         {...register("password", { required: true })}
@@ -166,7 +221,7 @@ export const Post = () => {
                   </button>
                   <button
                     onClick={() => {
-                      setModalIsOpen(false);
+                      setEditModalIsOpen(false);
                     }}
                   >
                     아니오
@@ -175,7 +230,61 @@ export const Post = () => {
               )}
             </Modal>
             <button onClick={editButton}>Edit</button>
-            <button>Delete</button>
+            <Modal
+              isOpen={deleteModalIsOpen}
+              onRequestClose={() => {
+                setModalInputPassword(false), setDeleteModalIsOpen(false);
+              }}
+            >
+              {modalInputPassword ? (
+                <>
+                  <span>게시글 비밀번호를 입력해주세요</span>
+                  <form onSubmit={handleSubmit(onPasswordSubmit)}>
+                    {passwordIsWrong ? (
+                      <input
+                        {...register("password", { required: true })}
+                        name="password"
+                        placeholder="비밀번호가 틀렸습니다"
+                      ></input>
+                    ) : (
+                      <input
+                        {...register("password", { required: true })}
+                        name="password"
+                        placeholder="비밀번호를 입력해주세요"
+                      ></input>
+                    )}
+                    <Button
+                      canClick={formState.isValid}
+                      loading={false}
+                      actionText={"게시물 삭제"}
+                    />
+                  </form>
+                </>
+              ) : (
+                <>
+                  <span>게시물을 삭제하겠습니까?</span>
+                  <button
+                    onClick={() => {
+                      setModalInputPassword(true);
+                    }}
+                  >
+                    예
+                  </button>
+                  <button
+                    onClick={() => {
+                      setDeleteModalIsOpen(false);
+                    }}
+                  >
+                    아니오
+                  </button>
+                </>
+              )}
+            </Modal>
+            <Modal isOpen={deleteIsDone}>
+              <span>게시글이 삭제되었습니다</span>
+              <button>확인</button>
+            </Modal>
+            <button onClick={onDeleteCompletedClick}>Delete</button>
             <button>
               <Link to="/posts">Back</Link>
             </button>

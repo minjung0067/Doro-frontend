@@ -12,7 +12,6 @@ import {
   postsPageQueryVariables,
 } from "../__generated__/postsPageQuery";
 import postsRoute from "../images/postsRoute.png";
-import * as lodash from "lodash";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
