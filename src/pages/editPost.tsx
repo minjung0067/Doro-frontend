@@ -1,23 +1,42 @@
-import { gql, useMutation, useReactiveVar } from "@apollo/client";
+import { gql, useMutation, useQuery, useReactiveVar } from "@apollo/client";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
+import { findPost, findPostVariables } from "../__generated__/findPost";
+import { updatePost, updatePostVariables } from "../__generated__/updatePost";
 
-const CREATE_POST_MUTATION = gql`
-  mutation createPost($input: CreatePostInput!) {
-    createPost(input: $input) {
+const EDIT_POST_MUTATION = gql`
+  mutation updatePost($input: UpdatePostInput!) {
+    updatePost(input: $input) {
       error
       ok
     }
   }
 `;
+const FIND_POST_QUERY = gql`
+  query findPost($input: FindPostOutput) {
+    findPost(input: $input) {
+      ok
+      error
+      post {
+        ownerName
+        institution
+        phoneNumber
+        email
+        title
+        content
+        password
+      }
+    }
+  }
+`;
 
-interface ICreatePostForm {
+interface IEditPostForm {
   title: string;
   content: string;
   password?: string;
@@ -26,21 +45,31 @@ interface ICreatePostForm {
   phoneNumber: string;
   email: string;
   isLocked: boolean;
+  id: number;
 }
 
-export const CreatePost = () => {
+export const EditPost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
-
+  const params = useParams<{ id: string }>();
   const { data: userData, refetch } = useMe();
   const navigate = useNavigate();
 
+  // const [findPost, { data: findPostData, loading }] = useQuery<
+  //   findPost,
+  //   findPostVariables
+  // >(FIND_POST_QUERY);
+
+  // findPost({
+
+  // })
+
   const { register, formState, getValues, handleSubmit } =
-    useForm<ICreatePostForm>({
+    useForm<IEditPostForm>({
       mode: "onChange",
     });
-  const onCompleted = (data: createPost) => {
+  const onCompleted = (data: updatePost) => {
     const {
-      createPost: { ok, error },
+      updatePost: { ok, error },
     } = data;
     if (ok) {
       navigate("/posts", { replace: true });
@@ -48,10 +77,10 @@ export const CreatePost = () => {
       console.log(error);
     }
   };
-  const [createPostMutation, { data: creataPostData, loading }] = useMutation<
-    createPost,
-    createPostVariables
-  >(CREATE_POST_MUTATION, { onCompleted });
+  const [updatePost, { data: updatePostData, loading }] = useMutation<
+    updatePost,
+    updatePostVariables
+  >(EDIT_POST_MUTATION, { onCompleted });
   const onSubmit = () => {
     const {
       ownerName,
@@ -64,7 +93,7 @@ export const CreatePost = () => {
       isLocked,
     } = getValues();
 
-    createPostMutation({
+    updatePost({
       variables: {
         input: {
           ownerName,
@@ -74,6 +103,8 @@ export const CreatePost = () => {
           title,
           content,
           password,
+          isLocked,
+          id: +params,
         },
       },
     });
