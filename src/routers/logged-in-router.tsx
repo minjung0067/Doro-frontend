@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
+import { Foot } from "../components/foot";
 import { Header } from "../components/header";
 import { CreatePost } from "../pages/createPost";
 import { Posts } from "../pages/posts";
@@ -15,6 +16,7 @@ export const LoggedInRouter = () => {
         <Route path="/editUser" element={<EditUser />} />
         <Route path="/posts" element={<Posts />} />
       </Routes>
+      <Foot />
     </BrowserRouter>
   );
 };

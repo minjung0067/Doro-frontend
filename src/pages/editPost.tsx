@@ -1,7 +1,7 @@
 import { gql, useMutation, useQuery, useReactiveVar } from "@apollo/client";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
 import { Button } from "../components/button";
@@ -21,8 +21,6 @@ const EDIT_POST_MUTATION = gql`
 
 export const FIND_POST_QUERY = gql`
   query findPost($input: FindPostInput!) {
-
-
     findPost(input: $input) {
       ok
       error
@@ -52,6 +50,8 @@ interface IEditPostForm {
 }
 
 export const EditPost = () => {
+  const { state } = useLocation();
+
   const { id } = useParams<{ id: string }>();
   const {
     data: FindPostData,
@@ -116,88 +116,98 @@ export const EditPost = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register("ownerName", { required: true })}
-          name="ownerName"
-          placeholder="ownerName"
-          defaultValue={
-            FindPostData?.findPost?.post?.ownerName
-              ? FindPostData?.findPost?.post?.ownerName
-              : ""
-          }
-        />
-        <input
-          {...register("institution")}
-          name="institution"
-          placeholder="institution"
-          defaultValue={
-            FindPostData?.findPost?.post?.institution
-              ? FindPostData?.findPost?.post?.institution
-              : ""
-          }
-        />
-        <input
-          {...register("phoneNumber", { required: true })}
-          name="phoneNumber"
-          placeholder="phoneNumber"
-          defaultValue={
-            FindPostData?.findPost?.post?.phoneNumber
-              ? FindPostData?.findPost?.post?.phoneNumber
-              : ""
-          }
-        />
-        <input
-          {...register("email")}
-          name="email"
-          placeholder="email"
-          defaultValue={
-            FindPostData?.findPost?.post?.email
-              ? FindPostData?.findPost?.post?.email
-              : ""
-          }
-        />
-        <div>
-          <span>비밀글</span>
-          <input {...register("isLocked")} name="isLocked" type={"checkbox"} />
-        </div>
+      {state ? (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            {...register("ownerName", { required: true })}
+            name="ownerName"
+            placeholder="ownerName"
+            defaultValue={
+              FindPostData?.findPost?.post?.ownerName
+                ? FindPostData?.findPost?.post?.ownerName
+                : ""
+            }
+          />
+          <input
+            {...register("institution")}
+            name="institution"
+            placeholder="institution"
+            defaultValue={
+              FindPostData?.findPost?.post?.institution
+                ? FindPostData?.findPost?.post?.institution
+                : ""
+            }
+          />
+          <input
+            {...register("phoneNumber", { required: true })}
+            name="phoneNumber"
+            placeholder="phoneNumber"
+            defaultValue={
+              FindPostData?.findPost?.post?.phoneNumber
+                ? FindPostData?.findPost?.post?.phoneNumber
+                : ""
+            }
+          />
+          <input
+            {...register("email")}
+            name="email"
+            placeholder="email"
+            defaultValue={
+              FindPostData?.findPost?.post?.email
+                ? FindPostData?.findPost?.post?.email
+                : ""
+            }
+          />
+          <div>
+            <span>비밀글</span>
+            <input
+              {...register("isLocked")}
+              name="isLocked"
+              type={"checkbox"}
+            />
+          </div>
 
-        <input
-          {...register("password", { required: true })}
-          name="password"
-          placeholder="password"
-          defaultValue={
-            FindPostData?.findPost?.post?.password
-              ? FindPostData?.findPost?.post?.password
-              : ""
-          }
-        />
-        <input
-          {...register("title", { required: true })}
-          name="title"
-          placeholder="title"
-          defaultValue={
-            FindPostData?.findPost?.post?.title
-              ? FindPostData?.findPost?.post?.title
-              : ""
-          }
-        />
-        <input
-          {...register("content", { required: true })}
-          name="content"
-          placeholder="content"
-          defaultValue={
-            FindPostData?.findPost?.post?.content
-              ? FindPostData?.findPost?.post?.content
-              : ""
-          }
-        />
-        <Button
-          canClick={formState.isValid}
-          loading={loading}
-          actionText={"게시물 등록"}
-        />
-      </form>
+          <input
+            {...register("password", { required: true })}
+            name="password"
+            placeholder="password"
+            defaultValue={
+              FindPostData?.findPost?.post?.password
+                ? FindPostData?.findPost?.post?.password
+                : ""
+            }
+          />
+          <input
+            {...register("title", { required: true })}
+            name="title"
+            placeholder="title"
+            defaultValue={
+              FindPostData?.findPost?.post?.title
+                ? FindPostData?.findPost?.post?.title
+                : ""
+            }
+          />
+          <input
+            {...register("content", { required: true })}
+            name="content"
+            placeholder="content"
+            defaultValue={
+              FindPostData?.findPost?.post?.content
+                ? FindPostData?.findPost?.post?.content
+                : ""
+            }
+          />
+          <Button
+            canClick={formState.isValid}
+            loading={loading}
+            actionText={"게시물 등록"}
+          />
+        </form>
+      ) : (
+        <>
+          <span>404 error do right thing</span>
+        </>
+      )}
     </div>
   );
 };
