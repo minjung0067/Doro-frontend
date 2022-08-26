@@ -6,7 +6,7 @@ interface IPostProps {
   title: string;
   ownerName: string;
   id: number;
-  num: number;
+  num: number | string;
 }
 
 export const PostComponent: React.FC<IPostProps> = ({

@@ -9,12 +9,21 @@ import { FindAllPostsInput } from "./globalTypes";
 // GraphQL query operation: postsPageQuery
 // ====================================================
 
+export interface postsPageQuery_findAllPosts_results_comments {
+  __typename: "Comment";
+  id: number;
+}
+
 export interface postsPageQuery_findAllPosts_results {
   __typename: "Post";
   createdAt: any;
   title: string;
   ownerName: string;
+  email: string | null;
   id: number;
+  password: string | null;
+  isLocked: boolean;
+  comments: postsPageQuery_findAllPosts_results_comments[];
 }
 
 export interface postsPageQuery_findAllPosts {
