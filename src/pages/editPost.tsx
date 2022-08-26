@@ -6,8 +6,8 @@ import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
-import { createPost, createPostVariables } from "../__generated__/createPost";
 import { findPost, findPostVariables } from "../__generated__/findPost";
+
 import { updatePost, updatePostVariables } from "../__generated__/updatePost";
 
 const EDIT_POST_MUTATION = gql`
@@ -18,8 +18,11 @@ const EDIT_POST_MUTATION = gql`
     }
   }
 `;
-const FIND_POST_QUERY = gql`
-  query findPost($input: FindPostInput) {
+
+export const FIND_POST_QUERY = gql`
+  query findPost($input: FindPostInput!) {
+
+
     findPost(input: $input) {
       ok
       error
@@ -49,19 +52,19 @@ interface IEditPostForm {
 }
 
 export const EditPost = () => {
-  const isLoggedIn = useReactiveVar(isLoggedInVar);
-  const params = useParams<{ id: string }>();
-  const { data: userData, refetch } = useMe();
+  const { id } = useParams<{ id: string }>();
+  const {
+    data: FindPostData,
+    error,
+    refetch,
+  } = useQuery<findPost, findPostVariables>(FIND_POST_QUERY, {
+    variables: {
+      input: {
+        postId: +(id ?? ""),
+      },
+    },
+  });
   const navigate = useNavigate();
-
-  // const [findPost, { data: findPostData, loading }] = useQuery<
-  //   findPost,
-  //   findPostVariables
-  // >(FIND_POST_QUERY);
-
-  // findPost({
-
-  // })
 
   const { register, formState, getValues, handleSubmit } =
     useForm<IEditPostForm>({
@@ -72,6 +75,7 @@ export const EditPost = () => {
       updatePost: { ok, error },
     } = data;
     if (ok) {
+      refetch();
       navigate("/posts", { replace: true });
     } else {
       console.log(error);
@@ -104,7 +108,7 @@ export const EditPost = () => {
           content,
           password,
           isLocked,
-          id: +params,
+          id: +(id ?? ""),
         },
       },
     });
@@ -117,14 +121,20 @@ export const EditPost = () => {
           {...register("ownerName", { required: true })}
           name="ownerName"
           placeholder="ownerName"
-          defaultValue={userData?.me.name ? userData?.me.name : ""}
+          defaultValue={
+            FindPostData?.findPost?.post?.ownerName
+              ? FindPostData?.findPost?.post?.ownerName
+              : ""
+          }
         />
         <input
           {...register("institution")}
           name="institution"
           placeholder="institution"
           defaultValue={
-            userData?.me.institution ? userData?.me.institution : ""
+            FindPostData?.findPost?.post?.institution
+              ? FindPostData?.findPost?.post?.institution
+              : ""
           }
         />
         <input
@@ -132,14 +142,20 @@ export const EditPost = () => {
           name="phoneNumber"
           placeholder="phoneNumber"
           defaultValue={
-            userData?.me.institution ? userData?.me.institution : ""
+            FindPostData?.findPost?.post?.phoneNumber
+              ? FindPostData?.findPost?.post?.phoneNumber
+              : ""
           }
         />
         <input
           {...register("email")}
           name="email"
           placeholder="email"
-          defaultValue={userData?.me.email ? userData?.me.email : ""}
+          defaultValue={
+            FindPostData?.findPost?.post?.email
+              ? FindPostData?.findPost?.post?.email
+              : ""
+          }
         />
         <div>
           <span>비밀글</span>
@@ -150,16 +166,31 @@ export const EditPost = () => {
           {...register("password", { required: true })}
           name="password"
           placeholder="password"
+          defaultValue={
+            FindPostData?.findPost?.post?.password
+              ? FindPostData?.findPost?.post?.password
+              : ""
+          }
         />
         <input
           {...register("title", { required: true })}
           name="title"
           placeholder="title"
+          defaultValue={
+            FindPostData?.findPost?.post?.title
+              ? FindPostData?.findPost?.post?.title
+              : ""
+          }
         />
         <input
           {...register("content", { required: true })}
           name="content"
           placeholder="content"
+          defaultValue={
+            FindPostData?.findPost?.post?.content
+              ? FindPostData?.findPost?.post?.content
+              : ""
+          }
         />
         <Button
           canClick={formState.isValid}
