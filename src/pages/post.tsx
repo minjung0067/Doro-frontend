@@ -30,6 +30,7 @@ export const POST_QUERY = gql`
   }
 `;
 
+
 export const Post = () => {
   const params = useParams<{ id: string }>();
   const navigate = useNavigate();

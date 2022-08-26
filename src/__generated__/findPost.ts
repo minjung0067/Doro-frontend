@@ -32,5 +32,7 @@ export interface findPost {
 }
 
 export interface findPostVariables {
-  input?: FindPostInput | null;
+
+  input: FindPostInput;
+
 }
