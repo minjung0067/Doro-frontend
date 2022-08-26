@@ -73,6 +73,7 @@ export const CreatePost = () => {
           title,
           content,
           password,
+          isLocked,
         },
       },
     });
