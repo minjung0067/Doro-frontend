@@ -77,7 +77,6 @@ export const CreatePost = () => {
 
   return (
     <div>
-      <Banner></Banner>
       {isLoggedIn ? (
         <form onSubmit={handleSubmit(onSubmit)}>
           <input

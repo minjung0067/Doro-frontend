@@ -1,10 +1,11 @@
 import { gql, useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Post } from "../components/post";
+import { Button } from "../components/button";
+import { PostComponent } from "../components/postComponent";
 import {
   postsPageQuery,
   postsPageQueryVariables,
@@ -37,7 +38,6 @@ export const Posts = () => {
     POSTS_QUERY,
     { variables: { input: { page } } }
   );
-  console.log(data?.findAllPosts.totalPages);
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
   const onFirstPageClick = () => setPage((current) => 1);
@@ -53,16 +53,25 @@ export const Posts = () => {
         <title>Home | Nuber Eats</title>
       </Helmet>
       {!loading && (
-        <div>
-          <div>
-            {data?.findAllPosts.results?.map((post) => (
-              <Post
-                key={post.id}
-                id={post.id}
-                ownerName={post.ownerName}
-                title={post.title}
-                createdAt={post.createdAt}
-              />
+        <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
+          <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
+            {`총 ` + data?.findAllPosts.totalResults + "건"}
+            {data?.findAllPosts.results?.map((post, index) => (
+              <>
+                <PostComponent
+                  key={post.id}
+                  num={
+                    data.findAllPosts.totalResults
+                      ? data.findAllPosts.totalResults - index - (page - 1) * 5
+                      : +""
+                  }
+                  id={post.id}
+                  ownerName={post.ownerName}
+                  title={post.title}
+                  createdAt={post.createdAt}
+                />
+                <hr className=" w-2/5" />
+              </>
             ))}
           </div>
           <div>
@@ -96,6 +105,11 @@ export const Posts = () => {
               &raquo;
             </button>
           </div>
+          <Button
+            canClick={true}
+            loading={false}
+            actionText={"교육 문의하기"}
+          />
         </div>
       )}
     </div>

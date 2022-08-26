@@ -6,17 +6,19 @@ interface IPostProps {
   title: string;
   ownerName: string;
   id: number;
+  num: number;
 }
 
-export const Post: React.FC<IPostProps> = ({
+export const PostComponent: React.FC<IPostProps> = ({
   createdAt,
   title,
   ownerName,
   id,
+  num,
 }) => (
   <Link to={`/posts/${id}`}>
     <div>
-      <span>{id}</span>
+      <span>{num}</span>
       <span>{title}</span>
       <span>{ownerName}</span>
       <span>{createdAt}</span>
