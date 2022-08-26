@@ -1,4 +1,4 @@
-import { gql, useMutation, useReactiveVar } from "@apollo/client";
+import { gql, useMutation, useQuery, useReactiveVar } from "@apollo/client";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
+import { findPost, findPostVariables } from "../__generated__/findPost";
 import { updatePost, updatePostVariables } from "../__generated__/updatePost";
 
 const EDIT_POST_MUTATION = gql`
@@ -14,6 +15,23 @@ const EDIT_POST_MUTATION = gql`
     updatePost(input: $input) {
       error
       ok
+    }
+  }
+`;
+const FIND_POST_QUERY = gql`
+  query findPost($input: FindPostOutput) {
+    findPost(input: $input) {
+      ok
+      error
+      post {
+        ownerName
+        institution
+        phoneNumber
+        email
+        title
+        content
+        password
+      }
     }
   }
 `;
@@ -33,9 +51,17 @@ interface IEditPostForm {
 export const EditPost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const params = useParams<{ id: string }>();
-  console.log(params);
   const { data: userData, refetch } = useMe();
   const navigate = useNavigate();
+
+  // const [findPost, { data: findPostData, loading }] = useQuery<
+  //   findPost,
+  //   findPostVariables
+  // >(FIND_POST_QUERY);
+
+  // findPost({
+
+  // })
 
   const { register, formState, getValues, handleSubmit } =
     useForm<IEditPostForm>({
@@ -86,7 +112,7 @@ export const EditPost = () => {
 
   return (
     <div>
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("ownerName", { required: true })}
           name="ownerName"
@@ -140,7 +166,7 @@ export const EditPost = () => {
           loading={loading}
           actionText={"게시물 등록"}
         />
-      </form> */}
+      </form>
     </div>
   );
 };
