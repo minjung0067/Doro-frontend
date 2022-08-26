@@ -12,6 +12,11 @@ export enum UserRole {
   Manager = "Manager",
 }
 
+export interface CheckPasswordInput {
+  password?: string | null;
+  postId: number;
+}
+
 export interface CreatePostInput {
   title: string;
   content: string;
@@ -32,6 +37,10 @@ export interface CreateUserInput {
   place: string;
   rank?: string | null;
   role: UserRole;
+}
+
+export interface DeletePostInput {
+  postId: number;
 }
 
 export interface FindAllPostsInput {
