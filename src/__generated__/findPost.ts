@@ -3,6 +3,8 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { FindPostInput } from "./globalTypes";
+
 // ====================================================
 // GraphQL query operation: findPost
 // ====================================================
@@ -30,5 +32,5 @@ export interface findPost {
 }
 
 export interface findPostVariables {
-  input?: FindPostOutput | null;
+  input?: FindPostInput | null;
 }

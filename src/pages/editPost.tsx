@@ -19,7 +19,7 @@ const EDIT_POST_MUTATION = gql`
   }
 `;
 const FIND_POST_QUERY = gql`
-  query findPost($input: FindPostOutput) {
+  query findPost($input: FindPostInput) {
     findPost(input: $input) {
       ok
       error
