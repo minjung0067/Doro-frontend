@@ -7,6 +7,8 @@ interface IPostProps {
   ownerName: string;
   id: number;
   num: number | string;
+  isLocked: boolean;
+  lock: string;
 }
 
 export const PostComponent: React.FC<IPostProps> = ({
@@ -15,11 +17,16 @@ export const PostComponent: React.FC<IPostProps> = ({
   ownerName,
   id,
   num,
+  isLocked,
+  lock,
 }) => (
   <Link to={`/post/${id}`}>
     <div>
       <span>{num}</span>
       <span>{title}</span>
+      {isLocked === true && (
+        <img src={lock} alt="lock" style={{ display: "inline" }} />
+      )}
       <span>{ownerName}</span>
       <span>{createdAt}</span>
     </div>

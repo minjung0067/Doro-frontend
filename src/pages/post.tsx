@@ -195,7 +195,8 @@ export const Post = () => {
             <Modal
               isOpen={editModalIsOpen}
               onRequestClose={() => {
-                setModalInputPassword(false), setEditModalIsOpen(false);
+                setModalInputPassword(false);
+                setEditModalIsOpen(false);
               }}
             >
               {modalInputPassword ? (
@@ -246,7 +247,8 @@ export const Post = () => {
             <Modal
               isOpen={deleteModalIsOpen}
               onRequestClose={() => {
-                setModalInputPassword(false), setDeleteModalIsOpen(false);
+                setModalInputPassword(false);
+                setDeleteModalIsOpen(false);
               }}
             >
               {modalInputPassword ? (
