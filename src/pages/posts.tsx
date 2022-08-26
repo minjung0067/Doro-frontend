@@ -75,7 +75,7 @@ export const Posts = () => {
       {!loading && (
         <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
           <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
-            {`총 ` + data?.findAllPosts.totalResults! + "건"}
+            {`총 ` + (data?.findAllPosts.totalResults! - notice) + "건"}
             {data?.findAllPosts.results?.map((post, index) => (
               <>
                 {post.password === "doro2020" ? (
