@@ -6,6 +6,7 @@ interface IPostProps {
   title: string;
   ownerName: string;
   id: number;
+  num: number;
 }
 
 export const Post: React.FC<IPostProps> = ({
@@ -13,10 +14,11 @@ export const Post: React.FC<IPostProps> = ({
   title,
   ownerName,
   id,
+  num,
 }) => (
   <Link to={`/posts/${id}`}>
     <div>
-      <span>{id}</span>
+      <span>{num}</span>
       <span>{title}</span>
       <span>{ownerName}</span>
       <span>{createdAt}</span>
