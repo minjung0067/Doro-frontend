@@ -97,12 +97,14 @@ export const Post = () => {
   };
 
   const onDeleteCompleted = (data: deletePost) => {
+    console.log(data);
     if (data.deletePost.ok === true) {
       setDeleteModalIsOpen(false);
       setDeleteIsDone(true);
     }
   };
   const onDeleteCompletedClick = () => {
+    console.log("deleted");
     setDeleteIsDone(false);
     navigate("/posts", { state: true });
   };
@@ -138,9 +140,20 @@ export const Post = () => {
     checkPasswordVariables
   >(CHECK_PASSWORD, { onCompleted: onCheckPasswordDeleteCompleted });
 
-  const onPasswordSubmit = () => {
+  const onEditPasswordSubmit = () => {
     const { password } = getValues();
     callQueryForEdit({
+      variables: {
+        input: {
+          password,
+          postId: +(params.id ?? ""),
+        },
+      },
+    });
+  };
+  const onDeletePasswordSubmit = () => {
+    const { password } = getValues();
+    callQueryForDelete({
       variables: {
         input: {
           password,
@@ -188,7 +201,7 @@ export const Post = () => {
               {modalInputPassword ? (
                 <>
                   <span>게시글 비밀번호를 입력해주세요</span>
-                  <form onSubmit={handleSubmit(onPasswordSubmit)}>
+                  <form onSubmit={handleSubmit(onEditPasswordSubmit)}>
                     {passwordIsWrong ? (
                       <input
                         {...register("password", { required: true })}
@@ -239,7 +252,7 @@ export const Post = () => {
               {modalInputPassword ? (
                 <>
                   <span>게시글 비밀번호를 입력해주세요</span>
-                  <form onSubmit={handleSubmit(onPasswordSubmit)}>
+                  <form onSubmit={handleSubmit(onDeletePasswordSubmit)}>
                     {passwordIsWrong ? (
                       <input
                         {...register("password", { required: true })}
@@ -282,9 +295,9 @@ export const Post = () => {
             </Modal>
             <Modal isOpen={deleteIsDone}>
               <span>게시글이 삭제되었습니다</span>
-              <button>확인</button>
+              <button onClick={onDeleteCompletedClick}>확인</button>
             </Modal>
-            <button onClick={onDeleteCompletedClick}>Delete</button>
+            <button onClick={deleteButton}>Delete</button>
             <button>
               <Link to="/posts">Back</Link>
             </button>
