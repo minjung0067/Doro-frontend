@@ -12,7 +12,7 @@ import {
   postsPageQueryVariables,
 } from "../__generated__/postsPageQuery";
 import postsRoute from "../images/postsRoute.png";
-import * as lodash from "lodash";
+import lock from "../images/lock.png";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -43,6 +43,7 @@ interface IFormProps {
 
 export const Posts = () => {
   const [page, setPage] = useState(1);
+  let notice = 0;
   const { data, loading, refetch } = useQuery<
     postsPageQuery,
     postsPageQueryVariables
@@ -54,6 +55,10 @@ export const Posts = () => {
     setPage((current) =>
       data?.findAllPosts.totalPages ? data?.findAllPosts.totalPages : 1
     );
+  console.log(data?.findAllPosts.results);
+  data?.findAllPosts.results!.map(
+    (post) => post.password === "doro2020" && (notice = notice + 1)
+  );
   const { register, handleSubmit, getValues } = useForm<IFormProps>();
   const navigate = useNavigate();
   return (
@@ -70,7 +75,7 @@ export const Posts = () => {
       {!loading && (
         <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
           <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
-            {`총 ` + data?.findAllPosts.totalResults + "건"}
+            {`총 ` + data?.findAllPosts.totalResults! + "건"}
             {data?.findAllPosts.results?.map((post, index) => (
               <>
                 {post.password === "doro2020" ? (
@@ -79,6 +84,13 @@ export const Posts = () => {
                       <div>
                         <span>공지</span>
                         <span>{post.title}</span>
+                        {post.isLocked === true && (
+                          <img
+                            src={lock}
+                            alt="lock"
+                            style={{ display: "inline" }}
+                          />
+                        )}
                         <span>{post.ownerName}</span>
                         <span>{post.createdAt}</span>
                       </div>
@@ -93,14 +105,15 @@ export const Posts = () => {
                         data.findAllPosts.totalResults
                           ? data.findAllPosts.totalResults -
                             index -
-                            (page - 1) * 11 +
-                            1
+                            (page - 1) * (11 - notice)
                           : +""
                       }
                       id={post.id}
                       ownerName={post.ownerName}
                       title={post.title}
                       createdAt={post.createdAt}
+                      lock={lock}
+                      isLocked={post.isLocked}
                     />
                     <hr className=" w-2/5" />
                   </>

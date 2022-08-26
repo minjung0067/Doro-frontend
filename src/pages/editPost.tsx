@@ -21,8 +21,6 @@ const EDIT_POST_MUTATION = gql`
 
 export const FIND_POST_QUERY = gql`
   query findPost($input: FindPostInput!) {
-
-
     findPost(input: $input) {
       ok
       error
