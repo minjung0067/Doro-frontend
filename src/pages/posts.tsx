@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/button";
-import { Post } from "../components/post";
+import { PostComponent } from "../components/postComponent";
 import {
   postsPageQuery,
   postsPageQueryVariables,
@@ -55,9 +55,10 @@ export const Posts = () => {
       {!loading && (
         <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
           <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
+            {`총 ` + data?.findAllPosts.totalResults + "건"}
             {data?.findAllPosts.results?.map((post, index) => (
               <>
-                <Post
+                <PostComponent
                   key={post.id}
                   num={
                     data.findAllPosts.totalResults

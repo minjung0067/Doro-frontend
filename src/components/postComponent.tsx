@@ -9,7 +9,7 @@ interface IPostProps {
   num: number;
 }
 
-export const Post: React.FC<IPostProps> = ({
+export const PostComponent: React.FC<IPostProps> = ({
   createdAt,
   title,
   ownerName,
