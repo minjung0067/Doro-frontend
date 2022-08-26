@@ -1,23 +1,24 @@
 import { gql, useMutation, useReactiveVar } from "@apollo/client";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
+import { updatePost, updatePostVariables } from "../__generated__/updatePost";
 
-const CREATE_POST_MUTATION = gql`
-  mutation createPost($input: CreatePostInput!) {
-    createPost(input: $input) {
+const EDIT_POST_MUTATION = gql`
+  mutation updatePost($input: UpdatePostInput!) {
+    updatePost(input: $input) {
       error
       ok
     }
   }
 `;
 
-interface ICreatePostForm {
+interface IEditPostForm {
   title: string;
   content: string;
   password?: string;
@@ -26,21 +27,23 @@ interface ICreatePostForm {
   phoneNumber: string;
   email: string;
   isLocked: boolean;
+  id: number;
 }
 
-export const CreatePost = () => {
+export const EditPost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
-
+  const params = useParams<{ id: string }>();
+  console.log(params);
   const { data: userData, refetch } = useMe();
   const navigate = useNavigate();
 
   const { register, formState, getValues, handleSubmit } =
-    useForm<ICreatePostForm>({
+    useForm<IEditPostForm>({
       mode: "onChange",
     });
-  const onCompleted = (data: createPost) => {
+  const onCompleted = (data: updatePost) => {
     const {
-      createPost: { ok, error },
+      updatePost: { ok, error },
     } = data;
     if (ok) {
       navigate("/posts", { replace: true });
@@ -48,10 +51,10 @@ export const CreatePost = () => {
       console.log(error);
     }
   };
-  const [createPostMutation, { data: creataPostData, loading }] = useMutation<
-    createPost,
-    createPostVariables
-  >(CREATE_POST_MUTATION, { onCompleted });
+  const [updatePost, { data: updatePostData, loading }] = useMutation<
+    updatePost,
+    updatePostVariables
+  >(EDIT_POST_MUTATION, { onCompleted });
   const onSubmit = () => {
     const {
       ownerName,
@@ -64,7 +67,7 @@ export const CreatePost = () => {
       isLocked,
     } = getValues();
 
-    createPostMutation({
+    updatePost({
       variables: {
         input: {
           ownerName,
@@ -74,6 +77,8 @@ export const CreatePost = () => {
           title,
           content,
           password,
+          isLocked,
+          id: +params,
         },
       },
     });
@@ -81,7 +86,7 @@ export const CreatePost = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("ownerName", { required: true })}
           name="ownerName"
@@ -135,7 +140,7 @@ export const CreatePost = () => {
           loading={loading}
           actionText={"게시물 등록"}
         />
-      </form>
+      </form> */}
     </div>
   );
 };

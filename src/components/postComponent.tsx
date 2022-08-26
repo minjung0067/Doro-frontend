@@ -16,7 +16,7 @@ export const PostComponent: React.FC<IPostProps> = ({
   id,
   num,
 }) => (
-  <Link to={`/posts/${id}`}>
+  <Link to={`/post/${id}`}>
     <div>
       <span>{num}</span>
       <span>{title}</span>

@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Header } from "../components/header";
 import { CreatePost } from "../pages/createPost";
+import { EditPost } from "../pages/editPost";
 import { HomePage } from "../pages/home";
+import { Post } from "../pages/post";
 import { Posts } from "../pages/posts";
 import { CreateUser } from "../pages/user/createUser";
 import { Login } from "../pages/user/login";
@@ -17,6 +19,8 @@ export const LoggedOutRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/createPost" element={<CreatePost />} />
         <Route path="/posts" element={<Posts />} />
+        <Route path="/post/:id/edit" element={<EditPost />} />
+        <Route path="/post/:id" element={<Post />} />
       </Routes>
     </BrowserRouter>
   );
