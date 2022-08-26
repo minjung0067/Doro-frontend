@@ -38,6 +38,10 @@ export interface FindAllPostsInput {
   page?: number | null;
 }
 
+export interface FindPostInput {
+  postId: number;
+}
+
 export interface LoginInput {
   email: string;
   password: string;
