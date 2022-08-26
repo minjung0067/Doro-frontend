@@ -12,6 +12,7 @@ import {
   postsPageQueryVariables,
 } from "../__generated__/postsPageQuery";
 import postsRoute from "../images/postsRoute.png";
+import * as lodash from "lodash";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -24,7 +25,13 @@ const POSTS_QUERY = gql`
         createdAt
         title
         ownerName
+        email
         id
+        password
+        isLocked
+        comments {
+          id
+        }
       }
     }
   }
@@ -36,10 +43,10 @@ interface IFormProps {
 
 export const Posts = () => {
   const [page, setPage] = useState(1);
-  const { data, loading } = useQuery<postsPageQuery, postsPageQueryVariables>(
-    POSTS_QUERY,
-    { variables: { input: { page } } }
-  );
+  const { data, loading, refetch } = useQuery<
+    postsPageQuery,
+    postsPageQueryVariables
+  >(POSTS_QUERY, { variables: { input: { page } } });
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
   const onFirstPageClick = () => setPage((current) => 1);
@@ -66,19 +73,38 @@ export const Posts = () => {
             {`총 ` + data?.findAllPosts.totalResults + "건"}
             {data?.findAllPosts.results?.map((post, index) => (
               <>
-                <PostComponent
-                  key={post.id}
-                  num={
-                    data.findAllPosts.totalResults
-                      ? data.findAllPosts.totalResults - index - (page - 1) * 5
-                      : +""
-                  }
-                  id={post.id}
-                  ownerName={post.ownerName}
-                  title={post.title}
-                  createdAt={post.createdAt}
-                />
-                <hr className=" w-2/5" />
+                {post.password === "doro2020" ? (
+                  <>
+                    <Link to={`/post/${post.id}`}>
+                      <div>
+                        <span>공지</span>
+                        <span>{post.title}</span>
+                        <span>{post.ownerName}</span>
+                        <span>{post.createdAt}</span>
+                      </div>
+                    </Link>
+                    <hr className=" w-2/5" />
+                  </>
+                ) : (
+                  <>
+                    <PostComponent
+                      key={post.id}
+                      num={
+                        data.findAllPosts.totalResults
+                          ? data.findAllPosts.totalResults -
+                            index -
+                            (page - 1) * 11 +
+                            1
+                          : +""
+                      }
+                      id={post.id}
+                      ownerName={post.ownerName}
+                      title={post.title}
+                      createdAt={post.createdAt}
+                    />
+                    <hr className=" w-2/5" />
+                  </>
+                )}
               </>
             ))}
           </div>
@@ -113,11 +139,13 @@ export const Posts = () => {
               &raquo;
             </button>
           </div>
-          <Button
-            canClick={true}
-            loading={false}
-            actionText={"교육 문의하기"}
-          />
+          <Link to="/createPost">
+            <Button
+              canClick={true}
+              loading={false}
+              actionText={"교육 문의하기"}
+            />
+          </Link>
         </div>
       )}
     </div>
