@@ -132,7 +132,7 @@ export const Posts = () => {
   return (
     <div>
       <Helmet>
-        <title>Home | DORO</title>
+        <title>Board | DORO</title>
       </Helmet>
       <Banner
         route={postsRoute}

@@ -8,6 +8,9 @@ import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
 import infoConfirm from "../images/Frame68.png";
+import createPostRoute from "../images/createPostRoute.png";
+import { Helmet } from "react-helmet-async";
+
 const CREATE_POST_MUTATION = gql`
   mutation createPost($input: CreatePostInput!) {
     createPost(input: $input) {
@@ -83,77 +86,92 @@ export const CreatePost = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register("ownerName", { required: true })}
-          name="ownerName"
-          placeholder="ownerName"
-          defaultValue={userData?.me.name ? userData?.me.name : ""}
-        />
-        <input
-          {...register("institution")}
-          name="institution"
-          placeholder="institution"
-          defaultValue={
-            userData?.me.institution ? userData?.me.institution : ""
-          }
-        />
-        <input
-          {...register("phoneNumber", { required: true })}
-          name="phoneNumber"
-          placeholder="phoneNumber"
-          defaultValue={
-            userData?.me.institution ? userData?.me.institution : ""
-          }
-        />
-        <input
-          {...register("email")}
-          name="email"
-          placeholder="email"
-          defaultValue={userData?.me.email ? userData?.me.email : ""}
-        />
-        <div>
-          <span>비밀글</span>
-          <input {...register("isLocked")} name="isLocked" type={"checkbox"} />
-        </div>
-
-        <input
-          {...register("password", { required: true })}
-          name="password"
-          placeholder="password"
-        />
-        <input
-          {...register("title", { required: true })}
-          name="title"
-          placeholder="title"
-        />
-        <input
-          {...register("content", { required: true })}
-          name="content"
-          placeholder="content"
-        />
-        <div
-          onMouseOver={() => setIsHovering(1)}
-          onMouseOut={() => setIsHovering(0)}
-        >
+      <Helmet>
+        <title>Create | DORO</title>
+      </Helmet>
+      <Banner
+        route={createPostRoute}
+        title="교육문의"
+        subtitle="Education inquiry"
+        content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
+      />
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <input
-            {...register("agree", { required: true })}
-            name="agree"
-            type={"checkbox"}
+            {...register("ownerName", { required: true })}
+            name="ownerName"
+            placeholder="ownerName"
+            defaultValue={userData?.me.name ? userData?.me.name : ""}
           />
-          <span>
-            본인은 [개인정보 수집 및 이용에 관한 동의] 내용을 확인하였으며
-            동의합니다.
-          </span>
-          {isHovering ? <img src={infoConfirm}></img> : <></>}
-        </div>
+          <input
+            {...register("institution")}
+            name="institution"
+            placeholder="institution"
+            defaultValue={
+              userData?.me.institution ? userData?.me.institution : ""
+            }
+          />
+          <input
+            {...register("phoneNumber", { required: true })}
+            name="phoneNumber"
+            placeholder="phoneNumber"
+            defaultValue={
+              userData?.me.institution ? userData?.me.institution : ""
+            }
+          />
+          <input
+            {...register("email")}
+            name="email"
+            placeholder="email"
+            defaultValue={userData?.me.email ? userData?.me.email : ""}
+          />
+          <div>
+            <span>비밀글</span>
+            <input
+              {...register("isLocked")}
+              name="isLocked"
+              type={"checkbox"}
+            />
+          </div>
 
-        <Button
-          canClick={formState.isValid}
-          loading={loading}
-          actionText={"게시물 등록"}
-        />
-      </form>
+          <input
+            {...register("password", { required: true })}
+            name="password"
+            placeholder="password"
+          />
+          <input
+            {...register("title", { required: true })}
+            name="title"
+            placeholder="title"
+          />
+          <input
+            {...register("content", { required: true })}
+            name="content"
+            placeholder="content"
+          />
+          <div
+            onMouseOver={() => setIsHovering(1)}
+            onMouseOut={() => setIsHovering(0)}
+          >
+            <input
+              {...register("agree", { required: true })}
+              name="agree"
+              type={"checkbox"}
+            />
+            <span>
+              본인은 [개인정보 수집 및 이용에 관한 동의] 내용을 확인하였으며
+              동의합니다.
+            </span>
+            {isHovering ? <img src={infoConfirm}></img> : <></>}
+          </div>
+
+          <Button
+            canClick={formState.isValid}
+            loading={loading}
+            actionText={"게시물 등록"}
+          />
+        </form>
+      </div>
     </div>
   );
 };
