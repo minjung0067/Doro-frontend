@@ -22,7 +22,7 @@ export const Foot: React.FC = () => {
       <a href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3">
         교육문의
       </a>
-
+      <Link to="/login">매니저 로그인</Link>
       <span>
         고객센터 010-7633-0371 상담시간 10:00~18:00 일요일 및 공휴일 휴무
         점심시간 PM 12:00~PM 13:00 이메일 dojeonrobot@gmail.com

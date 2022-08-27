@@ -17,7 +17,12 @@ import {
   checkPasswordVariables,
 } from "../__generated__/checkPassword";
 import { deletePost, deletePostVariables } from "../__generated__/deletePost";
-
+import { useMe } from "../hooks/useMe";
+import {
+  createComment,
+  createCommentVariables,
+} from "../__generated__/createComment";
+import { arrayBuffer } from "stream/consumers";
 export const POST_QUERY = gql`
   query findPostForPost($input: FindPostInput!) {
     findPost(input: $input) {
@@ -55,6 +60,14 @@ export const DELETE_POST = gql`
     }
   }
 `;
+export const CREATE_COMMENT = gql`
+  mutation createComment($input: CreateCommentInput!) {
+    createComment(input: $input) {
+      ok
+      error
+    }
+  }
+`;
 
 export const Post = () => {
   const params = useParams<{ id: string }>();
@@ -67,13 +80,15 @@ export const Post = () => {
   const { register, formState, getValues, handleSubmit, reset } = useForm({
     mode: "onChange",
   });
+  const { data: userData } = useMe();
+  console.log(userData);
   const editButton = () => {
     setEditModalIsOpen(true);
   };
   const deleteButton = () => {
     setDeleteModalIsOpen(true);
   };
-  const { data } = useQuery<findPostForPost, findPostForPostVariables>(
+  const { data, refetch } = useQuery<findPostForPost, findPostForPostVariables>(
     POST_QUERY,
     {
       variables: {
@@ -130,6 +145,15 @@ export const Post = () => {
       setPasswordIsWrong(true);
     }
   };
+  const onCreateCommentCompleted = (data: createComment) => {
+    if (data.createComment.ok === true) {
+      refetch();
+      console.log("create comment");
+      navigate(`/post/${+(params.id ?? "")}`);
+    } else {
+      console.log("error");
+    }
+  };
   const [callQueryForEdit] = useLazyQuery<
     checkPassword,
     checkPasswordVariables
@@ -139,6 +163,11 @@ export const Post = () => {
     checkPassword,
     checkPasswordVariables
   >(CHECK_PASSWORD, { onCompleted: onCheckPasswordDeleteCompleted });
+
+  const [createComment, { loading }] = useMutation<
+    createComment,
+    createCommentVariables
+  >(CREATE_COMMENT, { onCompleted: onCreateCommentCompleted });
 
   const onEditPasswordSubmit = () => {
     const { password } = getValues();
@@ -151,6 +180,7 @@ export const Post = () => {
       },
     });
   };
+
   const onDeletePasswordSubmit = () => {
     const { password } = getValues();
     callQueryForDelete({
@@ -158,6 +188,18 @@ export const Post = () => {
         input: {
           password,
           postId: +(params.id ?? ""),
+        },
+      },
+    });
+  };
+
+  const onCommentSubmit = () => {
+    const { comment } = getValues();
+    createComment({
+      variables: {
+        input: {
+          postId: +(params.id ?? ""),
+          content: comment,
         },
       },
     });
@@ -195,7 +237,8 @@ export const Post = () => {
             <Modal
               isOpen={editModalIsOpen}
               onRequestClose={() => {
-                setModalInputPassword(false), setEditModalIsOpen(false);
+                setModalInputPassword(false);
+                setEditModalIsOpen(false);
               }}
             >
               {modalInputPassword ? (
@@ -304,15 +347,37 @@ export const Post = () => {
           </div>
         </div>
       </div>
+
       {data?.findPost.post?.comments.length !== 0 && (
         <div>
           <h2>문의 답변</h2>
           <hr />
           <div>
-            <p>{data?.findPost.post?.comments[0]?.content}</p>
+            <p>
+              {
+                data?.findPost.post?.comments[
+                  data?.findPost.post?.comments.length - 1
+                ]?.content
+              }
+            </p>
           </div>
           <hr />
         </div>
+      )}
+      {userData?.me.role === "Manager" ? (
+        <form onSubmit={handleSubmit(onCommentSubmit)}>
+          <input
+            {...register("comment", { required: true })}
+            name="comment"
+          ></input>
+          <Button
+            canClick={formState.isValid}
+            loading={loading}
+            actionText={"답변 등록"}
+          />
+        </form>
+      ) : (
+        <span>you are not manager</span>
       )}
     </div>
   );
