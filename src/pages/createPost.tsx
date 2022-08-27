@@ -1,5 +1,5 @@
 import { gql, useMutation, useReactiveVar } from "@apollo/client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
@@ -7,7 +7,7 @@ import { Banner } from "../components/banner";
 import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
-
+import infoConfirm from "../images/Frame68.png";
 const CREATE_POST_MUTATION = gql`
   mutation createPost($input: CreatePostInput!) {
     createPost(input: $input) {
@@ -26,11 +26,13 @@ interface ICreatePostForm {
   phoneNumber: string;
   email: string;
   isLocked: boolean;
+  agree: boolean;
 }
 
 export const CreatePost = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const { data: userData, refetch } = useMe();
+  const [isHovering, setIsHovering] = useState(0);
   const navigate = useNavigate();
 
   const { register, formState, getValues, handleSubmit } =
@@ -130,6 +132,22 @@ export const CreatePost = () => {
           name="content"
           placeholder="content"
         />
+        <div
+          onMouseOver={() => setIsHovering(1)}
+          onMouseOut={() => setIsHovering(0)}
+        >
+          <input
+            {...register("agree", { required: true })}
+            name="agree"
+            type={"checkbox"}
+          />
+          <span>
+            본인은 [개인정보 수집 및 이용에 관한 동의] 내용을 확인하였으며
+            동의합니다.
+          </span>
+          {isHovering ? <img src={infoConfirm}></img> : <></>}
+        </div>
+
         <Button
           canClick={formState.isValid}
           loading={loading}

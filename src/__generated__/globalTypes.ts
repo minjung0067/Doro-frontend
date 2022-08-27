@@ -17,6 +17,11 @@ export interface CheckPasswordInput {
   postId: number;
 }
 
+export interface CreateCommentInput {
+  content: string;
+  postId: number;
+}
+
 export interface CreatePostInput {
   title: string;
   content: string;
