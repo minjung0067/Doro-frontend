@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useLazyQuery, useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
@@ -13,6 +13,11 @@ import {
 } from "../__generated__/postsPageQuery";
 import postsRoute from "../images/postsRoute.png";
 import lock from "../images/lock.png";
+import Modal from "react-modal";
+import {
+  checkPasswordForPostOpen,
+  checkPasswordForPostOpenVariables,
+} from "../__generated__/checkPasswordForPostOpen";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -37,11 +42,35 @@ const POSTS_QUERY = gql`
   }
 `;
 
+export const CHECK_PASSWORD = gql`
+  query checkPasswordForPostOpen($input: CheckPasswordInput!) {
+    checkPassword(input: $input) {
+      isSame
+    }
+  }
+`;
+
 interface IFormProps {
   page: number;
 }
 
 export const Posts = () => {
+  const [ModalIsOpen, setModalIsOpen] = useState(false);
+  const [modalInputPassword, setModalInputPassword] = useState(false);
+  const [passwordIsWrong, setPasswordIsWrong] = useState(false);
+  const [postIndex, setPostIndex] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [page, setPage] = useState(1);
   let notice = 0;
   const { data, loading, refetch } = useQuery<
@@ -59,8 +88,35 @@ export const Posts = () => {
   data?.findAllPosts.results!.map(
     (post) => post.password === "doro2020" && (notice = notice + 1)
   );
-  const { register, handleSubmit, getValues } = useForm<IFormProps>();
+  const { register, handleSubmit, getValues, reset, formState } =
+    useForm<IFormProps>();
   const navigate = useNavigate();
+  const onCheckPasswordOpenCompleted = (data: checkPasswordForPostOpen) => {
+    const {
+      checkPassword: { isSame },
+    } = data;
+    if (isSame === false) {
+      reset();
+      setPasswordIsWrong(true);
+    }
+  };
+  const [callQueryForOpen] = useLazyQuery<
+    checkPasswordForPostOpen,
+    checkPasswordForPostOpenVariables
+  >(CHECK_PASSWORD, { onCompleted: onCheckPasswordOpenCompleted });
+
+  const onOpenPasswordSubmit = (id: number) => {
+    const { password } = getValues();
+    callQueryForOpen({
+      variables: {
+        input: {
+          password,
+          postId: +(id ?? ""),
+        },
+      },
+    });
+  };
+
   return (
     <div>
       <Helmet>
@@ -118,9 +174,45 @@ export const Posts = () => {
                     <hr className=" w-2/5" />
                   </>
                 )}
+                <Modal
+                  isOpen={ModalIsOpen}
+                  onRequestClose={() => {
+                    setModalInputPassword(false);
+                    setModalIsOpen(false);
+                  }}
+                >
+                  <>
+                    <span>게시글 비밀번호를 입력해주세요</span>
+                    <form
+                      onSubmit={handleSubmit(() =>
+                        onOpenPasswordSubmit(post.id)
+                      )}
+                    >
+                      {passwordIsWrong ? (
+                        <input
+                          {...register("pass", { required: true })}
+                          name="pass"
+                          placeholder="비밀번호가 틀렸습니다"
+                        ></input>
+                      ) : (
+                        <input
+                          {...register("password", { required: true })}
+                          name="password"
+                          placeholder="비밀번호를 입력해주세요"
+                        ></input>
+                      )}
+                      <Button
+                        canClick={formState.isValid}
+                        loading={false}
+                        actionText={"확인"}
+                      />
+                    </form>
+                  </>
+                </Modal>
               </>
             ))}
           </div>
+
           <div>
             <button
               onClick={onFirstPageClick}
