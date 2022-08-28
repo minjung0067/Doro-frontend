@@ -80,12 +80,14 @@ export const Post = () => {
   const { register, formState, getValues, handleSubmit, reset } = useForm({
     mode: "onChange",
   });
+
   const { data: userData } = useMe();
-  console.log(userData);
   const editButton = () => {
+    reset();
     setEditModalIsOpen(true);
   };
   const deleteButton = () => {
+    reset();
     setDeleteModalIsOpen(true);
   };
   const { data, refetch } = useQuery<findPostForPost, findPostForPostVariables>(
