@@ -6,11 +6,10 @@ import { client } from "./apollo";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/styles.css";
-<<<<<<< HEAD
 import "./styles/postsStyles.css";
 import "./styles/commonStyles.css";
-=======
->>>>>>> 08ad24f660daaf67327093d663960e76aa6860e6
+import "./styles/createStyles.css";
+import "./styles/postStyles.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
