@@ -20,15 +20,13 @@ export const PostComponent: React.FC<IPostProps> = ({
   isLocked,
   lock,
 }) => (
-  <Link to={`/post/${id}`}>
-    <div>
-      <span>{num}</span>
-      <span>{title}</span>
-      {isLocked === true && (
-        <img src={lock} alt="lock" style={{ display: "inline" }} />
-      )}
-      <span>{ownerName}</span>
-      <span>{createdAt}</span>
-    </div>
-  </Link>
+  <div>
+    <span>{num}</span>
+    <span>{title}</span>
+    {isLocked === true && (
+      <img src={lock} alt="lock" style={{ display: "inline" }} />
+    )}
+    <span>{ownerName}</span>
+    <span>{createdAt}</span>
+  </div>
 );

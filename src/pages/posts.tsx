@@ -18,6 +18,7 @@ import {
   checkPasswordForPostOpen,
   checkPasswordForPostOpenVariables,
 } from "../__generated__/checkPasswordForPostOpen";
+import { setTokenSourceMapRange } from "typescript";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -46,12 +47,17 @@ export const CHECK_PASSWORD = gql`
   query checkPasswordForPostOpen($input: CheckPasswordInput!) {
     checkPassword(input: $input) {
       isSame
+      post {
+        id
+        isLocked
+      }
     }
   }
 `;
 
 interface IFormProps {
   page: number;
+
   password: string;
 }
 
@@ -59,27 +65,17 @@ export const Posts = () => {
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [modalInputPassword, setModalInputPassword] = useState(false);
   const [passwordIsWrong, setPasswordIsWrong] = useState(false);
-  const [postIndex, setPostIndex] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
   const [page, setPage] = useState(1);
+  const [num, setNum] = useState(0);
   let notice = 0;
 
   const { data, loading, refetch } = useQuery<
     postsPageQuery,
     postsPageQueryVariables
   >(POSTS_QUERY, { variables: { input: { page } } });
+
   refetch();
+
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
   const onFirstPageClick = () => setPage((current) => 1);
@@ -88,12 +84,25 @@ export const Posts = () => {
       data?.findAllPosts.totalPages ? data?.findAllPosts.totalPages : 1
     );
   console.log(data?.findAllPosts.results);
+
   data?.findAllPosts.results!.map(
     (post) => post.password === "doro2020" && (notice = notice + 1)
   );
+
   const { register, handleSubmit, getValues, reset, formState } =
     useForm<IFormProps>();
+
   const navigate = useNavigate();
+
+  const openButton = (isLocked: boolean, id: number) => {
+    if (isLocked) {
+      setNum(id);
+      setModalIsOpen(true);
+    } else {
+      navigate(`/post/${id}`);
+    }
+  };
+
   const onCheckPasswordOpenCompleted = (data: checkPasswordForPostOpen) => {
     const {
       checkPassword: { isSame },
@@ -101,9 +110,12 @@ export const Posts = () => {
     if (isSame === false) {
       reset();
       setPasswordIsWrong(true);
+    } else {
+      navigate(`/post/${data?.checkPassword?.post?.id}`);
     }
   };
-  const [callQueryForOpen] = useLazyQuery<
+
+  const [callQueryForOpen, { data: checkData }] = useLazyQuery<
     checkPasswordForPostOpen,
     checkPasswordForPostOpenVariables
   >(CHECK_PASSWORD, { onCompleted: onCheckPasswordOpenCompleted });
@@ -113,7 +125,7 @@ export const Posts = () => {
     callQueryForOpen({
       variables: {
         input: {
-          password,
+          password: password + "",
           postId: +(id ?? ""),
         },
       },
@@ -123,7 +135,7 @@ export const Posts = () => {
   return (
     <div>
       <Helmet>
-        <title>Home | DORO</title>
+        <title>Board | DORO</title>
       </Helmet>
       <Banner
         route={postsRoute}
@@ -139,7 +151,7 @@ export const Posts = () => {
               <>
                 {post.password === "doro2020" ? (
                   <>
-                    <Link to={`/post/${post.id}`}>
+                    <button onClick={() => openButton(post.isLocked, post.id)}>
                       <div>
                         <span>공지</span>
                         <span>{post.title}</span>
@@ -151,69 +163,63 @@ export const Posts = () => {
                           />
                         )}
                         <span>{post.ownerName}</span>
-                        <span>{post.createdAt}</span>
+                        <span>{post.createdAt.slice(0, 10)}</span>
                       </div>
-                    </Link>
+                    </button>
                     <hr className=" w-2/5" />
                   </>
                 ) : (
                   <>
-                    <PostComponent
-                      key={post.id}
-                      num={
-                        data.findAllPosts.totalResults
-                          ? data.findAllPosts.totalResults -
-                            index -
-                            (page - 1) * (11 - notice)
-                          : +""
-                      }
-                      id={post.id}
-                      ownerName={post.ownerName}
-                      title={post.title}
-                      createdAt={post.createdAt}
-                      lock={lock}
-                      isLocked={post.isLocked}
-                    />
+                    <button onClick={() => openButton(post.isLocked, post.id)}>
+                      <PostComponent
+                        key={post.id}
+                        num={
+                          data.findAllPosts.totalResults
+                            ? data.findAllPosts.totalResults -
+                              index -
+                              (page - 1) * (11 - notice)
+                            : +""
+                        }
+                        id={post.id}
+                        ownerName={post.ownerName}
+                        title={post.title}
+                        createdAt={post.createdAt.slice(0, 10)}
+                        lock={lock}
+                        isLocked={post.isLocked}
+                      />
+                    </button>
                     <hr className=" w-2/5" />
                   </>
                 )}
-                <Modal
-                  isOpen={ModalIsOpen}
-                  onRequestClose={() => {
-                    setModalInputPassword(false);
-                    setModalIsOpen(false);
-                  }}
-                >
-                  <>
-                    <span>게시글 비밀번호를 입력해주세요</span>
-                    <form
-                      onSubmit={handleSubmit(() =>
-                        onOpenPasswordSubmit(post.id)
-                      )}
-                    >
-                      {passwordIsWrong ? (
-                        <input
-                          {...register("password", { required: true })}
-                          name="password"
-                          placeholder="비밀번호가 틀렸습니다"
-                        ></input>
-                      ) : (
-                        <input
-                          {...register("password", { required: true })}
-                          name="password"
-                          placeholder="비밀번호를 입력해주세요"
-                        ></input>
-                      )}
-                      <Button
-                        canClick={formState.isValid}
-                        loading={false}
-                        actionText={"확인"}
-                      />
-                    </form>
-                  </>
-                </Modal>
               </>
             ))}
+            <Modal
+              isOpen={ModalIsOpen}
+              onRequestClose={() => {
+                setModalInputPassword(false);
+                setModalIsOpen(false);
+              }}
+            >
+              <>
+                <span>게시글 비밀번호를 입력해주세요</span>
+                <form onSubmit={handleSubmit(() => onOpenPasswordSubmit(num))}>
+                  {passwordIsWrong ? (
+                    <input
+                      {...register("password", { required: true })}
+                      name="password"
+                      placeholder="비밀번호가 틀렸습니다"
+                    />
+                  ) : (
+                    <input
+                      {...register("password", { required: true })}
+                      name="password"
+                      placeholder="비밀번호를 입력해주세요"
+                    />
+                  )}
+                  <Button canClick={true} loading={false} actionText={"확인"} />
+                </form>
+              </>
+            </Modal>
           </div>
 
           <div>
