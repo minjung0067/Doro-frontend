@@ -76,6 +76,14 @@ export const Posts = () => {
 
   refetch();
 
+  const count = data?.findAllPosts.results?.length
+    ? data.findAllPosts.results?.length
+    : 0;
+  let arr = [];
+  for (let i = 0; i < 11 - count; i++) {
+    arr.push(0);
+  }
+
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
   const onFirstPageClick = () => setPage((current) => 1);
@@ -163,11 +171,11 @@ export const Posts = () => {
                             style={{ display: "inline" }}
                           />
                         )}
+                        {post.comments.length !== 0 && <span>답변완료</span>}
                         <span>{post.ownerName}</span>
                         <span>{post.createdAt.slice(0, 10)}</span>
                       </div>
                     </button>
-                    <hr className=" w-2/5" />
                   </>
                 ) : (
                   <>
@@ -182,6 +190,7 @@ export const Posts = () => {
                             : +""
                         }
                         id={post.id}
+                        comment={post.comments.length !== 0}
                         ownerName={post.ownerName}
                         title={post.title}
                         createdAt={post.createdAt.slice(0, 10)}
@@ -189,11 +198,12 @@ export const Posts = () => {
                         isLocked={post.isLocked}
                       />
                     </button>
-                    <hr className=" w-2/5" />
                   </>
                 )}
               </>
             ))}
+            {data?.findAllPosts.results?.length! < 11 &&
+              arr.map(() => <div>-</div>)}
             <Modal
               isOpen={ModalIsOpen}
               onRequestClose={() => {
