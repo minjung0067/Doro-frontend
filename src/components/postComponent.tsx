@@ -9,7 +9,6 @@ interface IPostProps {
   num: number | string;
   isLocked: boolean;
   lock: string;
-  comment: boolean;
 }
 
 export const PostComponent: React.FC<IPostProps> = ({
@@ -20,19 +19,13 @@ export const PostComponent: React.FC<IPostProps> = ({
   num,
   isLocked,
   lock,
-  comment,
 }) => (
   <div>
-    <span className="Posts-post-num">{num}</span>
-    <span className="Posts-post-title">{title}</span>
+    <span>{num}</span>
+    <span>{title}</span>
     {isLocked === true && (
-      <img
-        src={lock}
-        alt="lock"
-        style={{ display: "inline", marginLeft: "0.792rem" }}
-      />
+      <img src={lock} alt="lock" style={{ display: "inline" }} />
     )}
-    {comment && <span className="Posts-comment">답변완료</span>}
     <span>{ownerName}</span>
     <span>{createdAt}</span>
   </div>
