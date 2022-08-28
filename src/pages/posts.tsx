@@ -52,6 +52,7 @@ export const CHECK_PASSWORD = gql`
 
 interface IFormProps {
   page: number;
+  password: string;
 }
 
 export const Posts = () => {
@@ -73,10 +74,12 @@ export const Posts = () => {
   ]);
   const [page, setPage] = useState(1);
   let notice = 0;
+
   const { data, loading, refetch } = useQuery<
     postsPageQuery,
     postsPageQueryVariables
   >(POSTS_QUERY, { variables: { input: { page } } });
+  refetch();
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
   const onFirstPageClick = () => setPage((current) => 1);
@@ -190,8 +193,8 @@ export const Posts = () => {
                     >
                       {passwordIsWrong ? (
                         <input
-                          {...register("pass", { required: true })}
-                          name="pass"
+                          {...register("password", { required: true })}
+                          name="password"
                           placeholder="비밀번호가 틀렸습니다"
                         ></input>
                       ) : (
