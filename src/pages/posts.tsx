@@ -142,7 +142,7 @@ export const Posts = () => {
   };
 
   return (
-    <div>
+    <div style={{ minWidth: "80rem" }}>
       <Helmet>
         <title>Board | DORO</title>
       </Helmet>
@@ -153,57 +153,86 @@ export const Posts = () => {
         content="문의 답변을 확인할 수 있습니다"
       />
       {!loading && (
-        <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
-          <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
-            {`총 ` + (data?.findAllPosts.totalResults! - notice) + "건"}
-            {data?.findAllPosts.results?.map((post, index) => (
-              <>
-                {post.password === "doro2020" ? (
-                  <>
-                    <button onClick={() => openButton(post.isLocked, post.id)}>
-                      <div>
-                        <span>공지</span>
-                        <span>{post.title}</span>
-                        {post.isLocked === true && (
-                          <img
-                            src={lock}
-                            alt="lock"
-                            style={{ display: "inline" }}
-                          />
+        <div className="h-screen Posts-container">
+          <div style={{ fontSize: "0.778rem", marginBottom: "0.583rem" }}>
+            <span>총 </span>
+            <span style={{ color: "#005c97" }}>
+              {data?.findAllPosts.totalResults! - notice}
+            </span>
+            <span>건</span>
+          </div>
+          <>
+            <div className="Posts-postlist w-full flex flex-col">
+              {data?.findAllPosts.results?.map((post, index) => (
+                <>
+                  {post.password === "doro2020" ? (
+                    <div className="Posts-post-container">
+                      <div className="Posts-post-left">
+                        <button
+                          onClick={() => openButton(post.isLocked, post.id)}
+                        >
+                          <span className="Posts-notice">공지</span>
+                          <span className="Posts-post-title">{post.title}</span>
+                          {post.isLocked === true && (
+                            <img
+                              src={lock}
+                              alt="lock"
+                              style={{
+                                marginLeft: "0.792rem",
+                                display: "inline",
+                              }}
+                            />
+                          )}
+                        </button>
+                      </div>
+                      <div className="Posts-post-right">
+                        {post.comments.length !== 0 && (
+                          <span className="Posts-comment">답변완료</span>
                         )}
-                        {post.comments.length !== 0 && <span>답변완료</span>}
-                        <span>{post.ownerName}</span>
+                        <span className="Posts-username">{post.ownerName}</span>
                         <span>{post.createdAt.slice(0, 10)}</span>
                       </div>
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button onClick={() => openButton(post.isLocked, post.id)}>
-                      <PostComponent
-                        key={post.id}
-                        num={
-                          data.findAllPosts.totalResults
-                            ? data.findAllPosts.totalResults -
-                              index -
-                              (page - 1) * (11 - notice)
-                            : +""
-                        }
-                        id={post.id}
-                        comment={post.comments.length !== 0}
-                        ownerName={post.ownerName}
-                        title={post.title}
-                        createdAt={post.createdAt.slice(0, 10)}
-                        lock={lock}
-                        isLocked={post.isLocked}
-                      />
-                    </button>
-                  </>
-                )}
-              </>
-            ))}
-            {data?.findAllPosts.results?.length! < 11 &&
-              arr.map(() => <div>-</div>)}
+                    </div>
+                  ) : (
+                    <div className="Posts-post-container">
+                      <div className="Posts-post-left">
+                        <button
+                          onClick={() => openButton(post.isLocked, post.id)}
+                        >
+                          <span className="Posts-post-num">
+                            {data.findAllPosts.totalResults
+                              ? data.findAllPosts.totalResults -
+                                index -
+                                (page - 1) * (11 - notice)
+                              : +""}
+                          </span>
+                          <span className="Posts-post-title">{post.title}</span>
+                          {post.isLocked === true && (
+                            <img
+                              src={lock}
+                              alt="lock"
+                              style={{
+                                marginLeft: "0.792rem",
+                                display: "inline",
+                              }}
+                            />
+                          )}
+                        </button>
+                      </div>
+                      <div className="Posts-post-right">
+                        {post.comments.length !== 0 && (
+                          <span className="Posts-comment">답변완료</span>
+                        )}
+                        <span className="Posts-username">{post.ownerName}</span>
+                        <span>{post.createdAt.slice(0, 10)}</span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              ))}
+              {data?.findAllPosts.results?.length! < 11 &&
+                arr.map(() => <div className="Posts-post-container"></div>)}
+            </div>
             <Modal
               isOpen={ModalIsOpen}
               onRequestClose={() => {
@@ -231,46 +260,46 @@ export const Posts = () => {
                 </form>
               </>
             </Modal>
-          </div>
+          </>
 
-          <div>
-            <button
-              onClick={onFirstPageClick}
-              className="focus:outline-none font-medium text-2xl"
-              disabled={page > 1 ? false : true}
-            >
-              &laquo;
-            </button>
-            <button
-              onClick={onPrevPageClick}
-              className="focus:outline-none font-medium text-2xl"
-              disabled={page > 1 ? false : true}
-            >
-              &lsaquo;
-            </button>
-            <span>{page}</span>
-            <button
-              onClick={onNextPageClick}
-              className="focus:outline-none font-medium text-2xl"
-              disabled={page !== data?.findAllPosts.totalPages ? false : true}
-            >
-              &rsaquo;
-            </button>
-            <button
-              onClick={onLastPageClick}
-              className="focus:outline-none font-medium text-2xl"
-              disabled={page !== data?.findAllPosts.totalPages ? false : true}
-            >
-              &raquo;
-            </button>
+          <div className="flex items-center justify-end Posts-bottom-container">
+            <div className="Posts-pagination-container">
+              <button
+                onClick={onFirstPageClick}
+                className="Posts-pagination-button-left"
+                disabled={page > 1 ? false : true}
+              >
+                &laquo;
+              </button>
+              <button
+                onClick={onPrevPageClick}
+                className="Posts-pagination-button-left"
+                disabled={page > 1 ? false : true}
+              >
+                &lsaquo;
+              </button>
+              <span className="Posts-pagination-button-span">{page}</span>
+              <button
+                onClick={onNextPageClick}
+                className="Posts-pagination-button-right"
+                disabled={page !== data?.findAllPosts.totalPages ? false : true}
+              >
+                &rsaquo;
+              </button>
+              <button
+                onClick={onLastPageClick}
+                className="Posts-pagination-button-right"
+                disabled={page !== data?.findAllPosts.totalPages ? false : true}
+              >
+                &raquo;
+              </button>
+            </div>
+            <div>
+              <Link to="/createPost">
+                <button className="Posts-create-button">교육 문의하기</button>
+              </Link>
+            </div>
           </div>
-          <Link to="/createPost">
-            <Button
-              canClick={true}
-              loading={false}
-              actionText={"교육 문의하기"}
-            />
-          </Link>
         </div>
       )}
     </div>
