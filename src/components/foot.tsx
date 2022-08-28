@@ -4,19 +4,27 @@ import doroLogo from "../images/logo.png";
 
 export const Foot: React.FC = () => {
   return (
-    <div>
+    <div className="Rectangle-21">
       <Link to="/" className="flex items-center">
         <img src={doroLogo} className=" w-40 ml-36" alt="Doro" />
       </Link>
-      <span>DORO(도로) | 대표 : 김진한 | 사업자 등록번호:825-01-02398</span>
-      <span>
-        경기도 안산시 상록수 한양대학로 55 학연산클러스터 4층 ,KF-ROOM 2호
-      </span>
-      <span>Company</span>
-      <a href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3">
+      <div className="Frame-44">
+        <span>DORO(도로) | 대표 : 김진한 | 사업자 등록번호:825-01-02398</span>
+        <span>
+          경기도 안산시 상록수 한양대학로 55 학연산클러스터 4층 ,KF-ROOM 2호
+        </span>
+      </div>
+      <span className="Company Subtitle-2">Company</span>
+      <a
+        className="Company-intro"
+        href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3"
+      >
         회사소개
       </a>
-      <a href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3">
+      <a
+        className="Lecture-info"
+        href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3"
+      >
         강사모집
       </a>
       <a href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3">
