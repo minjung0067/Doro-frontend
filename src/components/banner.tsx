@@ -14,8 +14,6 @@ export const Banner: React.FC<Banner> = ({
   subtitle,
   content,
 }) => (
-
-
   <div className="Banner-container">
     <div className="Banner-content-container">
       <div className="Banner-con">
@@ -24,8 +22,6 @@ export const Banner: React.FC<Banner> = ({
           <span className="Banner-title Headline-2">{title}</span>
           <span className="Banner-subtitle Body-1">{subtitle}</span>
         </div>
-
-
       </div>
       <h4 className="Banner-content Subtitle-2">{content}</h4>
     </div>
