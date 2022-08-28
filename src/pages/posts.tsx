@@ -19,6 +19,7 @@ import {
   checkPasswordForPostOpenVariables,
 } from "../__generated__/checkPasswordForPostOpen";
 import { setTokenSourceMapRange } from "typescript";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -57,7 +58,7 @@ export const CHECK_PASSWORD = gql`
 
 interface IFormProps {
   page: number;
-  password: number;
+  password: string;
 }
 
 export const Posts = () => {
@@ -94,6 +95,7 @@ export const Posts = () => {
   const openButton = (isLocked: boolean, id: number) => {
     if (isLocked) {
       setNum(id);
+      reset();
       setModalIsOpen(true);
     } else {
       navigate(`/post/${id}`);
