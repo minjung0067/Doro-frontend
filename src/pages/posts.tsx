@@ -74,6 +74,8 @@ export const Posts = () => {
     postsPageQueryVariables
   >(POSTS_QUERY, { variables: { input: { page } } });
 
+  refetch();
+
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
   const onFirstPageClick = () => setPage((current) => 1);
