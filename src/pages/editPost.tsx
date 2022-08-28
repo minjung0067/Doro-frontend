@@ -131,10 +131,9 @@ export const EditPost = () => {
         {state ? (
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              {...register("ownerName", { required: true, maxLength: 4 })}
+              {...register("ownerName", { required: true })}
               name="ownerName"
               placeholder="ownerName"
-              maxLength={4}
               defaultValue={
                 FindPostData?.findPost?.post?.ownerName
                   ? FindPostData?.findPost?.post?.ownerName
@@ -194,14 +193,13 @@ export const EditPost = () => {
               {...register("title", { required: true })}
               name="title"
               placeholder="title"
-              maxLength={15}
               defaultValue={
                 FindPostData?.findPost?.post?.title
                   ? FindPostData?.findPost?.post?.title
                   : ""
               }
             />
-            <textarea
+            <input
               {...register("content", { required: true })}
               name="content"
               placeholder="content"
