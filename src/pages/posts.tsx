@@ -57,7 +57,8 @@ export const CHECK_PASSWORD = gql`
 
 interface IFormProps {
   page: number;
-  password: number;
+
+  password: string;
 }
 
 export const Posts = () => {
@@ -72,6 +73,8 @@ export const Posts = () => {
     postsPageQuery,
     postsPageQueryVariables
   >(POSTS_QUERY, { variables: { input: { page } } });
+
+  refetch();
 
   const onNextPageClick = () => setPage((current) => current + 1);
   const onPrevPageClick = () => setPage((current) => current - 1);
