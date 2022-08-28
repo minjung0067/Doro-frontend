@@ -14,7 +14,7 @@ export const Banner: React.FC<Banner> = ({
   subtitle,
   content,
 }) => (
-  <div className=" Frame-48">
+  <div className=" w-screen h-72" style={{ backgroundColor: "#0072B9" }}>
     <div className="flex flex-col items-start px-80 py-12">
       <img src={route} alt="route" />
       <div className=" py-6">
