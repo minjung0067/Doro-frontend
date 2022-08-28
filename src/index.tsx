@@ -6,7 +6,8 @@ import { client } from "./apollo";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/styles.css";
-import "./styles/vanillaStyles.css";
+import "./styles/postsStyles.css";
+import "./styles/commonStyles.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
