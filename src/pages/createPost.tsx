@@ -95,81 +95,171 @@ export const CreatePost = () => {
         subtitle="Education inquiry"
         content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
       />
-      <div>
+      <div className="Create-post-parent">
+        <div className="Create-post-title">문의신청정보</div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            {...register("ownerName", { required: true })}
-            name="ownerName"
-            placeholder="ownerName"
-            defaultValue={userData?.me.name ? userData?.me.name : ""}
-          />
-          <input
-            {...register("institution")}
-            name="institution"
-            placeholder="institution"
-            defaultValue={
-              userData?.me.institution ? userData?.me.institution : ""
-            }
-          />
-          <input
-            {...register("phoneNumber", { required: true })}
-            name="phoneNumber"
-            placeholder="phoneNumber"
-            defaultValue={
-              userData?.me.institution ? userData?.me.institution : ""
-            }
-          />
-          <input
-            {...register("email")}
-            name="email"
-            placeholder="email"
-            defaultValue={userData?.me.email ? userData?.me.email : ""}
-          />
-          <div>
-            <span>비밀글</span>
-            <input
-              {...register("isLocked")}
-              name="isLocked"
-              type={"checkbox"}
-            />
+          <div className=" flex ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">문의자 성함</span>
+            </div>
+            <div className="Create-post-Frame-72">
+              <input
+                {...register("ownerName", { required: true, maxLength: 4 })}
+                className="Create-post-input"
+                name="ownerName"
+                placeholder="ownerName"
+                maxLength={4}
+                defaultValue={userData?.me.name ? userData?.me.name : ""}
+              />
+            </div>
+          </div>
+          <div className=" flex  ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">
+                소속 기관(학원)
+              </span>
+            </div>
+            <div className="Create-post-Frame-72">
+              <input
+                {...register("institution")}
+                name="institution"
+                placeholder="institution"
+                className="Create-post-input"
+                defaultValue={
+                  userData?.me.institution ? userData?.me.institution : ""
+                }
+              />
+            </div>
           </div>
 
-          <input
-            {...register("password", { required: true })}
-            name="password"
-            placeholder="password"
-          />
-          <input
-            {...register("title", { required: true })}
-            name="title"
-            placeholder="title"
-          />
-          <input
-            {...register("content", { required: true })}
-            name="content"
-            placeholder="content"
-          />
+          <div className=" flex  ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">연락처</span>
+            </div>
+            <div className="Create-post-Frame-72">
+              <input
+                {...register("phoneNumber", { required: true })}
+                name="phoneNumber"
+                placeholder="phoneNumber"
+                className="Create-post-input"
+                defaultValue={
+                  userData?.me.institution ? userData?.me.institution : ""
+                }
+              />
+            </div>
+          </div>
+
+          <div className=" flex  ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">이메일</span>
+            </div>
+            <div className="Create-post-Frame-72">
+              <input
+                {...register("email")}
+                name="email"
+                placeholder="email"
+                className="Create-post-input"
+                defaultValue={userData?.me.email ? userData?.me.email : ""}
+              />
+            </div>
+          </div>
+
+          <div className=" flex  ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">비밀글</span>
+            </div>
+            <div className="Create-post-Frame-72-checkbox">
+              <input
+                {...register("isLocked")}
+                name="isLocked"
+                className="Create-post-input-checkbox  w-6 h-6 ml-4 mt-2"
+                type={"checkbox"}
+              />
+            </div>
+          </div>
+          <div className=" flex  ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">
+                게시글 비밀번호
+              </span>
+            </div>
+            <div className="Create-post-Frame-72">
+              <input
+                {...register("password", { required: true })}
+                name="password"
+                className="Create-post-input"
+                placeholder="password"
+              />
+            </div>
+          </div>
+
+          <div className="Create-post-title">문의내용</div>
+
+          <div className=" flex  ">
+            <div className="Create-post-input-title">
+              <span className="Create-post-input-description">글 제목</span>
+            </div>
+            <div className="Create-post-Frame-72">
+              <input
+                {...register("title", { required: true })}
+                name="title"
+                maxLength={15}
+                className="Create-post-input"
+                placeholder="title"
+              />
+            </div>
+          </div>
+
+          <div className=" flex  ">
+            <div className="Create-post-Rectangle-49">
+              <span className="Create-post-input-description">글 내용</span>
+            </div>
+            <div className="Create-post-Frame-91">
+              <textarea
+                {...register("content", { required: true })}
+                name="content"
+                placeholder="content"
+                className="Create-post-textarea"
+              />
+            </div>
+          </div>
+
           <div
             onMouseOver={() => setIsHovering(1)}
             onMouseOut={() => setIsHovering(0)}
           >
-            <input
-              {...register("agree", { required: true })}
-              name="agree"
-              type={"checkbox"}
-            />
-            <span>
-              본인은 [개인정보 수집 및 이용에 관한 동의] 내용을 확인하였으며
-              동의합니다.
-            </span>
-            {isHovering ? <img src={infoConfirm}></img> : <></>}
+            <div className="flex ">
+              <input
+                {...register("agree", { required: true })}
+                className="Create-post-Rectangle-63 "
+                name="agree"
+                type={"checkbox"}
+              />
+              <span className="Create-post-agree-notification">
+                본인은 [개인정보 수집 및 이용에 관한 동의] 내용을 확인하였으며
+                동의합니다.
+              </span>
+            </div>
+            <div className="flex  mt-2 ml-28">
+              {isHovering ? <img src={infoConfirm}></img> : <></>}
+            </div>
+            <div className="flex  mt-14">
+              <button
+                role="button"
+                className={` Create-post-submit-button py-4  transition-colors ${
+                  formState.isValid
+                    ? " bg-blue-700 hover:  bg-blue-900"
+                    : " bg-slate-500 pointer-events-none"
+                }`}
+              >
+                {loading ? (
+                  <span className="Create-post-submit-text">로딩 중..."</span>
+                ) : (
+                  <span className="Create-post-submit-text">접수하기</span>
+                )}
+              </button>
+            </div>
           </div>
-
-          <Button
-            canClick={formState.isValid}
-            loading={loading}
-            actionText={"게시물 등록"}
-          />
         </form>
       </div>
     </div>
