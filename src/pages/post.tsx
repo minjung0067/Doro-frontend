@@ -218,170 +218,174 @@ export const Post = () => {
         subtitle="Education inquiry board"
         content="문의 답변을 확인할 수 있습니다"
       />
-      <div>
-        <div>
-          <h2>{data?.findPost.post?.title}</h2>
-          <div>
+      <div className="Education-inquiry-board_after-answer">
+        <div className=" flex">
+          <span className="Post-title ">{data?.findPost.post?.title}</span>
+          <div className="Frame-63 ">
             {data?.findPost.post?.comments.length !== 0 && (
-              <span> 답변완료 </span>
+              <div className="Post-Frame-59 ">
+                <span className="Post-answered-content">답변완료</span>
+              </div>
             )}
-            <span>{data?.findPost.post?.ownerName}</span>
-            <span>{data?.findPost.post?.createdAt}</span>
+            <span className="Post-owner">{data?.findPost.post?.ownerName}</span>
+            <span className="Post-date">
+              {data?.findPost.post?.createdAt.slice(0, 10)}
+            </span>
           </div>
         </div>
-        <hr />
-        <div>
-          <p>{data?.findPost.post?.content}</p>
-        </div>
-        <hr />
-        <div>
-          <div>
-            <Modal
-              isOpen={editModalIsOpen}
-              onRequestClose={() => {
-                setModalInputPassword(false);
-                setEditModalIsOpen(false);
-              }}
-            >
-              {modalInputPassword ? (
-                <>
-                  <span>게시글 비밀번호를 입력해주세요</span>
-                  <form onSubmit={handleSubmit(onEditPasswordSubmit)}>
-                    {passwordIsWrong ? (
-                      <input
-                        {...register("password", { required: true })}
-                        name="password"
-                        placeholder="비밀번호가 틀렸습니다"
-                      ></input>
-                    ) : (
-                      <input
-                        {...register("password", { required: true })}
-                        name="password"
-                        placeholder="비밀번호를 입력해주세요"
-                      ></input>
-                    )}
-                    <Button
-                      canClick={formState.isValid}
-                      loading={false}
-                      actionText={"게시물 수정"}
-                    />
-                  </form>
-                </>
-              ) : (
-                <>
-                  <span>게시물을 수정하겠습니까?</span>
-                  <button
-                    onClick={() => {
-                      setModalInputPassword(true);
-                    }}
-                  >
-                    예
-                  </button>
-                  <button
-                    onClick={() => {
-                      setEditModalIsOpen(false);
-                    }}
-                  >
-                    아니오
-                  </button>
-                </>
-              )}
-            </Modal>
-            <button onClick={editButton}>Edit</button>
-            <Modal
-              isOpen={deleteModalIsOpen}
-              onRequestClose={() => {
-                setModalInputPassword(false);
-                setDeleteModalIsOpen(false);
-              }}
-            >
-              {modalInputPassword ? (
-                <>
-                  <span>게시글 비밀번호를 입력해주세요</span>
-                  <form onSubmit={handleSubmit(onDeletePasswordSubmit)}>
-                    {passwordIsWrong ? (
-                      <input
-                        {...register("password", { required: true })}
-                        name="password"
-                        placeholder="비밀번호가 틀렸습니다"
-                      ></input>
-                    ) : (
-                      <input
-                        {...register("password", { required: true })}
-                        name="password"
-                        placeholder="비밀번호를 입력해주세요"
-                      ></input>
-                    )}
-                    <Button
-                      canClick={formState.isValid}
-                      loading={false}
-                      actionText={"게시물 삭제"}
-                    />
-                  </form>
-                </>
-              ) : (
-                <>
-                  <span>게시물을 삭제하겠습니까?</span>
-                  <button
-                    onClick={() => {
-                      setModalInputPassword(true);
-                    }}
-                  >
-                    예
-                  </button>
-                  <button
-                    onClick={() => {
-                      setDeleteModalIsOpen(false);
-                    }}
-                  >
-                    아니오
-                  </button>
-                </>
-              )}
-            </Modal>
-            <Modal isOpen={deleteIsDone}>
-              <span>게시글이 삭제되었습니다</span>
-              <button onClick={onDeleteCompletedClick}>확인</button>
-            </Modal>
-            <button onClick={deleteButton}>Delete</button>
-            <button>
-              <Link to="/posts">Back</Link>
-            </button>
-          </div>
-        </div>
-      </div>
+        <div className="Post-Line-2"></div>
+        <div className="Post-content">{data?.findPost.post?.content}</div>
+        <div className="Post-Line-3"></div>
 
-      {data?.findPost.post?.comments.length !== 0 && (
-        <div>
-          <h2>문의 답변</h2>
-          <hr />
+        <div className="Post-Frame-67">
+          <Modal
+            isOpen={editModalIsOpen}
+            onRequestClose={() => {
+              setModalInputPassword(false);
+              setEditModalIsOpen(false);
+            }}
+          >
+            {modalInputPassword ? (
+              <>
+                <span>게시글 비밀번호를 입력해주세요</span>
+                <form onSubmit={handleSubmit(onEditPasswordSubmit)}>
+                  {passwordIsWrong ? (
+                    <input
+                      {...register("password", { required: true })}
+                      name="password"
+                      placeholder="비밀번호가 틀렸습니다"
+                    ></input>
+                  ) : (
+                    <input
+                      {...register("password", { required: true })}
+                      name="password"
+                      placeholder="비밀번호를 입력해주세요"
+                    ></input>
+                  )}
+                  <Button
+                    canClick={formState.isValid}
+                    loading={false}
+                    actionText={"게시물 수정"}
+                  />
+                </form>
+              </>
+            ) : (
+              <>
+                <span>게시물을 수정하겠습니까?</span>
+                <button
+                  onClick={() => {
+                    setModalInputPassword(true);
+                  }}
+                >
+                  예
+                </button>
+                <button
+                  onClick={() => {
+                    setEditModalIsOpen(false);
+                  }}
+                >
+                  아니오
+                </button>
+              </>
+            )}
+          </Modal>
+          <button className="Post-Frame-66" onClick={editButton}>
+            Edit
+          </button>
+          <Modal
+            isOpen={deleteModalIsOpen}
+            onRequestClose={() => {
+              setModalInputPassword(false);
+              setDeleteModalIsOpen(false);
+            }}
+          >
+            {modalInputPassword ? (
+              <>
+                <span>게시글 비밀번호를 입력해주세요</span>
+                <form onSubmit={handleSubmit(onDeletePasswordSubmit)}>
+                  {passwordIsWrong ? (
+                    <input
+                      {...register("password", { required: true })}
+                      name="password"
+                      placeholder="비밀번호가 틀렸습니다"
+                    ></input>
+                  ) : (
+                    <input
+                      {...register("password", { required: true })}
+                      name="password"
+                      placeholder="비밀번호를 입력해주세요"
+                    ></input>
+                  )}
+                  <Button
+                    canClick={formState.isValid}
+                    loading={false}
+                    actionText={"게시물 삭제"}
+                  />
+                </form>
+              </>
+            ) : (
+              <>
+                <span>게시물을 삭제하겠습니까?</span>
+                <button
+                  onClick={() => {
+                    setModalInputPassword(true);
+                  }}
+                >
+                  예
+                </button>
+                <button
+                  onClick={() => {
+                    setDeleteModalIsOpen(false);
+                  }}
+                >
+                  아니오
+                </button>
+              </>
+            )}
+          </Modal>
+          <Modal isOpen={deleteIsDone}>
+            <span>게시글이 삭제되었습니다</span>
+            <button onClick={onDeleteCompletedClick}>확인</button>
+          </Modal>
+          <button className="Post-Frame-65" onClick={deleteButton}>
+            Delete
+          </button>
+          <button className="Post-Frame-64">
+            <Link to="/posts">Back</Link>
+          </button>
+        </div>
+
+        {data?.findPost.post?.comments.length !== 0 && (
           <div>
-            <p>
+            <span className="Post-answer-title">문의 답변</span>
+            <div className="Post-Line-2"></div>
+            <div className="Post-answer-content">
               {
                 data?.findPost.post?.comments[
                   data?.findPost.post?.comments.length - 1
                 ]?.content
               }
-            </p>
+            </div>
+            <div className="Post-Line-5"></div>
           </div>
-          <hr />
-        </div>
-      )}
-      {userData?.me.role === "Manager" ? (
-        <form onSubmit={handleSubmit(onCommentSubmit)}>
-          <input
-            {...register("comment", { required: true })}
-            name="comment"
-          ></input>
-          <Button
-            canClick={formState.isValid}
-            loading={loading}
-            actionText={"답변 등록"}
-          />
-        </form>
-      ) : (
-        <span>you are not manager</span>
-      )}
+        )}
+
+        {userData?.me.role === "Manager" ? (
+          <form onSubmit={handleSubmit(onCommentSubmit)}>
+            <textarea
+              {...register("comment", { required: true })}
+              name="comment"
+            ></textarea>
+            <Button
+              canClick={formState.isValid}
+              loading={loading}
+              actionText={"답변 등록"}
+            />
+          </form>
+        ) : (
+          <span></span>
+        )}
+      </div>
     </div>
   );
 };
