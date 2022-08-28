@@ -5,7 +5,12 @@
   --doro-medium: #0072b9;
   --doro-super-light-grey: #f8f9fd;
   --doro-grey: #777;
+
+  --standard: 0.222rem;
 }
+
+
+
 @font-face {
   font-family: "Pretendard";
   font-weight: 100;
@@ -187,7 +192,9 @@
   line-height: 1.44;
   letter-spacing: 0.9px;
 }
+
 .button {
+
   font-family: Pretendard;
   font-size: 0.778rem;
   font-weight: 500;
@@ -205,6 +212,34 @@
   line-height: 1.43;
   letter-spacing: normal;
 }
+
+
+.Posts-postlist {
+  height: 51.861rem;
+  border-top-style: solid;
+  border-top-width: 0.1rem;
+  border-top-color: black;
+}
+
+.Posts-container {
+  margin-top: 7.889rem;
+  margin-left: 20.556rem;
+  margin-right: 20.556rem;
+  font-family: Pretendard;
+}
+
+.Posts-post-container {
+  height: 4.667rem;
+  border-bottom-style: solid;
+  border-bottom-width: 0.056rem;
+  border-bottom-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Posts-notice {
+  width: 2.889rem;
+  height: 1.889rem;
 
 .Frame-48 {
   width: 106.667rem;
@@ -250,11 +285,58 @@
   width: 2.889rem;
   height: 1.111rem;
   margin: 0.722rem 8.222rem 0.611rem 15.722rem;
+
   font-family: Pretendard;
   font-size: 0.778rem;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  text-align: left;
+  padding: 0.444rem 0.667rem 0.5rem 0.778rem;
+  border-radius: 17px;
+  background-color: #0072b9;
+  color: #fff;
+}
+
+.Posts-post-num {
+  width: 2.889rem;
+  height: 1.889rem;
+  color: #777777;
+  padding: 0.444rem 0.667rem 0.5rem 1rem;
+}
+
+.Posts-post-title {
+  margin-left: 1.889rem;
+}
+
+.Posts-post-left {
+  margin-top: 1.611rem;
+}
+
+.Posts-post-right {
+  margin-top: 1.611rem;
+}
+
+.Posts-username {
+  margin-right: 2.944rem;
+  display: inline-block;
+  width: 3.5rem;
+  text-align: center;
+}
+
+.Posts-comment {
+  width: 4.722rem;
+  height: 1.833rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  gap: 8px;
+  background-color: var(--doro-medium);
+  padding: 0.444rem 0.889rem;
+  border-radius: 17px;
+
   line-height: 1.43;
   letter-spacing: normal;
   text-align: left;
@@ -338,6 +420,7 @@
   flex-grow: 0;
   font-family: Pretendard;
   font-size: 0.558rem;
+
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -345,6 +428,20 @@
   letter-spacing: 1.25px;
   text-align: left;
   color: #fff;
+
+  margin-right: 3.222rem;
+}
+
+.Posts-bottom-container {
+  margin-top: 1.889rem;
+}
+
+.Posts-pagination-container {
+  margin-right: 20.002rem;
+}
+
+.Posts-pagination-button-span {
+
 }
 .Post-owner {
   width: 3.167rem;
@@ -384,11 +481,39 @@
 .Post-content {
   width: 65.556rem;
   margin: 2rem 20.556rem 1.917rem;
+
   font-family: Pretendard;
   font-size: 1rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
+
+  letter-spacing: 0.9px;
+  text-align: center;
+  padding-bottom: 0.1rem;
+  color: var(--doro-grey);
+}
+
+.Posts-pagination-button-left {
+  flex-grow: 0;
+  font-size: 1.7rem;
+  color: var(--doro-grey);
+  font-weight: lighter;
+  margin-right: 0.833rem;
+}
+
+.Posts-pagination-button-right {
+  flex-grow: 0;
+  font-size: 1.7rem;
+  color: var(--doro-grey);
+  font-weight: lighter;
+  margin-left: 0.833rem;
+}
+
+.Posts-create-button {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+
   line-height: 1.44;
   letter-spacing: 0.9px;
   text-align: left;
@@ -514,10 +639,30 @@
   flex-grow: 0;
   font-family: Pretendard;
   font-size: 1.333rem;
+
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.21;
+
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: #fff;
+  width: 10rem;
+  height: 2.833rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0.778rem 1.833rem;
+  border-radius: 25px;
+  background-color: var(--doro-medium);
+}
+
+.Banner-container {
+  height: 17.778rem;
+
   letter-spacing: normal;
   text-align: left;
   color: #000;
@@ -573,12 +718,71 @@
   width: 54.444rem;
   height: 2.556rem;
   flex-grow: 0;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-  padding: 0.556rem 0.778rem;
+margin: 5rem 0 5.056rem;
+  padding: 2.444rem 0;
+  background-color: var(--doro-medium);
+}
+
+.Banner-content-container {
+  width: 106.667rem;
+  height: 11.056rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 45px;
+  padding: 0 0 0 20.556rem;
+}
+
+.Banner-route {
+  flex-grow: 0;
+  margin: 0 4.167rem 1.167rem 0.333rem;
+}
+
+.Banner-con {
+  height: 6.944rem;
+  flex-grow: 0;
+}
+
+.Banner-title-div {
+  height: 4.667rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1.167rem 0 0;
+  padding: 0;
+}
+
+.Banner-title {
+  height: 3.222rem;
+  flex-grow: 0;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+
+.Banner-subtitle {
+  height: 1.444rem;
+  flex-grow: 0;
+
+
+padding: 0.556rem 0.778rem;
   border-radius: 4px;
   border: solid 1px var(--doro-light-grey);
 }
@@ -646,6 +850,8 @@
   height: 1.444rem;
   margin-top: 0.944rem;
   padding: 0 1.889rem 0.056rem 0;
+
+
   font-family: Pretendard;
   font-size: 1rem;
   font-weight: normal;
@@ -653,6 +859,24 @@
   font-style: normal;
   line-height: 1.44;
   letter-spacing: 0.9px;
+
+
+  text-align: center;
+  color: #d9d9d9;
+}
+
+.Banner-content {
+  height: 1.611rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+
+
   text-align: left;
   color: var(--doro-grey);
 }
@@ -686,6 +910,8 @@
   font-style: normal;
   line-height: 1.44;
   letter-spacing: 0.9px;
+
+
   text-align: left;
   color: #fff;
 }

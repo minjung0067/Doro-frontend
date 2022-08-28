@@ -14,14 +14,20 @@ export const Banner: React.FC<Banner> = ({
   subtitle,
   content,
 }) => (
-  <div className=" Frame-48">
-    <div className="flex flex-col items-start px-80 py-12">
-      <img src={route} alt="route" />
-      <div className=" py-6">
-        <h3 className=" text-4xl font-bold text-white">{title}</h3>
-        <h6 className="py-2 px-1 text-gray-300 opacity-70">{subtitle}</h6>
+
+
+  <div className="Banner-container">
+    <div className="Banner-content-container">
+      <div className="Banner-con">
+        <img src={route} alt="route" className="Banner-route" />
+        <div className="Banner-title-div">
+          <span className="Banner-title Headline-2">{title}</span>
+          <span className="Banner-subtitle Body-1">{subtitle}</span>
+        </div>
+
+
       </div>
-      <h4 className=" text-lg text-white">{content}</h4>
+      <h4 className="Banner-content Subtitle-2">{content}</h4>
     </div>
   </div>
 );
