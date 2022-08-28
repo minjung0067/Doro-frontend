@@ -9,9 +9,16 @@ import { CheckPasswordInput } from "./globalTypes";
 // GraphQL query operation: checkPasswordForPostOpen
 // ====================================================
 
+export interface checkPasswordForPostOpen_checkPassword_post {
+  __typename: "Post";
+  id: number;
+  isLocked: boolean;
+}
+
 export interface checkPasswordForPostOpen_checkPassword {
   __typename: "CheckPasswordOutput";
   isSame: boolean;
+  post: checkPasswordForPostOpen_checkPassword_post | null;
 }
 
 export interface checkPasswordForPostOpen {
