@@ -68,7 +68,7 @@ export const Foot: React.FC = () => {
               </a>
             </div>
             <div className="Foot-inquiry-frame">
-              <Link to="/" className="Foot-inquiry-link">
+              <Link to="/createPost" className="Foot-inquiry-link">
                 <button className="Foot-inquiry-button">교육 문의하기</button>
               </Link>
             </div>

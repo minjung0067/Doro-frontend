@@ -239,6 +239,7 @@ export const Posts = () => {
               onRequestClose={() => {
                 setModalInputPassword(false);
                 setModalIsOpen(false);
+                setPasswordIsWrong(false);
               }}
               className="Posts-modal"
             >
@@ -256,7 +257,7 @@ export const Posts = () => {
                         {...register("password", { required: true })}
                         name="password"
                         placeholder="비밀번호가 틀렸습니다"
-                        className="Posts-modal-input"
+                        className="Posts-modal-input-error"
                       />
                     ) : (
                       <input
@@ -266,7 +267,9 @@ export const Posts = () => {
                         className="Posts-modal-input"
                       />
                     )}
-                    <button className="Posts-modal-button">확인</button>
+                    <button className="Posts-modal-button transition-colors">
+                      확인
+                    </button>
                   </form>
                 </div>
               </>
