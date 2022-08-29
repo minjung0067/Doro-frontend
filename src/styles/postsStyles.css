@@ -39,10 +39,18 @@
 }
 
 .Posts-post-num {
+  display: inline-block;
   width: 2.889rem;
   height: 1.889rem;
   color: #777777;
   padding: 0.444rem 0.667rem 0.5rem 1rem;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  font-family: Pretendard;
 }
 
 .Posts-post-title {
@@ -90,6 +98,8 @@
 
 .Posts-pagination-container {
   margin-right: 20.002rem;
+  display: flex;
+  align-items: center;
 }
 
 .Posts-pagination-button-span {
@@ -100,7 +110,6 @@
   font-style: normal;
   letter-spacing: 0.9px;
   text-align: center;
-  padding-bottom: 0.1rem;
   color: var(--doro-grey);
 }
 
@@ -149,13 +158,13 @@
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-  margin: 5rem 0 5.056rem;
+  margin: 0 0 5.056rem;
   padding: 2.444rem 0;
   background-color: var(--doro-medium);
+  min-width: 80rem;
 }
 
 .Banner-content-container {
-  width: 106.667rem;
   height: 11.056rem;
   flex-grow: 0;
   display: flex;

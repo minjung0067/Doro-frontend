@@ -10,6 +10,7 @@ import "./styles/postsStyles.css";
 import "./styles/commonStyles.css";
 import "./styles/createStyles.css";
 import "./styles/postStyles.css";
+import "./styles/headerStyles.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

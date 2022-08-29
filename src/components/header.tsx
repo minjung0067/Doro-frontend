@@ -7,30 +7,24 @@ import doroLogo from "../images/logo.png";
 export const Header: React.FC = () => {
   return (
     <>
-      <header className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <Link to="/" className="flex items-center">
-            <img src={doroLogo} className=" w-40 ml-36" alt="Doro" />
+      <header className="h-20 Header-header">
+        <div className="flex flex-wrap justify-between items-center Header-container">
+          <Link to="/" className="flex items-center Header-logo">
+            <img src={doroLogo} className="Header-logo" alt="Doro" />
           </Link>
-          <div
-            className="hidden w-full md:block md:w-auto mr-20"
-            id="navbar-default"
-          >
-            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <div>
+            <ul className="flex flex-row bg-white">
               <li>
                 <Link
                   to="/posts"
-                  className="block py-2 pr-4 pl-3 font-bold text-gray-600 md:text-gray-600 md:p-0 dark:text-white hover:text-gray-500"
+                  className="Header-link-community hover:font-bold"
                   aria-current="page"
                 >
                   커뮤니티
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/createPost"
-                  className="block py-2 pr-4 pl-3 font-bold text-gray-600 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
+                <Link to="/createPost" className="Header-link-inquiry">
                   교육문의
                 </Link>
               </li>
@@ -39,5 +33,28 @@ export const Header: React.FC = () => {
         </div>
       </header>
     </>
+    // <>
+    //   <header className="Header-header">
+    //     <div className="Header-container">
+    //       <div className="Header-logo-frame">
+    //         <Link to="/">
+    //           <img src={doroLogo} alt="Doro" />
+    //         </Link>
+    //       </div>
+    //       <div className="Header-link-container">
+    //         <Link
+    //           to="/posts"
+    //           className="Header-education-inquiry"
+    //           aria-current="page"
+    //         >
+    //           커뮤니티
+    //         </Link>
+    //         <Link to="/createPost" className="Header-board">
+    //           교육문의
+    //         </Link>
+    //       </div>
+    //     </div>
+    //   </header>
+    // </>
   );
 };
