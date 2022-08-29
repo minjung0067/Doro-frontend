@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
-import { Button } from "../components/button";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
 import infoConfirm from "../images/Frame68.png";
@@ -85,7 +84,7 @@ export const CreatePost = () => {
   };
 
   return (
-    <div>
+    <div className="Create-post-page-parent">
       <Helmet>
         <title>Create | DORO</title>
       </Helmet>
@@ -95,10 +94,10 @@ export const CreatePost = () => {
         subtitle="Education inquiry"
         content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
       />
-      <div className="Create-post-parent">
+      <div className="Create-post-content-parent">
         <div className="Create-post-title">문의신청정보</div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className=" flex ">
+          <div className=" Create-post-input-parent ">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">문의자 성함</span>
             </div>
@@ -113,7 +112,7 @@ export const CreatePost = () => {
               />
             </div>
           </div>
-          <div className=" flex  ">
+          <div className=" Create-post-input-parent">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">
                 소속 기관(학원)
@@ -132,7 +131,7 @@ export const CreatePost = () => {
             </div>
           </div>
 
-          <div className=" flex  ">
+          <div className=" Create-post-input-parent">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">연락처</span>
             </div>
@@ -149,7 +148,7 @@ export const CreatePost = () => {
             </div>
           </div>
 
-          <div className=" flex  ">
+          <div className=" Create-post-input-parent">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">이메일</span>
             </div>
@@ -164,7 +163,7 @@ export const CreatePost = () => {
             </div>
           </div>
 
-          <div className=" flex  ">
+          <div className=" Create-post-input-parent">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">비밀글</span>
             </div>
@@ -177,7 +176,8 @@ export const CreatePost = () => {
               />
             </div>
           </div>
-          <div className=" flex  ">
+
+          <div className=" Create-post-input-parent">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">
                 게시글 비밀번호
@@ -195,7 +195,7 @@ export const CreatePost = () => {
 
           <div className="Create-post-title">문의내용</div>
 
-          <div className=" flex  ">
+          <div className=" Create-post-input-parent">
             <div className="Create-post-input-title">
               <span className="Create-post-input-description">글 제목</span>
             </div>
@@ -210,7 +210,7 @@ export const CreatePost = () => {
             </div>
           </div>
 
-          <div className=" flex  ">
+          <div className=" Create-post-input-textarea-parent">
             <div className="Create-post-Rectangle-49">
               <span className="Create-post-input-description">글 내용</span>
             </div>
@@ -225,40 +225,48 @@ export const CreatePost = () => {
           </div>
 
           <div
+            className="Create-post-input-parent-notification"
             onMouseOver={() => setIsHovering(1)}
             onMouseOut={() => setIsHovering(0)}
           >
-            <div className="flex ">
-              <input
-                {...register("agree", { required: true })}
-                className="Create-post-Rectangle-63 "
-                name="agree"
-                type={"checkbox"}
-              />
-              <span className="Create-post-agree-notification">
-                본인은 [개인정보 수집 및 이용에 관한 동의] 내용을 확인하였으며
-                동의합니다.
-              </span>
+            <div className="Create-post-input-title-notification"></div>
+            <div className="Create-post-Frame-72-notification">
+              <div className=" create-post-notification-checkbox-parent">
+                <div className=" flex-col justify-center align-middle">
+                  <input
+                    {...register("agree", { required: true })}
+                    className="Create-post-Rectangle-63 "
+                    name="agree"
+                    type={"checkbox"}
+                  />
+                  <span className="Create-post-agree-notification">
+                    본인은 [개인정보 수집 및 이용에 관한 동의] 내용을
+                    확인하였으며 동의합니다.
+                  </span>
+                </div>
+
+                <div className="Create-post-agree-info-confirm-parent">
+                  {isHovering ? <img src={infoConfirm}></img> : <></>}
+                </div>
+              </div>
             </div>
-            <div className="flex  mt-2 ml-28">
-              {isHovering ? <img src={infoConfirm}></img> : <></>}
-            </div>
-            <div className="flex  mt-14">
-              <button
-                role="button"
-                className={` Create-post-submit-button py-4  transition-colors ${
-                  formState.isValid
-                    ? " bg-blue-700 hover:  bg-blue-900"
-                    : " bg-slate-500 pointer-events-none"
-                }`}
-              >
-                {loading ? (
-                  <span className="Create-post-submit-text">로딩 중..."</span>
-                ) : (
-                  <span className="Create-post-submit-text">접수하기</span>
-                )}
-              </button>
-            </div>
+          </div>
+
+          <div className=" Create-post-submit-button-parent">
+            <button
+              role="button"
+              className={` Create-post-submit-button py-4  transition-colors ${
+                formState.isValid
+                  ? " bg-blue-700 hover:  bg-blue-900"
+                  : " bg-slate-500 pointer-events-none"
+              }`}
+            >
+              {loading ? (
+                <span className="Create-post-submit-text">로딩 중..."</span>
+              ) : (
+                <span className="Create-post-submit-text">접수하기</span>
+              )}
+            </button>
           </div>
         </form>
       </div>
