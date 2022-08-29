@@ -18,6 +18,7 @@ export interface findPost_findPost_post {
   title: string;
   content: string;
   password: string | null;
+  isLocked: boolean;
 }
 
 export interface findPost_findPost {
