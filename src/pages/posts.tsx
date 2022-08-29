@@ -243,29 +243,30 @@ export const Posts = () => {
               className="Posts-modal"
             >
               <>
-                <div>
-                  <span>게시글 비밀번호를 입력해주세요</span>
+                <div className="Posts-modal-container">
+                  <span className="Posts-modal-title">
+                    게시글 비밀번호를 입력해주세요
+                  </span>
                   <form
                     onSubmit={handleSubmit(() => onOpenPasswordSubmit(num))}
+                    className="Posts-modal-form"
                   >
                     {passwordIsWrong ? (
                       <input
                         {...register("password", { required: true })}
                         name="password"
                         placeholder="비밀번호가 틀렸습니다"
+                        className="Posts-modal-input"
                       />
                     ) : (
                       <input
                         {...register("password", { required: true })}
                         name="password"
                         placeholder="비밀번호를 입력해주세요"
+                        className="Posts-modal-input"
                       />
                     )}
-                    <Button
-                      canClick={true}
-                      loading={false}
-                      actionText={"확인"}
-                    />
+                    <button className="Posts-modal-button">확인</button>
                   </form>
                 </div>
               </>
