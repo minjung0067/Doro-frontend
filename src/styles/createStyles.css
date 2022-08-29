@@ -1,13 +1,18 @@
-.Create-post-parent {
-  min-width: 106.667rem;
-  margin-left: 20.556rem;
-  margin-right: 20.556rem;
+.Create-post-page-parent {
+  min-width: 80rem;
+}
+.Create-post-content-parent {
+  margin-left: auto;
+  margin-right: auto;
+  width: 65.571rem;
+  height: 75.788rem;
+  flex-grow: 0;
+  margin-bottom: 7.677rem;
 }
 
 .Create-post-title {
   width: 6.944rem;
   height: 1.611rem;
-
   margin-bottom: 1.167rem;
   margin-top: 5.5rem;
   flex-grow: 0;
@@ -21,8 +26,12 @@
   text-align: left;
   color: #000;
 }
+.Create-post-input-parent {
+  display: flex;
+  height: 4.056rem;
+}
 .Create-post-Frame-72 {
-  width: 55.556rem;
+  width: 84%;
   height: 4.056rem;
   flex-grow: 0;
   display: flex;
@@ -35,7 +44,7 @@
   background-color: #fff;
 }
 .Create-post-input-title {
-  width: 10rem;
+  width: 16%;
   height: 4.056rem;
   flex-grow: 0;
   display: flex;
@@ -69,7 +78,7 @@
 }
 
 .Create-post-input {
-  width: 54.444rem;
+  width: 99%;
   height: 2.556rem;
   flex-grow: 0;
   display: flex;
@@ -94,7 +103,7 @@
   border: solid 1px var(--doro-light-grey);
 }
 .Create-post-Frame-72-checkbox {
-  width: 55.556rem;
+  width: 84%;
   height: 4.056rem;
   flex-grow: 0;
   display: flex;
@@ -105,8 +114,13 @@
   background-color: #fff;
 }
 
+.Create-post-input-textarea-parent {
+  display: flex;
+  height: 23.056rem;
+}
+
 .Create-post-Rectangle-49 {
-  width: 10rem;
+  width: 16%;
   height: 23.056rem;
   flex-grow: 0;
   padding: 1.111rem 5.111rem 20.333rem 1.389rem;
@@ -115,8 +129,8 @@
 }
 
 .Create-post-Frame-91 {
-  width: 55.556rem;
-  height: 23.056rem;
+  width: 84%;
+
   flex-grow: 0;
   display: flex;
   flex-direction: column;
@@ -129,7 +143,7 @@
 }
 
 .Create-post-textarea {
-  width: 54.444rem;
+  width: 99%;
   height: 20.889rem;
   flex-grow: 0;
   display: flex;
@@ -141,12 +155,24 @@
   border-radius: 4px;
   border: solid 1px var(--doro-light-grey);
 }
-.Create-post-agree-notification {
-  height: 1.444rem;
+
+.Create-post-agree-notification-parent {
   margin-top: 0.944rem;
+  height: 1.444rem;
+}
+.create-post-notification-checkbox-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-content: center;
+  margin-left: 1.111rem;
+  margin-top: 0.944rem;
+}
+.Create-post-agree-notification {
   padding: 0 1.889rem 0.056rem 0;
+  margin-bottom: 1.444rem;
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 1.306rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -158,9 +184,16 @@
 .Create-post-Rectangle-63 {
   width: 1.306rem;
   height: 1.306rem;
-  margin-top: 0.944rem;
+
   margin-right: 0.672rem;
   border: solid 0.9px var(--doro-grey);
+}
+.Create-post-agree-info-confirm-parent {
+  display: flex;
+  position: absolute;
+  justify-content: start;
+  z-index: 1;
+  margin-top: 2.444rem;
 }
 .Create-post-submit-button {
   width: 9.944rem;
@@ -187,4 +220,40 @@
   letter-spacing: 0.9px;
   text-align: left;
   color: #fff;
+}
+
+.Create-post-input-title-notification {
+  width: 16%;
+
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1.167rem, 20.556rem;
+  gap: 8px;
+  padding: 1.111rem 1.389rem;
+}
+
+.Create-post-Frame-72-notification {
+  width: 84%;
+
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0.722rem 0;
+  background-color: #fff;
+}
+
+.Create-post-input-parent-notification {
+  display: flex;
+}
+
+.Create-post-submit-button-parent {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.44rem;
 }
