@@ -1,0 +1,41 @@
+.Header-container {
+  height: 1.932rem;
+  width: 65.571rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Header-header {
+  padding-top: 1.534rem;
+  min-width: 80rem;
+}
+
+.Header-logo {
+  width: 9.016rem;
+  height: 1.932rem;
+}
+
+.Header-link-community {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: var(--doro-grey);
+  margin-right: 1.611rem;
+}
+
+.Header-link-inquiry {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: var(--doro-grey);
+}

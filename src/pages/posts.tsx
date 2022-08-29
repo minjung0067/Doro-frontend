@@ -20,6 +20,7 @@ import {
 } from "../__generated__/checkPasswordForPostOpen";
 import { setTokenSourceMapRange } from "typescript";
 import { getValue } from "@testing-library/user-event/dist/utils";
+import { Foot } from "../components/foot";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -239,30 +240,41 @@ export const Posts = () => {
                 setModalInputPassword(false);
                 setModalIsOpen(false);
               }}
+              className="Posts-modal"
             >
               <>
-                <span>게시글 비밀번호를 입력해주세요</span>
-                <form onSubmit={handleSubmit(() => onOpenPasswordSubmit(num))}>
-                  {passwordIsWrong ? (
-                    <input
-                      {...register("password", { required: true })}
-                      name="password"
-                      placeholder="비밀번호가 틀렸습니다"
-                    />
-                  ) : (
-                    <input
-                      {...register("password", { required: true })}
-                      name="password"
-                      placeholder="비밀번호를 입력해주세요"
-                    />
-                  )}
-                  <Button canClick={true} loading={false} actionText={"확인"} />
-                </form>
+                <div className="Posts-modal-container">
+                  <span className="Posts-modal-title">
+                    게시글 비밀번호를 입력해주세요
+                  </span>
+                  <form
+                    onSubmit={handleSubmit(() => onOpenPasswordSubmit(num))}
+                    className="Posts-modal-form"
+                  >
+                    {passwordIsWrong ? (
+                      <input
+                        {...register("password", { required: true })}
+                        name="password"
+                        placeholder="비밀번호가 틀렸습니다"
+                        className="Posts-modal-input"
+                      />
+                    ) : (
+                      <input
+                        {...register("password", { required: true })}
+                        name="password"
+                        placeholder="비밀번호를 입력해주세요"
+                        className="Posts-modal-input"
+                      />
+                    )}
+                    <button className="Posts-modal-button">확인</button>
+                  </form>
+                </div>
               </>
             </Modal>
           </>
 
-          <div className="flex items-center justify-end Posts-bottom-container">
+          <div className="flex items-center justify-between Posts-bottom-container">
+            <div className="Posts-empty"></div>
             <div className="Posts-pagination-container">
               <button
                 onClick={onFirstPageClick}
