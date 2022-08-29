@@ -1,6 +1,6 @@
 import { gql, useLazyQuery, useMutation, useQuery } from "@apollo/client";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { Banner } from "../components/banner";
 import {
@@ -25,6 +25,7 @@ import {
 import editLogo from "../images/edit.png";
 import deleteLogo from "../images/delete.png";
 import postsLogo from "../images/posts.png";
+import { NotFound } from "./404";
 export const POST_QUERY = gql`
   query findPostForPost($input: FindPostInput!) {
     findPost(input: $input) {
@@ -77,6 +78,7 @@ export const Post = () => {
   }, []);
   const params = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { state } = useLocation();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
   const [modalInputPassword, setModalInputPassword] = useState(false);
@@ -217,229 +219,238 @@ export const Post = () => {
       <Helmet>
         <title>Post | DORO</title>
       </Helmet>
-      <Banner
-        route={postsRoute}
-        title="문의 게시판"
-        subtitle="Education inquiry board"
-        content="문의 답변을 확인할 수 있습니다"
-      />
-      <div className="Education-inquiry-board_after-answer ">
-        <div className=" Post-title-frame63-parent">
-          <span className="Post-title ">{data?.findPost.post?.title}</span>
-          <div className="Frame-63 ">
+
+      {data?.findPost.ok && state ? (
+        <div>
+          <Banner
+            route={postsRoute}
+            title="문의 게시판"
+            subtitle="Education inquiry board"
+            content="문의 답변을 확인할 수 있습니다"
+          />{" "}
+          <div className="Education-inquiry-board_after-answer ">
+            <div className=" Post-title-frame63-parent">
+              <span className="Post-title ">{data?.findPost.post?.title}</span>
+              <div className="Frame-63 ">
+                {data?.findPost.post?.comments.length !== 0 && (
+                  <div className="Post-Frame-59 ">
+                    <span className="Post-answered-content">답변완료</span>
+                  </div>
+                )}
+                <span className="Post-owner">
+                  {data?.findPost.post?.ownerName}
+                </span>
+                <span className="Post-date">
+                  {data?.findPost.post?.createdAt.slice(0, 10)}
+                </span>
+              </div>
+            </div>
+            <div className="Post-Line-2"></div>
+            <div className="Post-content">{data?.findPost.post?.content}</div>
+            <div className="Post-Line-3"></div>
+
+            <div className="Post-Frame-67-parent">
+              <div className="Post-Frame-67">
+                <Modal
+                  isOpen={editModalIsOpen}
+                  onRequestClose={() => {
+                    setModalInputPassword(false);
+                    setEditModalIsOpen(false);
+                    setPasswordIsWrong(false);
+                  }}
+                  className="Posts-modal"
+                >
+                  {modalInputPassword ? (
+                    <>
+                      <div className="Posts-modal-container">
+                        <span className="Posts-modal-title">
+                          게시글 비밀번호를 입력해주세요
+                        </span>
+                        <form
+                          className="Posts-modal-form"
+                          onSubmit={handleSubmit(onEditPasswordSubmit)}
+                        >
+                          {passwordIsWrong ? (
+                            <input
+                              {...register("password", { required: true })}
+                              name="password"
+                              placeholder="비밀번호가 틀렸습니다"
+                              className="Posts-modal-input-error"
+                            ></input>
+                          ) : (
+                            <input
+                              {...register("password", { required: true })}
+                              name="password"
+                              placeholder="비밀번호를 입력해주세요"
+                              className="Posts-modal-input"
+                            ></input>
+                          )}
+                          <button className="Posts-modal-button transition-colors">
+                            수정하기
+                          </button>
+                        </form>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="Posts-modal-container">
+                        <span className="Posts-modal-title">
+                          게시물을 수정하겠습니까?
+                        </span>
+                        <div className="Posts-modal-form">
+                          <button
+                            onClick={() => {
+                              setModalInputPassword(true);
+                            }}
+                            className="Post-modal-button-yes"
+                          >
+                            예
+                          </button>
+                          <button
+                            onClick={() => {
+                              setEditModalIsOpen(false);
+                            }}
+                            className="Post-modal-button-no"
+                          >
+                            아니오
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </Modal>
+                <button className="Post-Frame-66" onClick={editButton}>
+                  <img src={editLogo}></img>
+                </button>
+                <Modal
+                  isOpen={deleteModalIsOpen}
+                  onRequestClose={() => {
+                    setModalInputPassword(false);
+                    setDeleteModalIsOpen(false);
+                    setPasswordIsWrong(false);
+                  }}
+                  className="Posts-modal"
+                >
+                  {modalInputPassword ? (
+                    <>
+                      <div className="Posts-modal-container">
+                        <span className="Posts-modal-title">
+                          게시글 비밀번호를 입력해주세요
+                        </span>
+                        <form
+                          className="Posts-modal-form"
+                          onSubmit={handleSubmit(onDeletePasswordSubmit)}
+                        >
+                          {passwordIsWrong ? (
+                            <input
+                              {...register("password", { required: true })}
+                              name="password"
+                              placeholder="비밀번호가 틀렸습니다"
+                              className="Posts-modal-input-error"
+                            ></input>
+                          ) : (
+                            <input
+                              {...register("password", { required: true })}
+                              name="password"
+                              placeholder="비밀번호를 입력해주세요"
+                              className="Posts-modal-input"
+                            ></input>
+                          )}
+                          <button className="Posts-modal-button transition-colors">
+                            삭제하기
+                          </button>
+                        </form>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="Posts-modal-container">
+                        <span className="Posts-modal-title">
+                          게시물을 삭제하겠습니까?
+                        </span>
+                        <div className="Posts-modal-form">
+                          <button
+                            onClick={() => {
+                              setModalInputPassword(true);
+                            }}
+                            className="Post-modal-button-yes"
+                          >
+                            예
+                          </button>
+                          <button
+                            onClick={() => {
+                              setDeleteModalIsOpen(false);
+                            }}
+                            className="Post-modal-button-no"
+                          >
+                            아니오
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </Modal>
+                <Modal isOpen={deleteIsDone} className="Posts-modal">
+                  <div className="Posts-modal-container">
+                    <span className="Posts-modal-title">
+                      게시글이 삭제되었습니다
+                    </span>
+                    <div className="Posts-modal-form">
+                      <button
+                        onClick={onDeleteCompletedClick}
+                        className="Post-modal-button-ok"
+                      >
+                        확인
+                      </button>
+                    </div>
+                  </div>
+                </Modal>
+                <button className="Post-Frame-65" onClick={deleteButton}>
+                  <img src={deleteLogo}></img>
+                </button>
+                <button className="Post-Frame-64">
+                  <Link to="/posts">
+                    <img src={postsLogo}></img>
+                  </Link>
+                </button>
+              </div>
+            </div>
+
             {data?.findPost.post?.comments.length !== 0 && (
-              <div className="Post-Frame-59 ">
-                <span className="Post-answered-content">답변완료</span>
+              <div>
+                <span className="Post-answer-title">문의 답변</span>
+                <div className="Post-Line-2"></div>
+                <div className="Post-answer-content">
+                  {
+                    data?.findPost.post?.comments[
+                      data?.findPost.post?.comments.length - 1
+                    ]?.content
+                  }
+                </div>
+                <div className="Post-Line-5"></div>
               </div>
             )}
-            <span className="Post-owner">{data?.findPost.post?.ownerName}</span>
-            <span className="Post-date">
-              {data?.findPost.post?.createdAt.slice(0, 10)}
-            </span>
+
+            {userData?.me.role === "Manager" ? (
+              <form onSubmit={handleSubmit(onCommentSubmit)}>
+                <textarea
+                  {...register("comment", { required: true })}
+                  name="comment"
+                ></textarea>
+                <Button
+                  canClick={formState.isValid}
+                  loading={loading}
+                  actionText={"답변 등록"}
+                />
+              </form>
+            ) : (
+              <span></span>
+            )}
           </div>
         </div>
-        <div className="Post-Line-2"></div>
-        <div className="Post-content">{data?.findPost.post?.content}</div>
-        <div className="Post-Line-3"></div>
-
-        <div className="Post-Frame-67-parent">
-          <div className="Post-Frame-67">
-            <Modal
-              isOpen={editModalIsOpen}
-              onRequestClose={() => {
-                setModalInputPassword(false);
-                setEditModalIsOpen(false);
-                setPasswordIsWrong(false);
-              }}
-              className="Posts-modal"
-            >
-              {modalInputPassword ? (
-                <>
-                  <div className="Posts-modal-container">
-                    <span className="Posts-modal-title">
-                      게시글 비밀번호를 입력해주세요
-                    </span>
-                    <form
-                      className="Posts-modal-form"
-                      onSubmit={handleSubmit(onEditPasswordSubmit)}
-                    >
-                      {passwordIsWrong ? (
-                        <input
-                          {...register("password", { required: true })}
-                          name="password"
-                          placeholder="비밀번호가 틀렸습니다"
-                          className="Posts-modal-input-error"
-                        ></input>
-                      ) : (
-                        <input
-                          {...register("password", { required: true })}
-                          name="password"
-                          placeholder="비밀번호를 입력해주세요"
-                          className="Posts-modal-input"
-                        ></input>
-                      )}
-                      <button className="Posts-modal-button transition-colors">
-                        수정하기
-                      </button>
-                    </form>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="Posts-modal-container">
-                    <span className="Posts-modal-title">
-                      게시물을 수정하겠습니까?
-                    </span>
-                    <div className="Posts-modal-form">
-                      <button
-                        onClick={() => {
-                          setModalInputPassword(true);
-                        }}
-                        className="Post-modal-button-yes"
-                      >
-                        예
-                      </button>
-                      <button
-                        onClick={() => {
-                          setEditModalIsOpen(false);
-                        }}
-                        className="Post-modal-button-no"
-                      >
-                        아니오
-                      </button>
-                    </div>
-                  </div>
-                </>
-              )}
-            </Modal>
-            <button className="Post-Frame-66" onClick={editButton}>
-              <img src={editLogo}></img>
-            </button>
-            <Modal
-              isOpen={deleteModalIsOpen}
-              onRequestClose={() => {
-                setModalInputPassword(false);
-                setDeleteModalIsOpen(false);
-                setPasswordIsWrong(false);
-              }}
-              className="Posts-modal"
-            >
-              {modalInputPassword ? (
-                <>
-                  <div className="Posts-modal-container">
-                    <span className="Posts-modal-title">
-                      게시글 비밀번호를 입력해주세요
-                    </span>
-                    <form
-                      className="Posts-modal-form"
-                      onSubmit={handleSubmit(onDeletePasswordSubmit)}
-                    >
-                      {passwordIsWrong ? (
-                        <input
-                          {...register("password", { required: true })}
-                          name="password"
-                          placeholder="비밀번호가 틀렸습니다"
-                          className="Posts-modal-input-error"
-                        ></input>
-                      ) : (
-                        <input
-                          {...register("password", { required: true })}
-                          name="password"
-                          placeholder="비밀번호를 입력해주세요"
-                          className="Posts-modal-input"
-                        ></input>
-                      )}
-                      <button className="Posts-modal-button transition-colors">
-                        삭제하기
-                      </button>
-                    </form>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="Posts-modal-container">
-                    <span className="Posts-modal-title">
-                      게시물을 삭제하겠습니까?
-                    </span>
-                    <div className="Posts-modal-form">
-                      <button
-                        onClick={() => {
-                          setModalInputPassword(true);
-                        }}
-                        className="Post-modal-button-yes"
-                      >
-                        예
-                      </button>
-                      <button
-                        onClick={() => {
-                          setDeleteModalIsOpen(false);
-                        }}
-                        className="Post-modal-button-no"
-                      >
-                        아니오
-                      </button>
-                    </div>
-                  </div>
-                </>
-              )}
-            </Modal>
-            <Modal isOpen={deleteIsDone} className="Posts-modal">
-              <div className="Posts-modal-container">
-                <span className="Posts-modal-title">
-                  게시글이 삭제되었습니다
-                </span>
-                <div className="Posts-modal-form">
-                  <button
-                    onClick={onDeleteCompletedClick}
-                    className="Post-modal-button-ok"
-                  >
-                    확인
-                  </button>
-                </div>
-              </div>
-            </Modal>
-            <button className="Post-Frame-65" onClick={deleteButton}>
-              <img src={deleteLogo}></img>
-            </button>
-            <button className="Post-Frame-64">
-              <Link to="/posts">
-                <img src={postsLogo}></img>
-              </Link>
-            </button>
-          </div>
-        </div>
-
-        {data?.findPost.post?.comments.length !== 0 && (
-          <div>
-            <span className="Post-answer-title">문의 답변</span>
-            <div className="Post-Line-2"></div>
-            <div className="Post-answer-content">
-              {
-                data?.findPost.post?.comments[
-                  data?.findPost.post?.comments.length - 1
-                ]?.content
-              }
-            </div>
-            <div className="Post-Line-5"></div>
-          </div>
-        )}
-
-        {userData?.me.role === "Manager" ? (
-          <form onSubmit={handleSubmit(onCommentSubmit)}>
-            <textarea
-              {...register("comment", { required: true })}
-              name="comment"
-            ></textarea>
-            <Button
-              canClick={formState.isValid}
-              loading={loading}
-              actionText={"답변 등록"}
-            />
-          </form>
-        ) : (
-          <span></span>
-        )}
-      </div>
+      ) : (
+        <NotFound />
+      )}
     </div>
   );
 };
