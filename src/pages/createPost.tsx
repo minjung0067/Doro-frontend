@@ -32,6 +32,9 @@ interface ICreatePostForm {
 }
 
 export const CreatePost = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const { data: userData, refetch } = useMe();
   const [isHovering, setIsHovering] = useState(0);

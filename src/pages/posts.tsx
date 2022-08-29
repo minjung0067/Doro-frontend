@@ -63,6 +63,9 @@ interface IFormProps {
 }
 
 export const Posts = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [modalInputPassword, setModalInputPassword] = useState(false);
   const [passwordIsWrong, setPasswordIsWrong] = useState(false);
