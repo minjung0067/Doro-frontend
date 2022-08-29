@@ -203,7 +203,7 @@ export const CreatePost = () => {
               <input
                 {...register("title", { required: true })}
                 name="title"
-                maxLength={15}
+                maxLength={30}
                 className="Create-post-input"
                 placeholder="title"
               />

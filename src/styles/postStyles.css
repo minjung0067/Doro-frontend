@@ -3,14 +3,13 @@
 }
 
 .Education-inquiry-board_after-answer {
-  flex-grow: 0;
-  margin-left: 20.556rem;
-  margin-right: 20.556rem;
+  width: 65.571rem;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #fff;
 }
 
 .Post-title {
-  width: 20.222rem;
   height: 2.278rem;
   margin: 1.333rem 0rem 0.583rem 0rem;
   font-family: Pretendard;
