@@ -53,6 +53,9 @@ interface IEditPostForm {
 }
 
 export const EditPost = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { state } = useLocation();
 
   const { id } = useParams<{ id: string }>();

@@ -9,7 +9,7 @@ import {
 } from "../__generated__/findPostForPost";
 import postsRoute from "../images/postsRoute.png";
 import Modal from "react-modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../components/button";
 import {
@@ -72,6 +72,9 @@ export const CREATE_COMMENT = gql`
 `;
 
 export const Post = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const params = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
