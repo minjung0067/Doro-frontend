@@ -9,7 +9,9 @@
   margin-top: 7.889rem;
   margin-left: 20.556rem;
   margin-right: 20.556rem;
+  margin-bottom: 9.667rem;
   font-family: Pretendard;
+  height: 58.5rem;
 }
 
 .Posts-post-container {
@@ -97,7 +99,6 @@
 }
 
 .Posts-pagination-container {
-  margin-right: 20.002rem;
   display: flex;
   align-items: center;
 }
@@ -127,6 +128,11 @@
   color: var(--doro-grey);
   font-weight: lighter;
   margin-left: 0.833rem;
+}
+
+.Posts-empty {
+  width: 10rem;
+  height: 2.833rem;
 }
 
 .Posts-create-button {

@@ -1,0 +1,184 @@
+.Foot-container {
+  height: 21.056rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  padding-top: 2.833rem;
+  padding-bottom: 4.111rem;
+  background-color: #f1f1f1;
+  min-width: 80rem;
+}
+
+.Foot-content-container {
+  margin-left: 20.556rem;
+  margin-right: 25.222rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.Foot-top-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.278rem;
+  justify-content: space-between;
+}
+
+.Foot-top-right-container {
+  display: flex;
+}
+
+.Foot-doro-logo,
+.Foot-logo-link,
+.Foot-logo-img {
+  width: 9.016rem;
+  height: 1.932rem;
+}
+
+.Foot-doro-logo {
+}
+
+.Foot-inquiry-container {
+  margin-left: 5.278rem;
+}
+
+.Foot-company,
+.Foot-inquiry-span {
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #212121;
+  margin-bottom: 1.278rem;
+}
+
+.Foot-introduce,
+.Foot-recruit {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-grey);
+}
+
+.Foot-phone,
+.Foot-email {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-grey);
+}
+
+.Foot-introduce,
+.Foot-phone {
+  display: flex;
+  margin-bottom: 0.611rem;
+}
+
+.Foot-time {
+  margin-bottom: 0.611rem;
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-grey);
+}
+
+.Foot-recruit {
+  display: flex;
+}
+
+.Foot-bottom-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Foot-bottom-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Foot-sns {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5.389rem;
+}
+
+.Foot-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.Foot-information-doro,
+.Foot-address {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-grey);
+}
+
+.Foot-information-doro {
+  margin-bottom: 0.611rem;
+}
+
+.Foot-inquiry-frame {
+  margin-right: 0.834rem;
+}
+
+.Foot-inquiry-button {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: #000;
+  width: 10rem;
+  height: 2.833rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0.778rem 1.833rem;
+  border-radius: 25px;
+  background-color: #fff;
+}
+
+.Foot-insta-frame {
+  margin-right: 0.889rem;
+}
+
+.Foot-insta-img,
+.Foot-notion-img,
+.Foot-insta-frame,
+.Foot-notion-frame {
+  width: 2.444rem;
+  height: 2.444rem;
+}

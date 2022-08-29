@@ -20,6 +20,7 @@ import {
 } from "../__generated__/checkPasswordForPostOpen";
 import { setTokenSourceMapRange } from "typescript";
 import { getValue } from "@testing-library/user-event/dist/utils";
+import { Foot } from "../components/foot";
 
 const POSTS_QUERY = gql`
   query postsPageQuery($input: FindAllPostsInput!) {
@@ -262,7 +263,8 @@ export const Posts = () => {
             </Modal>
           </>
 
-          <div className="flex items-center justify-end Posts-bottom-container">
+          <div className="flex items-center justify-between Posts-bottom-container">
+            <div className="Posts-empty"></div>
             <div className="Posts-pagination-container">
               <button
                 onClick={onFirstPageClick}
