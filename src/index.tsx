@@ -13,6 +13,7 @@ import "./styles/postStyles.css";
 import "./styles/headerStyles.css";
 import "./styles/footStyles.css";
 import "./styles/bannerStyles.css";
+import "./styles/modalStyles.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
