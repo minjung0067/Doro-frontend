@@ -28,6 +28,9 @@ export const Foot: React.FC = () => {
               >
                 강사모집
               </a>
+              <div className="Foot-mananger-login">
+                <Link to={"/login"}>a</Link>
+              </div>
             </div>
             <div className="Foot-inquiry-container">
               <p className="Foot-inquiry-span">교육 문의</p>

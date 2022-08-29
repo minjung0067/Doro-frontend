@@ -11,6 +11,7 @@ import { findPost, findPostVariables } from "../__generated__/findPost";
 
 import { updatePost, updatePostVariables } from "../__generated__/updatePost";
 import createPostRoute from "../images/createPostRoute.png";
+import { NotFound } from "./404";
 
 const EDIT_POST_MUTATION = gql`
   mutation updatePost($input: UpdatePostInput!) {
@@ -155,15 +156,16 @@ export const EditPost = () => {
       <Helmet>
         <title>Create | DORO</title>
       </Helmet>
-      <Banner
-        route={createPostRoute}
-        title="교육문의"
-        subtitle="Education inquiry"
-        content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
-      />
-      <div className="Create-post-content-parent">
-        {state ? (
-          <div>
+
+      {state ? (
+        <>
+          <Banner
+            route={createPostRoute}
+            title="교육문의"
+            subtitle="Education inquiry"
+            content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
+          />
+          <div className="Create-post-content-parent">
             <div className="Create-post-title">문의신청정보</div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className=" Create-post-input-parent ">
@@ -301,12 +303,10 @@ export const EditPost = () => {
               </div>
             </form>
           </div>
-        ) : (
-          <>
-            <span>404 error do right thing</span>
-          </>
-        )}
-      </div>
+        </>
+      ) : (
+        <NotFound />
+      )}
     </div>
   );
 };

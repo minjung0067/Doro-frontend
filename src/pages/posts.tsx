@@ -109,7 +109,7 @@ export const Posts = () => {
       reset();
       setModalIsOpen(true);
     } else {
-      navigate(`/post/${id}`);
+      navigate(`/post/${id}`, { state: true });
     }
   };
 
@@ -121,7 +121,7 @@ export const Posts = () => {
       reset();
       setPasswordIsWrong(true);
     } else {
-      navigate(`/post/${data?.checkPassword?.post?.id}`);
+      navigate(`/post/${data?.checkPassword?.post?.id}`, { state: true });
     }
   };
 
