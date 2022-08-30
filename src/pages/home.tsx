@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import instructor1 from "../images/instructor1.png";
 import instructor2 from "../images/instructor2.png";
@@ -28,6 +28,24 @@ export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const horizontalScrollRef = useRef<HTMLInputElement>(null);
+
+  const handleNextButtonClick = (nextType: "prev" | "next") => {
+    console.log(horizontalScrollRef.current);
+    if (!horizontalScrollRef.current) return;
+    if (nextType === "next") {
+      horizontalScrollRef.current.scrollTo({
+        left: horizontalScrollRef.current.scrollLeft - 180,
+        behavior: "smooth",
+      });
+    } else {
+      horizontalScrollRef.current.scrollTo({
+        left: horizontalScrollRef.current.scrollLeft + 180,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="Main-Container">
       <div className="Main1">
@@ -93,14 +111,20 @@ export const HomePage = () => {
               </p>
             </div>
             <div className="Main3-top-button-container">
-              <button className="Main3-top-left-button">
+              <button
+                onClick={() => handleNextButtonClick("prev")}
+                className="Main3-top-left-button"
+              >
                 <img
                   src={leftButton}
                   alt="Left"
                   className="Main3-top-left-image"
                 ></img>
               </button>
-              <button className="Main3-top-left-button">
+              <button
+                onClick={() => handleNextButtonClick("next")}
+                className="Main3-top-left-button"
+              >
                 <img
                   src={rightButton}
                   alt="Right"
@@ -109,112 +133,149 @@ export const HomePage = () => {
               </button>
             </div>
           </div>
-          <div className="Main3-bottom-container">
-            <div className="Main3-bottom-image1-container">
-              <img
-                src={speaker}
-                alt="Program"
-                className="Main3-bottom-image1"
-              ></img>
-              <div className="Main3-bottom-image1-letters">
-                <p className="Main3-bottom-image-title">
-                  DORO DIY 블루투스 스피커
-                </p>
-                <p className="Main3-bottom-image-subtitle">
-                  #IOT #블루투스 #음향학
-                </p>
-                <Link to="/createPost" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
-            </div>
-            <div className="Main3-bottom-image2-container">
-              <img
-                src={mood}
-                alt="Program"
-                className="Main3-bottom-image2"
-              ></img>
-              <div className="Main3-bottom-image2-letters">
-                <p className="Main3-bottom-image-title">DORO DIY 미니 무드등</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #기초회로 #전자공학 #소재공학
-                </p>
+        </div>
+      </div>
+      <div className="Main3-slide-bar">
+        <div ref={horizontalScrollRef} className="Main3-bottom-container">
+          <div className="Main3-bottom-image5-container">
+            {/* <img
+                  src={balancing}
+                  alt="Program"
+                  className="Main3-bottom-image4"
+                ></img> */}
+            <div className="Main3-bottom-image4-letters">
+              <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+              <p className="Main3-bottom-image-subtitle">
+                #제어공학 #로봇공학 #아두이노 #코딩
+              </p>
+              <Link to="/createPost" className="Main3-bottom-image-button">
                 <button className="Main3-bottom-image-button">
                   <span className="Main3-bottom-image-inquiry">
                     프로그램 문의하기
                   </span>
                   <span className="Main3-bottom-image-arrow">&rsaquo;</span>
                 </button>
-              </div>
+              </Link>
             </div>
-            <div className="Main3-bottom-image3-container">
-              <img
-                src={game}
-                alt="Program"
-                className="Main3-bottom-image3"
-              ></img>
-              <div className="Main3-bottom-image3-letters">
-                <p className="Main3-bottom-image-title">DORO 아두이노 게임기</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #중급회로 #임베디드 #아두이노 #코딩
-                </p>
-                <Link to="/createPost" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
+          </div>
+          <div className="Main3-bottom-image1-container">
+            <img
+              src={speaker}
+              alt="Program"
+              className="Main3-bottom-image1"
+            ></img>
+            <div className="Main3-bottom-image1-letters">
+              <p className="Main3-bottom-image-title">
+                DORO DIY 블루투스 스피커
+              </p>
+              <p className="Main3-bottom-image-subtitle">
+                #IOT #블루투스 #음향학
+              </p>
+              <Link to="/createPost" className="Main3-bottom-image-button">
+                <button className="Main3-bottom-image-button">
+                  <span className="Main3-bottom-image-inquiry">
+                    프로그램 문의하기
+                  </span>
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                </button>
+              </Link>
             </div>
-            <div className="Main3-bottom-image4-container">
-              <img
-                src={balancing}
-                alt="Program"
-                className="Main3-bottom-image4"
-              ></img>
-              <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #제어공학 #로봇공학 #아두이노 #코딩
-                </p>
-                <Link to="/createPost" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
+          </div>
+          <div className="Main3-bottom-image2-container">
+            <img src={mood} alt="Program" className="Main3-bottom-image2"></img>
+            <div className="Main3-bottom-image2-letters">
+              <p className="Main3-bottom-image-title">DORO DIY 미니 무드등</p>
+              <p className="Main3-bottom-image-subtitle">
+                #기초회로 #전자공학 #소재공학
+              </p>
+              <button className="Main3-bottom-image-button">
+                <span className="Main3-bottom-image-inquiry">
+                  프로그램 문의하기
+                </span>
+                <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+              </button>
             </div>
+          </div>
+          <div className="Main3-bottom-image3-container">
+            <img src={game} alt="Program" className="Main3-bottom-image3"></img>
+            <div className="Main3-bottom-image3-letters">
+              <p className="Main3-bottom-image-title">DORO 아두이노 게임기</p>
+              <p className="Main3-bottom-image-subtitle">
+                #중급회로 #임베디드 #아두이노 #코딩
+              </p>
+              <Link to="/createPost" className="Main3-bottom-image-button">
+                <button className="Main3-bottom-image-button">
+                  <span className="Main3-bottom-image-inquiry">
+                    프로그램 문의하기
+                  </span>
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                </button>
+              </Link>
+            </div>
+          </div>
 
-            <div className="Main3-bottom-image4-container">
-              <img
-                src={balancing}
-                alt="Program"
-                className="Main3-bottom-image4"
-              ></img>
-              <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #제어공학 #로봇공학 #아두이노 #코딩
-                </p>
-                <Link to="/createPost" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
+          <div className="Main3-bottom-image4-container">
+            <img
+              src={balancing}
+              alt="Program"
+              className="Main3-bottom-image4"
+            ></img>
+            <div className="Main3-bottom-image4-letters">
+              <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+              <p className="Main3-bottom-image-subtitle">
+                #제어공학 #로봇공학 #아두이노 #코딩
+              </p>
+              <Link to="/createPost" className="Main3-bottom-image-button">
+                <button className="Main3-bottom-image-button">
+                  <span className="Main3-bottom-image-inquiry">
+                    프로그램 문의하기
+                  </span>
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="Main3-bottom-image5-container">
+            {/* <img
+                  src={balancing}
+                  alt="Program"
+                  className="Main3-bottom-image4"
+                ></img> */}
+            <div className="Main3-bottom-image4-letters">
+              <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+              <p className="Main3-bottom-image-subtitle">
+                #제어공학 #로봇공학 #아두이노 #코딩
+              </p>
+              <Link to="/createPost" className="Main3-bottom-image-button">
+                <button className="Main3-bottom-image-button">
+                  <span className="Main3-bottom-image-inquiry">
+                    프로그램 문의하기
+                  </span>
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                </button>
+              </Link>
+            </div>
+          </div>
+          <div className="Main3-bottom-image5-container">
+            {/* <img
+                  src={balancing}
+                  alt="Program"
+                  className="Main3-bottom-image4"
+                ></img> */}
+            <div className="Main3-bottom-image4-letters">
+              <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+              <p className="Main3-bottom-image-subtitle">
+                #제어공학 #로봇공학 #아두이노 #코딩
+              </p>
+              <Link to="/createPost" className="Main3-bottom-image-button">
+                <button className="Main3-bottom-image-button">
+                  <span className="Main3-bottom-image-inquiry">
+                    프로그램 문의하기
+                  </span>
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

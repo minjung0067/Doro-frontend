@@ -1,5 +1,5 @@
 .Main3 {
-  height: 46.722rem;
+  height: 18.222rem;
   width: 106.667rem;
   margin-left: auto;
   margin-right: auto;
@@ -7,7 +7,6 @@
 
 .Main3-content-container {
   padding-top: 8.444rem;
-  padding-left: 20.694rem;
 }
 
 .Main3-top-container {
@@ -16,6 +15,7 @@
   width: 60.861rem;
   justify-content: space-between;
   margin-bottom: 4.111rem;
+  padding-left: 20.694rem;
 }
 
 .Main3-top-letter-container {
@@ -67,7 +67,9 @@
   display: flex;
   flex-direction: row;
   gap: 1.111rem;
-  overflow-x: scroll;
+  overflow-x: hidden;
+
+  width: 130rem;
 }
 
 .Main3-bottom-image1-container,
@@ -186,4 +188,18 @@
 .Main3-bottom-image4-letters {
   margin-top: 1.037rem;
   margin-left: 0.278rem;
+}
+
+.Main3-bottom-image5-container {
+  width: 21.111rem;
+  height: 21.222rem;
+  border-radius: 20px;
+  background-color: white;
+  padding: 1.389rem 2.083rem 1rem 0.722rem;
+}
+
+.Main3-slide-bar {
+  width: 106.667rem;
+  margin-left: auto;
+  margin-right: auto;
 }
