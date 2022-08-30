@@ -145,6 +145,90 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <div className="Main5">
+        <div className="Main5-content-container">
+          <div className="Main5-letter-container">
+            <p className="Main5-title">DORO 교육은 청소년재단과 함께 합니다</p>
+          </div>
+          <div className="Main5-datas-container">
+            <div className="Main5-data1-container">
+              <span className="Main5-data1-letter">강의 누적 교육생</span>
+              <span className="Main5-data1-number">3187명</span>
+            </div>
+            <div className="Main5-data2-container">
+              <span className="Main5-data2-letter">누적 키트 판매수</span>
+              <span className="Main5-data2-number">2139개</span>
+            </div>
+            <div className="Main5-data3-container">
+              <span className="Main5-data3-letter">강의 누적 시간</span>
+              <span className="Main5-data3-number">274시간</span>
+            </div>
+            <div className="Main5-data4-container">
+              <span className="Main5-data4-letter">강의 출강 학교 수</span>
+              <span className="Main5-data4-number">27개교</span>
+            </div>
+          </div>
+          <img src="" alt="dotologogray" className="Main5-doro-gray"></img>
+        </div>
+      </div>
+
+      <div className="Main6">
+        <div className="Main6-content-container">
+          <div className="Main6-top-container">
+            <div className="Main6-top-letter-container">
+              <p className="Main6-title">DORO와 함께한 순간들</p>
+              <p className="Main6-subtitle">
+                DORO는 경기도 안산시를 중심으로 다양한 학교 학생들에게 경험을
+                전달하고 있습니다.
+              </p>
+            </div>
+            <div className="Main6-top-button-container">
+              <button className="Main6-top-left-button">
+                <img src="" alt="Left" className="Main6-top-left-image"></img>
+              </button>
+              <button className="Main6-top-left-button">
+                <img src="" alt="Right" className="Main6-top-left-image"></img>
+              </button>
+            </div>
+          </div>
+          <div className="Main6-bottom-container">
+            <div className="Main6-bottom-image1-container">
+              <img src="" alt="Program" className="Main6-bottom-image1"></img>
+            </div>
+            <div className="Main6-bottom-image2-container">
+              <img src="" alt="Program" className="Main6-bottom-image2"></img>
+            </div>
+            <div className="Main6-bottom-image3-container">
+              <img src="" alt="Program" className="Main3-bottom-image3"></img>
+            </div>
+            <div className="Main6-bottom-image4-container">
+              <img src="" alt="Program" className="Main3-bottom-image4"></img>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="Main7">
+        <div className="Main7-content-container">
+          <p className="Main7-title">DORO 교육 프로세스</p>
+          <img src="" alt="ProcessImage" className="Main7-image"></img>
+        </div>
+      </div>
+
+      <div className="Main8">
+        <div className="Main8-content-container">
+          <img src="" alt="dorologo" className="Main8-dorologo"></img>
+          <p className="Main8-title">
+            더 유익하고, 더 즐거운
+            <br />
+            교육을 아이들에게 선물해주세요
+          </p>
+          <Link to="/createPost" className="Main8-button-frame">
+            <button className="Main8-button">교육 문의하기</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
