@@ -14,6 +14,9 @@ import "./styles/headerStyles.css";
 import "./styles/footStyles.css";
 import "./styles/bannerStyles.css";
 import "./styles/modalStyles.css";
+import "./styles/main5Styles.css";
+import "./styles/main7Styles.css";
+import "./styles/main8Styles.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
