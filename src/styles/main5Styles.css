@@ -1,0 +1,207 @@
+.Main5 {
+  height: 42.333rem;
+
+  background-color: var(--doro-super-light-grey);
+}
+.Main5-content-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 106.667rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--doro-super-light-grey);
+  min-width: 106.667rem;
+}
+.Main5-letter-container {
+  margin-top: 6.222rem;
+  height: 5.167rem;
+}
+.Main5-title {
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  color: #212121;
+  margin: 0.889rem 0rem 0.3rem 0rem;
+}
+.Main5-datas-container {
+  height: 24rem;
+  width: 43.389rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  border-top: solid 0.167rem #d9d9d9;
+  border-bottom: solid 0.167rem #d9d9d9;
+}
+
+.Main5-data1-container {
+  height: 5.958rem;
+  width: 43.389rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 0.083rem #d9d9d9;
+}
+.Main5-data1-letter {
+  width: 8.722rem;
+  height: 1.611rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+}
+.Main5-data1-number {
+  width: 8.611rem;
+  height: 3.222rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--doro-medium);
+}
+
+.Main5-data2-container {
+  height: 5.917rem;
+  width: 43.389rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 0.083rem #d9d9d9;
+}
+.Main5-data2-letter {
+  width: 8.722rem;
+  height: 1.611rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-black);
+}
+.Main5-data2-number {
+  width: 8.611rem;
+  height: 3.222rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--doro-medium);
+}
+
+.Main5-data3-container {
+  height: 5.917rem;
+  width: 43.389rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 0.083rem #d9d9d9;
+}
+.Main5-data3-letter {
+  width: 7.611rem;
+  height: 1.611rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-black);
+}
+.Main5-data3-number {
+  width: 9.389rem;
+  height: 3.222rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  color: #2896da;
+}
+
+.Main5-data4-container {
+  height: 5.958rem;
+  width: 43.389rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.Main5-data4-letter {
+  width: 9.056rem;
+  height: 1.611rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--doro-black);
+}
+.Main5-data4-number {
+  width: 7.778rem;
+  height: 3.222rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--doro-light);
+}
+.Main5-doro-logo-gray-container {
+  margin-top: 0.643rem;
+  width: 43.389rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5.414rem;
+}

@@ -1,0 +1,59 @@
+.Main8 {
+  height: 38.278rem;
+  min-width: 106.667rem;
+  background-color: var(--doro-medium);
+}
+.Main8-content-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 33.5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Main8-dorologo {
+  width: 9.016rem;
+  height: 1.932rem;
+  margin-top: 7.5rem;
+  margin-bottom: 2.389rem;
+}
+.Main8-title {
+  height: 6.444rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  margin-bottom: 9.667rem;
+}
+
+.Main8-button-frame {
+  width: 10rem;
+  height: 2.833rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.778rem 1.833rem;
+  border-radius: 25px;
+  background-color: var(--doro-super-light-grey);
+}
+.Main8-button {
+  height: 0.944rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: #000;
+}
