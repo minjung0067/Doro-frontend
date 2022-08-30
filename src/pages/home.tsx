@@ -1,5 +1,20 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import instructor1 from "../images/instructor1.png";
+import instructor2 from "../images/instructor2.png";
+import instructor3 from "../images/instructor3.png";
+import instructor4 from "../images/instructor4.png";
+import leftButton from "../images/left-button.png";
+import rightButton from "../images/right-button.png";
+import speaker from "../images/speaker.png";
+import mood from "../images/mood.png";
+import game from "../images/game.png";
+import balancing from "../images/balancing.png";
+
+import child1 from "../images/main6-1.png";
+import child2 from "../images/main6-2.png";
+import child3 from "../images/main6-3.png";
+import child4 from "../images/main6-4.png";
 
 export const HomePage = () => {
   useEffect(() => {
@@ -35,10 +50,26 @@ export const HomePage = () => {
             </p>
           </div>
           <div className="Main2-image-container">
-            <img src="" alt="Instructor" className="Main2-image1"></img>
-            <img src="" alt="Instructor" className="Main2-image2"></img>
-            <img src="" alt="Instructor" className="Main2-image3"></img>
-            <img src="" alt="Instructor" className="Main2-image4"></img>
+            <img
+              src={instructor1}
+              alt="Instructor"
+              className="Main2-image1"
+            ></img>
+            <img
+              src={instructor2}
+              alt="Instructor"
+              className="Main2-image2"
+            ></img>
+            <img
+              src={instructor3}
+              alt="Instructor"
+              className="Main2-image3"
+            ></img>
+            <img
+              src={instructor4}
+              alt="Instructor"
+              className="Main2-image4"
+            ></img>
           </div>
         </div>
       </div>
@@ -55,34 +86,52 @@ export const HomePage = () => {
             </div>
             <div className="Main3-top-button-container">
               <button className="Main3-top-left-button">
-                <img src="" alt="Left" className="Main3-top-left-image"></img>
+                <img
+                  src={leftButton}
+                  alt="Left"
+                  className="Main3-top-left-image"
+                ></img>
               </button>
               <button className="Main3-top-left-button">
-                <img src="" alt="Right" className="Main3-top-left-image"></img>
+                <img
+                  src={rightButton}
+                  alt="Right"
+                  className="Main3-top-left-image"
+                ></img>
               </button>
             </div>
           </div>
           <div className="Main3-bottom-container">
             <div className="Main3-bottom-image1-container">
-              <img src="" alt="Program" className="Main3-bottom-image1"></img>
-              <div className="Main3-bottom-image-letters">
+              <img
+                src={speaker}
+                alt="Program"
+                className="Main3-bottom-image1"
+              ></img>
+              <div className="Main3-bottom-image1-letters">
                 <p className="Main3-bottom-image-title">
                   DORO DIY 블루투스 스피커
                 </p>
                 <p className="Main3-bottom-image-subtitle">
                   #IOT #블루투스 #음향학
                 </p>
-                <button className="Main3-bottom-image-button">
-                  <span className="Main3-bottom-image-inquiry">
-                    프로그램 문의하기
-                  </span>
-                  <span className="Main3-bottom-image-arrow">&rsaquo</span>
-                </button>
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="Main3-bottom-image2-container">
-              <img src="" alt="Program" className="Main3-bottom-image2"></img>
-              <div className="Main3-bottom-image-letters">
+              <img
+                src={mood}
+                alt="Program"
+                className="Main3-bottom-image2"
+              ></img>
+              <div className="Main3-bottom-image2-letters">
                 <p className="Main3-bottom-image-title">DORO DIY 미니 무드등</p>
                 <p className="Main3-bottom-image-subtitle">
                   #기초회로 #전자공학 #소재공학
@@ -91,38 +140,72 @@ export const HomePage = () => {
                   <span className="Main3-bottom-image-inquiry">
                     프로그램 문의하기
                   </span>
-                  <span className="Main3-bottom-image-arrow">&rsaquo</span>
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
                 </button>
               </div>
             </div>
             <div className="Main3-bottom-image3-container">
-              <img src="" alt="Program" className="Main3-bottom-image3"></img>
-              <div className="Main3-bottom-image-letters">
+              <img
+                src={game}
+                alt="Program"
+                className="Main3-bottom-image3"
+              ></img>
+              <div className="Main3-bottom-image3-letters">
                 <p className="Main3-bottom-image-title">DORO 아두이노 게임기</p>
                 <p className="Main3-bottom-image-subtitle">
                   #중급회로 #임베디드 #아두이노 #코딩
                 </p>
-                <button className="Main3-bottom-image-button">
-                  <span className="Main3-bottom-image-inquiry">
-                    프로그램 문의하기
-                  </span>
-                  <span className="Main3-bottom-image-arrow">&rsaquo</span>
-                </button>
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="Main3-bottom-image4-container">
-              <img src="" alt="Program" className="Main3-bottom-image4"></img>
-              <div className="Main3-bottom-image-letters">
+              <img
+                src={balancing}
+                alt="Program"
+                className="Main3-bottom-image4"
+              ></img>
+              <div className="Main3-bottom-image4-letters">
                 <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
                 <p className="Main3-bottom-image-subtitle">
                   #제어공학 #로봇공학 #아두이노 #코딩
                 </p>
-                <button className="Main3-bottom-image-button">
-                  <span className="Main3-bottom-image-inquiry">
-                    프로그램 문의하기
-                  </span>
-                  <span className="Main3-bottom-image-arrow">&rsaquo</span>
-                </button>
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="Main3-bottom-image4-container">
+              <img
+                src={balancing}
+                alt="Program"
+                className="Main3-bottom-image4"
+              ></img>
+              <div className="Main3-bottom-image4-letters">
+                <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+                <p className="Main3-bottom-image-subtitle">
+                  #제어공학 #로봇공학 #아두이노 #코딩
+                </p>
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -185,25 +268,49 @@ export const HomePage = () => {
             </div>
             <div className="Main6-top-button-container">
               <button className="Main6-top-left-button">
-                <img src="" alt="Left" className="Main6-top-left-image"></img>
+                <img
+                  src={leftButton}
+                  alt="Left"
+                  className="Main6-top-left-image"
+                ></img>
               </button>
               <button className="Main6-top-left-button">
-                <img src="" alt="Right" className="Main6-top-left-image"></img>
+                <img
+                  src={rightButton}
+                  alt="Right"
+                  className="Main6-top-left-image"
+                ></img>
               </button>
             </div>
           </div>
           <div className="Main6-bottom-container">
             <div className="Main6-bottom-image1-container">
-              <img src="" alt="Program" className="Main6-bottom-image1"></img>
+              <img
+                src={child1}
+                alt="Program"
+                className="Main6-bottom-image1"
+              ></img>
             </div>
             <div className="Main6-bottom-image2-container">
-              <img src="" alt="Program" className="Main6-bottom-image2"></img>
+              <img
+                src={child2}
+                alt="Program"
+                className="Main6-bottom-image2"
+              ></img>
             </div>
             <div className="Main6-bottom-image3-container">
-              <img src="" alt="Program" className="Main3-bottom-image3"></img>
+              <img
+                src={child3}
+                alt="Program"
+                className="Main6-bottom-image3"
+              ></img>
             </div>
             <div className="Main6-bottom-image4-container">
-              <img src="" alt="Program" className="Main3-bottom-image4"></img>
+              <img
+                src={child4}
+                alt="Program"
+                className="Main6-bottom-image4"
+              ></img>
             </div>
           </div>
         </div>
