@@ -24,16 +24,20 @@ import process4 from "../images/process4.png";
 import process5 from "../images/process5.png";
 import main8Logo from "../images/main8Logo.png";
 
+import empty from "../images/empty.png";
+import ansan from "../images/ansan.png";
+
 export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const horizontalScrollRef = useRef<HTMLInputElement>(null);
+  const main6ScrollRef = useRef<HTMLInputElement>(null);
 
   const handleNextButtonClick = (nextType: "prev" | "next") => {
     console.log(horizontalScrollRef.current);
     if (!horizontalScrollRef.current) return;
-    if (nextType === "next") {
+    if (nextType === "prev") {
       horizontalScrollRef.current.scrollTo({
         left: horizontalScrollRef.current.scrollLeft - 180,
         behavior: "smooth",
@@ -41,6 +45,22 @@ export const HomePage = () => {
     } else {
       horizontalScrollRef.current.scrollTo({
         left: horizontalScrollRef.current.scrollLeft + 180,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const main6handleNextButtonClick = (nextType: "prev" | "next") => {
+    console.log(horizontalScrollRef.current);
+    if (!main6ScrollRef.current) return;
+    if (nextType === "prev") {
+      main6ScrollRef.current.scrollTo({
+        left: main6ScrollRef.current.scrollLeft - 180,
+        behavior: "smooth",
+      });
+    } else {
+      main6ScrollRef.current.scrollTo({
+        left: main6ScrollRef.current.scrollLeft + 180,
         behavior: "smooth",
       });
     }
@@ -293,7 +313,7 @@ export const HomePage = () => {
             </p>
           </div>
           <div className="Main4-image-container">
-            <img src="" alt="Ansan x DORO" className="Main4-image"></img>
+            <img src={ansan} alt="Ansan x DORO" className="Main4-image"></img>
           </div>
         </div>
       </div>
@@ -342,14 +362,20 @@ export const HomePage = () => {
               </p>
             </div>
             <div className="Main6-top-button-container">
-              <button className="Main6-top-left-button">
+              <button
+                onClick={() => main6handleNextButtonClick("prev")}
+                className="Main6-top-left-button"
+              >
                 <img
                   src={leftButton}
                   alt="Left"
                   className="Main6-top-left-image"
                 ></img>
               </button>
-              <button className="Main6-top-left-button">
+              <button
+                onClick={() => main6handleNextButtonClick("next")}
+                className="Main6-top-left-button"
+              >
                 <img
                   src={rightButton}
                   alt="Right"
@@ -358,36 +384,46 @@ export const HomePage = () => {
               </button>
             </div>
           </div>
-          <div className="Main6-bottom-container">
-            <div className="Main6-bottom-image1-container">
-              <img
-                src={child1}
-                alt="Program"
-                className="Main6-bottom-image1"
-              ></img>
-            </div>
-            <div className="Main6-bottom-image2-container">
-              <img
-                src={child2}
-                alt="Program"
-                className="Main6-bottom-image2"
-              ></img>
-            </div>
-            <div className="Main6-bottom-image3-container">
-              <img
-                src={child3}
-                alt="Program"
-                className="Main6-bottom-image3"
-              ></img>
-            </div>
-            <div className="Main6-bottom-image4-container">
-              <img
-                src={child4}
-                alt="Program"
-                className="Main6-bottom-image4"
-              ></img>
-            </div>
+        </div>
+      </div>
+      <div className="Main6-slide-bar">
+        <div ref={main6ScrollRef} className="Main6-bottom-container">
+          <div className="Main6-bottom-image5-container">
+            <img
+              src={empty}
+              alt="asfgasfas"
+              className="Main6-bottom-image5"
+            ></img>
           </div>
+          <div className="Main6-bottom-image1-container">
+            <img
+              src={child1}
+              alt="Program"
+              className="Main6-bottom-image1"
+            ></img>
+          </div>
+          <div className="Main6-bottom-image2-container">
+            <img
+              src={child2}
+              alt="Program"
+              className="Main6-bottom-image2"
+            ></img>
+          </div>
+          <div className="Main6-bottom-image3-container">
+            <img
+              src={child3}
+              alt="Program"
+              className="Main6-bottom-image3"
+            ></img>
+          </div>
+          <div className="Main6-bottom-image4-container">
+            <img
+              src={child4}
+              alt="Program"
+              className="Main6-bottom-image4"
+            ></img>
+          </div>
+          <div className="Main6-bottom-image5-container"></div>
         </div>
       </div>
 
