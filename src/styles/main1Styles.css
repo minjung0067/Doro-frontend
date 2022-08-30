@@ -1,0 +1,62 @@
+.Main-Container {
+  min-width: 106.667rem;
+}
+
+.Main1 {
+  background-image: url("/src/images/main1.png");
+  width: 106.667rem;
+  height: 52.778rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: start;
+}
+
+.Main1-content-container {
+  margin-top: 16.994rem;
+  margin-left: 26.111rem;
+}
+
+.Main1-title {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  color: #fff;
+  margin-bottom: 0.611rem;
+}
+
+.Main1-subtitle {
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  color: #fff;
+  margin-bottom: 2.389rem;
+}
+
+.Main1-button {
+  font-family: Pretendard;
+  font-size: 0.778rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: #000;
+  width: 10rem;
+  height: 2.833rem;
+  align-items: center;
+  gap: 8px;
+  padding: 0.778rem 1.833rem;
+  border-radius: 25px;
+  background-color: var(--doro-super-light-grey);
+}
