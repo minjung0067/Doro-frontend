@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import instructor1 from "../images/instructor1.png";
 import instructor2 from "../images/instructor2.png";
@@ -15,6 +15,14 @@ import child1 from "../images/main6-1.png";
 import child2 from "../images/main6-2.png";
 import child3 from "../images/main6-3.png";
 import child4 from "../images/main6-4.png";
+
+import doroLogoGray from "../images/doroLogoGray.png";
+import process1 from "../images/process1.png";
+import process2 from "../images/process2.png";
+import process3 from "../images/process3.png";
+import process4 from "../images/process4.png";
+import process5 from "../images/process5.png";
+import main8Logo from "../images/main8Logo.png";
 
 export const HomePage = () => {
   useEffect(() => {
@@ -232,7 +240,7 @@ export const HomePage = () => {
       <div className="Main5">
         <div className="Main5-content-container">
           <div className="Main5-letter-container">
-            <p className="Main5-title">DORO 교육은 청소년재단과 함께 합니다</p>
+            <p className="Main5-title">DORO를 신뢰할수있는 이유!</p>
           </div>
           <div className="Main5-datas-container">
             <div className="Main5-data1-container">
@@ -252,7 +260,13 @@ export const HomePage = () => {
               <span className="Main5-data4-number">27개교</span>
             </div>
           </div>
-          <img src="" alt="dotologogray" className="Main5-doro-gray"></img>
+          <div className="Main5-doro-logo-gray-container">
+            <img
+              src={doroLogoGray}
+              alt="doroLogoGray"
+              className="Main5-doro-logo-gray"
+            ></img>
+          </div>
         </div>
       </div>
 
@@ -318,14 +332,47 @@ export const HomePage = () => {
 
       <div className="Main7">
         <div className="Main7-content-container">
-          <p className="Main7-title">DORO 교육 프로세스</p>
-          <img src="" alt="ProcessImage" className="Main7-image"></img>
+          <div className="Main7-title-container">
+            <p className="Main7-title">DORO 교육 프로세스</p>
+          </div>
+
+          <div className="Main7-process-images-container">
+            <img
+              src={process1}
+              alt="ProcessImage1"
+              className="Main7-image"
+            ></img>
+            <div className="Main7-image-bridge"></div>
+            <img
+              src={process2}
+              alt="ProcessImage2"
+              className="Main7-image"
+            ></img>
+            <div className="Main7-image-bridge"></div>
+            <img
+              src={process3}
+              alt="ProcessImage3"
+              className="Main7-image"
+            ></img>
+            <div className="Main7-image-bridge"></div>
+            <img
+              src={process4}
+              alt="ProcessImage4"
+              className="Main7-image"
+            ></img>
+            <div className="Main7-image-bridge"></div>
+            <img
+              src={process5}
+              alt="ProcessImage5"
+              className="Main7-image"
+            ></img>
+          </div>
         </div>
       </div>
 
       <div className="Main8">
         <div className="Main8-content-container">
-          <img src="" alt="dorologo" className="Main8-dorologo"></img>
+          <img src={main8Logo} alt="dorologo" className="Main8-dorologo"></img>
           <p className="Main8-title">
             더 유익하고, 더 즐거운
             <br />

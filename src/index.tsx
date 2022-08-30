@@ -18,6 +18,9 @@ import "./styles/main1Styles.css";
 import "./styles/main2Styles.css";
 import "./styles/main3Styles.css";
 import "./styles/main6Styles.css";
+import "./styles/main5Styles.css";
+import "./styles/main7Styles.css";
+import "./styles/main8Styles.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
