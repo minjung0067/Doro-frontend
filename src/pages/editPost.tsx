@@ -155,7 +155,7 @@ export const EditPost = () => {
   };
 
   return (
-    <div className="Create-post-page-parent">
+    <div className="Create-post-root">
       <Helmet>
         <title>Create | DORO</title>
       </Helmet>
@@ -168,19 +168,19 @@ export const EditPost = () => {
             subtitle="Education inquiry"
             content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
           />
-          <div className="Create-post-content-parent">
+          <div className="Create-post-content-root">
             <div className="Create-post-title">문의신청정보</div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className=" Create-post-input-parent ">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
                     문의자 성함
                   </span>
                 </div>
-                <div className="Create-post-Frame-72">
+                <div className="Create-post-input-input-box">
                   <input
                     {...register("ownerName", { required: true, maxLength: 4 })}
-                    className="Create-post-input"
+                    className="Create-post-input-input-content"
                     name="ownerName"
                     placeholder="ownerName"
                     maxLength={4}
@@ -188,54 +188,60 @@ export const EditPost = () => {
                 </div>
               </div>
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
                     소속 기관(학원)
                   </span>
                 </div>
-                <div className="Create-post-Frame-72">
+                <div className="Create-post-input-input-box">
                   <input
                     {...register("institution")}
                     name="institution"
                     placeholder="institution"
-                    className="Create-post-input"
+                    className="Create-post-input-input-content"
                   />
                 </div>
               </div>
 
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">연락처</span>
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
+                    연락처
+                  </span>
                 </div>
-                <div className="Create-post-Frame-72">
+                <div className="Create-post-input-input-box">
                   <input
                     {...register("phoneNumber", { required: true })}
                     name="phoneNumber"
                     placeholder="phoneNumber"
-                    className="Create-post-input"
+                    className="Create-post-input-input-content"
                   />
                 </div>
               </div>
 
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">이메일</span>
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
+                    이메일
+                  </span>
                 </div>
-                <div className="Create-post-Frame-72">
+                <div className="Create-post-input-input-box">
                   <input
                     {...register("email")}
                     name="email"
                     placeholder="email"
-                    className="Create-post-input"
+                    className="Create-post-input-input-content"
                   />
                 </div>
               </div>
 
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">비밀글</span>
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
+                    비밀글
+                  </span>
                 </div>
-                <div className="Create-post-Frame-72-checkbox">
+                <div className="Create-post-input-input-box-checkbox">
                   <input
                     {...register("isLocked")}
                     name="isLocked"
@@ -246,16 +252,16 @@ export const EditPost = () => {
               </div>
 
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
                     게시글 비밀번호
                   </span>
                 </div>
-                <div className="Create-post-Frame-72">
+                <div className="Create-post-input-input-box">
                   <input
                     {...register("password", { required: true })}
                     name="password"
-                    className="Create-post-input"
+                    className="Create-post-input-input-content"
                     placeholder="password"
                   />
                 </div>
@@ -264,25 +270,29 @@ export const EditPost = () => {
               <div className="Create-post-title">문의내용</div>
 
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-title">
-                  <span className="Create-post-input-description">글 제목</span>
+                <div className="Create-post-input-description-box">
+                  <span className="Create-post-input-description-text">
+                    글 제목
+                  </span>
                 </div>
-                <div className="Create-post-Frame-72">
+                <div className="Create-post-input-input-box">
                   <input
                     {...register("title", { required: true })}
                     name="title"
                     maxLength={30}
-                    className="Create-post-input"
+                    className="Create-post-input-input-content"
                     placeholder="title"
                   />
                 </div>
               </div>
 
               <div className=" Create-post-input-textarea-parent">
-                <div className="Create-post-Rectangle-49">
-                  <span className="Create-post-input-description">글 내용</span>
+                <div className="Create-post-input-textarea-span-box">
+                  <span className="Create-post-input-description-text">
+                    글 내용
+                  </span>
                 </div>
-                <div className="Create-post-Frame-91">
+                <div className="Create-post-input-textarea-div">
                   <textarea
                     {...register("content", { required: true })}
                     name="content"

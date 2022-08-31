@@ -132,7 +132,9 @@ export const HomePage = () => {
             </div>
             <div className="Main3-top-button-container">
               <button
-                onClick={() => handleNextButtonClick("prev")}
+                onClick={() => {
+                  handleNextButtonClick("prev");
+                }}
                 className="Main3-top-left-button"
               >
                 <img
@@ -142,7 +144,9 @@ export const HomePage = () => {
                 ></img>
               </button>
               <button
-                onClick={() => handleNextButtonClick("next")}
+                onClick={() => {
+                  handleNextButtonClick("next");
+                }}
                 className="Main3-top-left-button"
               >
                 <img
@@ -153,23 +157,7 @@ export const HomePage = () => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="Main3-slide-bar-container">
-        <div className="Main3-slide-bar">
           <div ref={horizontalScrollRef} className="Main3-bottom-container">
-            <div className="Main3-bottom-image5-container">
-              <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title"></p>
-                <p className="Main3-bottom-image-subtitle"></p>
-                <Link to="/" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry"></span>
-                    <span className="Main3-bottom-image-arrow"></span>
-                  </button>
-                </Link>
-              </div>
-            </div>
             <div className="Main3-bottom-image1-container">
               <img
                 src={speaker}
@@ -183,6 +171,7 @@ export const HomePage = () => {
                 <p className="Main3-bottom-image-subtitle">
                   #IOT #블루투스 #음향학
                 </p>
+
                 <Link to="/createPost" className="Main3-bottom-image-button">
                   <button className="Main3-bottom-image-button">
                     <span className="Main3-bottom-image-inquiry">
@@ -208,6 +197,7 @@ export const HomePage = () => {
                   <span className="Main3-bottom-image-inquiry">
                     프로그램 문의하기
                   </span>
+
                   <span className="Main3-bottom-image-arrow">&rsaquo;</span>
                 </button>
               </div>
@@ -223,6 +213,29 @@ export const HomePage = () => {
                 <p className="Main3-bottom-image-subtitle">
                   #중급회로 #임베디드 #아두이노 #코딩
                 </p>
+
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="Main3-bottom-image4-container">
+              <img
+                src={balancing}
+                alt="Program"
+                className="Main3-bottom-image4"
+              ></img>
+              <div className="Main3-bottom-image4-letters">
+                <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+                <p className="Main3-bottom-image-subtitle">
+                  #제어공학 #로봇공학 #아두이노 #코딩
+                </p>
+
                 <Link to="/createPost" className="Main3-bottom-image-button">
                   <button className="Main3-bottom-image-button">
                     <span className="Main3-bottom-image-inquiry">
@@ -251,31 +264,6 @@ export const HomePage = () => {
                       프로그램 문의하기
                     </span>
                     <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="Main3-bottom-image5-container">
-              <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title"></p>
-                <p className="Main3-bottom-image-subtitle"></p>
-                <Link to="/" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry"></span>
-                    <span className="Main3-bottom-image-arrow"></span>
-                  </button>
-                </Link>
-              </div>
-            </div>
-            <div className="Main3-bottom-image5-container">
-              <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title"></p>
-                <p className="Main3-bottom-image-subtitle"></p>
-                <Link to="/" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry"></span>
-                    <span className="Main3-bottom-image-arrow"></span>
                   </button>
                 </Link>
               </div>
@@ -346,7 +334,9 @@ export const HomePage = () => {
             </div>
             <div className="Main6-top-button-container">
               <button
-                onClick={() => main6handleNextButtonClick("prev")}
+                onClick={() => {
+                  main6handleNextButtonClick("prev");
+                }}
                 className="Main6-top-left-button"
               >
                 <img
@@ -356,7 +346,9 @@ export const HomePage = () => {
                 ></img>
               </button>
               <button
-                onClick={() => main6handleNextButtonClick("next")}
+                onClick={() => {
+                  main6handleNextButtonClick("next");
+                }}
                 className="Main6-top-left-button"
               >
                 <img
@@ -367,46 +359,36 @@ export const HomePage = () => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="Main6-slide-bar">
-        <div ref={main6ScrollRef} className="Main6-bottom-container">
-          <div className="Main6-bottom-image5-container">
-            <img
-              src={empty}
-              alt="asfgasfas"
-              className="Main6-bottom-image5"
-            ></img>
+          <div ref={main6ScrollRef} className="Main6-bottom-container">
+            <div className="Main6-bottom-image1-container">
+              <img
+                src={child1}
+                alt="Program"
+                className="Main6-bottom-image1"
+              ></img>
+            </div>
+            <div className="Main6-bottom-image2-container">
+              <img
+                src={child2}
+                alt="Program"
+                className="Main6-bottom-image2"
+              ></img>
+            </div>
+            <div className="Main6-bottom-image3-container">
+              <img
+                src={child3}
+                alt="Program"
+                className="Main6-bottom-image3"
+              ></img>
+            </div>
+            <div className="Main6-bottom-image4-container">
+              <img
+                src={child4}
+                alt="Program"
+                className="Main6-bottom-image4"
+              ></img>
+            </div>
           </div>
-          <div className="Main6-bottom-image1-container">
-            <img
-              src={child1}
-              alt="Program"
-              className="Main6-bottom-image1"
-            ></img>
-          </div>
-          <div className="Main6-bottom-image2-container">
-            <img
-              src={child2}
-              alt="Program"
-              className="Main6-bottom-image2"
-            ></img>
-          </div>
-          <div className="Main6-bottom-image3-container">
-            <img
-              src={child3}
-              alt="Program"
-              className="Main6-bottom-image3"
-            ></img>
-          </div>
-          <div className="Main6-bottom-image4-container">
-            <img
-              src={child4}
-              alt="Program"
-              className="Main6-bottom-image4"
-            ></img>
-          </div>
-          <div className="Main6-bottom-image5-container"></div>
         </div>
       </div>
 
