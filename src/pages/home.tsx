@@ -86,7 +86,6 @@ export const HomePage = () => {
         </div>
       </div>
 
-
       <div className="Main2">
         <div className="Main2-content-container">
           <div className="Main2-letter-container">
@@ -237,28 +236,6 @@ export const HomePage = () => {
                   #제어공학 #로봇공학 #아두이노 #코딩
                 </p>
 
-                <Link to="/createPost" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="Main3-bottom-image4-container">
-              <img
-                src={balancing}
-                alt="Program"
-                className="Main3-bottom-image4"
-              ></img>
-              <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #제어공학 #로봇공학 #아두이노 #코딩
-                </p>
                 <Link to="/createPost" className="Main3-bottom-image-button">
                   <button className="Main3-bottom-image-button">
                     <span className="Main3-bottom-image-inquiry">
@@ -446,7 +423,6 @@ export const HomePage = () => {
           </Link>
         </div>
       </div>
-
     </div>
   );
 };
