@@ -4,7 +4,10 @@
 
 .Main1 {
   background-image: url("/src/images/main1.png");
-  width: 106.667rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
   height: 52.778rem;
   margin-left: auto;
   margin-right: auto;
@@ -14,7 +17,9 @@
 
 .Main1-content-container {
   margin-top: 16.994rem;
-  margin-left: 26.111rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65.571em;
 }
 
 .Main1-title {

@@ -86,6 +86,7 @@ export const HomePage = () => {
         </div>
       </div>
 
+
       <div className="Main2">
         <div className="Main2-content-container">
           <div className="Main2-letter-container">
@@ -445,6 +446,7 @@ export const HomePage = () => {
           </Link>
         </div>
       </div>
+
     </div>
   );
 };
