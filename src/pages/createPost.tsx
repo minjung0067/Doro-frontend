@@ -105,6 +105,7 @@ export const CreatePost = () => {
               <span className="Create-post-input-description-text">
                 문의자 성함
               </span>
+              <span style={{ color: "red" }}>*</span>
             </div>
             <div className="Create-post-input-input-box">
               <input
@@ -139,6 +140,7 @@ export const CreatePost = () => {
           <div className=" Create-post-input-parent">
             <div className="Create-post-input-description-box">
               <span className="Create-post-input-description-text">연락처</span>
+              <span style={{ color: "red" }}>*</span>
             </div>
             <div className="Create-post-input-input-box">
               <input
@@ -187,6 +189,7 @@ export const CreatePost = () => {
               <span className="Create-post-input-description-text">
                 게시글 비밀번호
               </span>
+              <span style={{ color: "red" }}>*</span>
             </div>
             <div className="Create-post-input-input-box">
               <input
@@ -205,6 +208,7 @@ export const CreatePost = () => {
               <span className="Create-post-input-description-text">
                 글 제목
               </span>
+              <span style={{ color: "red" }}>*</span>
             </div>
             <div className="Create-post-input-input-box">
               <input
@@ -222,6 +226,7 @@ export const CreatePost = () => {
               <span className="Create-post-input-description-text">
                 글 내용
               </span>
+              <span style={{ color: "red" }}> *</span>
             </div>
             <div className="Create-post-input-textarea-div">
               <textarea
@@ -263,7 +268,6 @@ export const CreatePost = () => {
 
           <div className=" Create-post-submit-button-parent">
             <button
-              role="button"
               className={` Create-post-submit-button py-4  transition-colors ${
                 formState.isValid
                   ? " bg-blue-700 hover:  bg-blue-900"
@@ -271,7 +275,7 @@ export const CreatePost = () => {
               }`}
             >
               {loading ? (
-                <span className="Create-post-submit-text">로딩 중..."</span>
+                <span className="Create-post-submit-text">로딩 중"</span>
               ) : (
                 <span className="Create-post-submit-text">접수하기</span>
               )}
