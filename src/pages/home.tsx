@@ -24,7 +24,6 @@ import process4 from "../images/process4.png";
 import process5 from "../images/process5.png";
 import main8Logo from "../images/main8Logo.png";
 
-import empty from "../images/empty.png";
 import ansan from "../images/ansan.png";
 
 export const HomePage = () => {
