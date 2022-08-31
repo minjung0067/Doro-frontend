@@ -1,15 +1,13 @@
 .Main3 {
-  height: 18.222rem;
-  min-width: 106.667rem;
+  height: 46.722rem;
+  width: 106.667rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--doro-super-light-grey);
 }
 
 .Main3-content-container {
   padding-top: 8.444rem;
-  display: flex;
-  justify-content: center;
+  padding-left: 20.694rem;
 }
 
 .Main3-top-container {
@@ -70,8 +68,6 @@
   flex-direction: row;
   gap: 1.111rem;
   overflow-x: hidden;
-
-  width: 130rem;
 }
 
 .Main3-bottom-image1-container,
@@ -190,22 +186,4 @@
 .Main3-bottom-image4-letters {
   margin-top: 1.037rem;
   margin-left: 0.278rem;
-}
-
-.Main3-bottom-image5-container {
-  width: 21.111rem;
-  height: 21.222rem;
-  border-radius: 20px;
-  background-color: var(--doro-super-light-grey);
-  padding: 1.389rem 2.083rem 1rem 0.722rem;
-}
-.Main3-slide-bar-container {
-  background-color: var(--doro-super-light-grey);
-  height: 28.5rem;
-}
-.Main3-slide-bar {
-  width: 106.667rem;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: var(--doro-super-light-grey);
 }
