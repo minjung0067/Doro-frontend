@@ -10,6 +10,8 @@ import speaker from "../images/speaker.png";
 import mood from "../images/mood.png";
 import game from "../images/game.png";
 import balancing from "../images/balancing.png";
+import walking from "../images/walking.png";
+import car from "../images/car.png";
 
 import child1 from "../images/main6-1.png";
 import child2 from "../images/main6-2.png";
@@ -54,12 +56,12 @@ export const HomePage = () => {
     if (!main6ScrollRef.current) return;
     if (nextType === "prev") {
       main6ScrollRef.current.scrollTo({
-        left: main6ScrollRef.current.scrollLeft - 180,
+        left: main6ScrollRef.current.scrollLeft - 500,
         behavior: "smooth",
       });
     } else {
       main6ScrollRef.current.scrollTo({
-        left: main6ScrollRef.current.scrollLeft + 180,
+        left: main6ScrollRef.current.scrollLeft + 500,
         behavior: "smooth",
       });
     }
@@ -79,7 +81,10 @@ export const HomePage = () => {
           <p className="Main1-subtitle">
             DORO의 모든 교육은 대학생 강사가 함께합니다.
           </p>
-          <Link to="/createPost" className="Main1-button-frame">
+          <Link
+            to="/createPost"
+            className="Main1-button-frame Main1-button:hover"
+          >
             <button className="Main1-button">교육 문의하기</button>
           </Link>
         </div>
@@ -181,6 +186,7 @@ export const HomePage = () => {
                 </Link>
               </div>
             </div>
+
             <div className="Main3-bottom-image2-container">
               <img
                 src={mood}
@@ -201,6 +207,30 @@ export const HomePage = () => {
                 </button>
               </div>
             </div>
+
+            <div className="Main3-bottom-walking-container">
+              <img
+                src={walking}
+                alt="Program"
+                className="Main3-bottom-walking"
+              ></img>
+              <div className="Main3-bottom-walking-letters">
+                <p className="Main3-bottom-image-title">DORO DIY 워킹로봇</p>
+                <p className="Main3-bottom-image-subtitle">
+                  #기초회로 #IR센서 #기구학
+                </p>
+
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+
             <div className="Main3-bottom-image3-container">
               <img
                 src={game}
@@ -223,6 +253,7 @@ export const HomePage = () => {
                 </Link>
               </div>
             </div>
+
             <div className="Main3-bottom-image4-container">
               <img
                 src={balancing}
@@ -233,6 +264,25 @@ export const HomePage = () => {
                 <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
                 <p className="Main3-bottom-image-subtitle">
                   #제어공학 #로봇공학 #아두이노 #코딩
+                </p>
+
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="Main3-bottom-car-container">
+              <img src={car} alt="Program" className="Main3-bottom-car"></img>
+              <div className="Main3-bottom-car-letters">
+                <p className="Main3-bottom-image-title">DORO DIY 워킹로봇</p>
+                <p className="Main3-bottom-image-subtitle">
+                  #기초회로 #IR센서 #기구학
                 </p>
 
                 <Link to="/createPost" className="Main3-bottom-image-button">
@@ -418,7 +468,9 @@ export const HomePage = () => {
             교육을 아이들에게 선물해주세요
           </p>
           <Link to="/createPost" className="Main8-button-frame">
-            <button className="Main8-button">교육 문의하기</button>
+            <button className="Main8-button Main8-button:hover">
+              교육 문의하기
+            </button>
           </Link>
         </div>
       </div>

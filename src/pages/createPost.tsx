@@ -112,7 +112,7 @@ export const CreatePost = () => {
                 {...register("ownerName", { required: true, maxLength: 4 })}
                 className="Create-post-input-input-content"
                 name="ownerName"
-                placeholder="ownerName"
+                placeholder=" 성함 입력"
                 maxLength={4}
                 defaultValue={userData?.me.name ? userData?.me.name : ""}
               />
@@ -128,7 +128,7 @@ export const CreatePost = () => {
               <input
                 {...register("institution")}
                 name="institution"
-                placeholder="institution"
+                placeholder="도로 초등학교"
                 className="Create-post-input-input-content"
                 defaultValue={
                   userData?.me.institution ? userData?.me.institution : ""
@@ -146,7 +146,7 @@ export const CreatePost = () => {
               <input
                 {...register("phoneNumber", { required: true })}
                 name="phoneNumber"
-                placeholder="phoneNumber"
+                placeholder="하이픈(-) 없이 숫자만 입력"
                 className="Create-post-input-input-content"
                 defaultValue={
                   userData?.me.institution ? userData?.me.institution : ""
@@ -163,7 +163,7 @@ export const CreatePost = () => {
               <input
                 {...register("email")}
                 name="email"
-                placeholder="email"
+                placeholder="이메일 주소 입력"
                 className="Create-post-input-input-content"
                 defaultValue={userData?.me.email ? userData?.me.email : ""}
               />
@@ -196,7 +196,7 @@ export const CreatePost = () => {
                 {...register("password", { required: true })}
                 name="password"
                 className="Create-post-input-input-content"
-                placeholder="password"
+                placeholder="글 삭제 및 수정시 필요합니다"
               />
             </div>
           </div>
@@ -216,7 +216,7 @@ export const CreatePost = () => {
                 name="title"
                 maxLength={30}
                 className="Create-post-input-input-content"
-                placeholder="title"
+                placeholder=""
               />
             </div>
           </div>
@@ -232,7 +232,7 @@ export const CreatePost = () => {
               <textarea
                 {...register("content", { required: true })}
                 name="content"
-                placeholder="content"
+                placeholder="문의 내용을 입력해주세요"
                 className="Create-post-textarea"
               />
             </div>
