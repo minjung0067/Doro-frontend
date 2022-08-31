@@ -34,16 +34,13 @@
 }
 
 .Main8-button-frame {
-  width: 10rem;
-  height: 2.833rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0.778rem 1.833rem;
-  border-radius: 25px;
-  background-color: var(--doro-super-light-grey);
 }
+
 .Main8-button {
   height: 0.944rem;
   flex-grow: 0;
@@ -56,4 +53,12 @@
   letter-spacing: 1.25px;
   text-align: center;
   color: #000;
+  width: 10rem;
+  height: 2.833rem;
+  border-radius: 25px;
+  background-color: var(--doro-super-light-grey);
+}
+.Main8-button:hover {
+  font-weight: bold;
+  color: var(--doro-medium);
 }

@@ -70,9 +70,11 @@ export const Foot: React.FC = () => {
                 <img className="Foot-notion-img" src={notion} alt="Notion" />
               </a>
             </div>
-            <div className="Foot-inquiry-frame">
+            <div className="Foot-inquiry-frame ">
               <Link to="/createPost" className="Foot-inquiry-link">
-                <button className="Foot-inquiry-button">교육 문의하기</button>
+                <button className="Foot-inquiry-button Foot-inquiry-button:hover">
+                  교육 문의하기
+                </button>
               </Link>
             </div>
           </div>

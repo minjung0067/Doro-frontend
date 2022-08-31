@@ -184,3 +184,10 @@
   width: 2.444rem;
   height: 2.444rem;
 }
+
+.Foot-inquiry-button:hover {
+  background-color: var(--doro-grey);
+  font-weight: bold;
+  color: #fff;
+  transition: 300ms;
+}

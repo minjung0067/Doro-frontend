@@ -161,7 +161,7 @@
   width: 21.111rem;
   height: 21.222rem;
   border-radius: 20px;
-  background-color: #2896da;
+  background-color: var(--doro-deep);
   padding: 1.833rem 0.472rem 1rem 0;
 }
 
@@ -174,7 +174,7 @@
   width: 21.111rem;
   height: 21.222rem;
   border-radius: 20px;
-  background-color: #99c7e3;
+  background-color: var(--doro-medium);
   padding: 1.092rem 0 1rem 1.778rem;
 }
 
@@ -186,4 +186,36 @@
 .Main3-bottom-image4-letters {
   margin-top: 1.037rem;
   margin-left: 0.278rem;
+}
+
+.Main3-bottom-walking-container {
+  background-color: #99c7e3;
+  width: 21.111rem;
+  height: 21.222rem;
+  border-radius: 20px;
+  padding: 1.833rem 2.083rem 1rem 2.056rem;
+}
+.Main3-bottom-walking {
+  width: 11.056rem;
+  height: 11.333rem;
+  margin: 0 2.417rem 0.667rem 3.5rem;
+}
+.Main3-bottom-walking-letters {
+  margin-top: 0.667rem;
+}
+
+.Main3-bottom-car-container {
+  background-color: #99c7e3;
+  width: 21.111rem;
+  height: 21.222rem;
+  border-radius: 20px;
+  padding: 1.5rem 2.083rem 1rem 2.056rem;
+}
+.Main3-bottom-car {
+  width: 12.444rem;
+  height: 11.333rem;
+  margin: 0 1.583rem 1rem 2.944rem;
+}
+.Main3-bottom-car-letters {
+  margin-top: 1rem;
 }
