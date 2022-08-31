@@ -1,5 +1,5 @@
 .Main6 {
-  height: 25rem;
+  height: 63.222rem;
   width: 106.667rem;
   margin-left: auto;
   margin-right: auto;
@@ -63,31 +63,17 @@
   height: 2.278rem;
 }
 
-.Main6-slide-bar {
-  width: 143rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .Main6-bottom-container {
   display: flex;
   flex-direction: row;
   gap: 1.306rem;
   overflow-x: hidden;
-  overflow-y: hidden;
-  width: 150rem;
-}
-
-.Main6-bottom-image5-container {
-  width: 37.701rem;
-  height: 23.563rem;
 }
 
 .Main6-bottom-image1-container,
 .Main6-bottom-image2-container,
 .Main6-bottom-image3-container,
-.Main6-bottom-image4-container,
-.Main6-bottom-image5-container {
+.Main6-bottom-image4-container {
   flex: 0 0 auto;
 }
 
@@ -101,13 +87,6 @@
   border-radius: 28.3px;
   box-shadow: 0 4.2px 5.7px 0 rgba(0, 0, 0, 0.2);
   background-color: #f5f5f5;
-}
-
-.Main6-bottom-image5-container,
-.Main6-bottom-image5 {
-  background-color: white;
-  padding: 23.563rem 0 0 37.701rem;
-  border-radius: 28.3px;
 }
 
 .Main6-bottom-image1,
