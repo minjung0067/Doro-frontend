@@ -6,7 +6,7 @@
 .Main8-content-container {
   margin-left: auto;
   margin-right: auto;
-  width: 33.5rem;
+  width: 54.444rem;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -38,7 +38,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0.778rem 1.833rem;
 }
 
 .Main8-button {

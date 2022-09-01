@@ -163,6 +163,7 @@ export const EditPost = () => {
       {state ? (
         <>
           <Banner
+            wid={5.444}
             route={createPostRoute}
             title="교육문의"
             subtitle="Education inquiry"

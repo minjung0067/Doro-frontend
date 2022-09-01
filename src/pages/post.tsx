@@ -223,6 +223,7 @@ export const Post = () => {
       {data?.findPost.ok && state ? (
         <div>
           <Banner
+            wid={5.444}
             route={postsRoute}
             title="문의 게시판"
             subtitle="Education inquiry board"

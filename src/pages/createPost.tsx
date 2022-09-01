@@ -92,6 +92,7 @@ export const CreatePost = () => {
         <title>Create | DORO</title>
       </Helmet>
       <Banner
+        wid={5.444}
         route={createPostRoute}
         title="교육문의"
         subtitle="Education inquiry"
