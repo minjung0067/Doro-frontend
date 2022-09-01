@@ -17,12 +17,13 @@
 }
 .Main7-title-container {
   margin-bottom: 3.722rem;
-  width: 22.667rem;
+  width: 22.867rem;
   height: 3.222rem;
   display: flex;
   justify-content: center;
   border-bottom: solid 0.194rem #005c97;
 }
+
 .Main7-title {
   flex-grow: 0;
   font-family: Pretendard;
