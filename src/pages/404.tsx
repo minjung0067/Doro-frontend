@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 export const NotFound = () => {
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div
+      className="h-screen flex flex-col items-center justify-center"
+      style={{ minWidth: "106.667rem" }}
+    >
       <Helmet>
         <title>Not Found | Nuber Eats</title>
       </Helmet>
