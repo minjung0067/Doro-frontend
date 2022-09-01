@@ -1,13 +1,16 @@
 .Main3 {
   height: 46.722rem;
-  width: 106.667rem;
-  margin-left: auto;
-  margin-right: auto;
+
+  background-color: var(--doro-super-light-grey);
 }
 
 .Main3-content-container {
+  width: 106.667rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 8.444rem;
   padding-left: 20.694rem;
+  background-color: var(--doro-super-light-grey);
 }
 
 .Main3-top-container {
@@ -161,7 +164,7 @@
   width: 21.111rem;
   height: 21.222rem;
   border-radius: 20px;
-  background-color: var(--doro-deep);
+  background-color: #2896da;
   padding: 1.833rem 0.472rem 1rem 0;
 }
 
@@ -174,7 +177,7 @@
   width: 21.111rem;
   height: 21.222rem;
   border-radius: 20px;
-  background-color: var(--doro-medium);
+  background-color: var(--doro-deep);
   padding: 1.092rem 0 1rem 1.778rem;
 }
 

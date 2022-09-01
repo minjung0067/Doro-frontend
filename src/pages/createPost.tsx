@@ -112,7 +112,7 @@ export const CreatePost = () => {
                 {...register("ownerName", { required: true, maxLength: 4 })}
                 className="Create-post-input-input-content"
                 name="ownerName"
-                placeholder=" 성함 입력"
+                placeholder="성함 입력"
                 maxLength={4}
                 defaultValue={userData?.me.name ? userData?.me.name : ""}
               />
