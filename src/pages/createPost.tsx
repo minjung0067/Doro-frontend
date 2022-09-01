@@ -269,10 +269,10 @@ export const CreatePost = () => {
 
           <div className=" Create-post-submit-button-parent">
             <button
-              className={` Create-post-submit-button py-4  transition-colors ${
+              className={`${
                 formState.isValid
-                  ? " bg-blue-700 hover:  bg-blue-900"
-                  : " bg-slate-500 pointer-events-none"
+                  ? "Create-post-submit-button-on"
+                  : "Create-post-submit-button-off"
               }`}
             >
               {loading ? (

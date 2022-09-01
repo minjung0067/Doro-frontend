@@ -305,8 +305,11 @@ export const EditPost = () => {
 
               <div className=" Create-post-submit-button-parent">
                 <button
-                  role="button"
-                  className={` Create-post-submit-button py-4  transition-colors `}
+                  className={` py-4 ${
+                    formState.isValid
+                      ? "Create-post-submit-button-on"
+                      : "Create-post-submit-button-off"
+                  }`}
                 >
                   {loading ? (
                     <span className="Create-post-submit-text">로딩 중..."</span>

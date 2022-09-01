@@ -199,7 +199,7 @@
   z-index: 1;
   margin-top: 2.444rem;
 }
-.Create-post-submit-button {
+.Create-post-submit-button-on {
   width: 9.944rem;
   height: 3.667rem;
   display: flex;
@@ -211,6 +211,26 @@
   border-radius: 5px;
   background-color: var(--doro-medium);
 }
+
+.Create-post-submit-button-on:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25),
+    0 0.35rem 0.35rem rgba(0, 0, 0, 0.22);
+}
+
+.Create-post-submit-button-off {
+  width: 9.944rem;
+  height: 3.667rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 1.111rem 3.167rem;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  pointer-events: none;
+}
+
 .Create-post-submit-text {
   width: 3.611rem;
   height: 1.444rem;
