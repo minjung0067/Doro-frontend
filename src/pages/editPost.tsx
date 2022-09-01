@@ -157,7 +157,7 @@ export const EditPost = () => {
   return (
     <div className="Create-post-root">
       <Helmet>
-        <title>Create | DORO</title>
+        <title>Edit | DORO</title>
       </Helmet>
 
       {state ? (
@@ -171,7 +171,10 @@ export const EditPost = () => {
           />
           <div className="Create-post-content-root">
             <div className="Create-post-title">문의신청정보</div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form
+              className="Create-post-form"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div className=" Create-post-input-parent ">
                 <div className="Create-post-input-description-box">
                   <span className="Create-post-input-description-text">
@@ -271,12 +274,12 @@ export const EditPost = () => {
               <div className="Create-post-title">문의내용</div>
 
               <div className=" Create-post-input-parent">
-                <div className="Create-post-input-description-box">
+                <div className="Create-post-input-description-box Create-for-border">
                   <span className="Create-post-input-description-text">
                     글 제목
                   </span>
                 </div>
-                <div className="Create-post-input-input-box">
+                <div className="Create-post-input-input-box Create-for-border">
                   <input
                     {...register("title", { required: true })}
                     name="title"
