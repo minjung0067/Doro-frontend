@@ -92,6 +92,7 @@ export const CreatePost = () => {
         <title>Create | DORO</title>
       </Helmet>
       <Banner
+        wid={5.444}
         route={createPostRoute}
         title="교육문의"
         subtitle="Education inquiry"
@@ -99,7 +100,7 @@ export const CreatePost = () => {
       />
       <div className="Create-post-content-root">
         <div className="Create-post-title">문의신청정보</div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="Create-post-form" onSubmit={handleSubmit(onSubmit)}>
           <div className=" Create-post-input-parent ">
             <div className="Create-post-input-description-box">
               <span className="Create-post-input-description-text">
@@ -204,13 +205,13 @@ export const CreatePost = () => {
           <div className="Create-post-title">문의내용</div>
 
           <div className=" Create-post-input-parent">
-            <div className="Create-post-input-description-box">
+            <div className="Create-post-input-description-box Create-for-border">
               <span className="Create-post-input-description-text">
                 글 제목
               </span>
               <span style={{ color: "red" }}>*</span>
             </div>
-            <div className="Create-post-input-input-box">
+            <div className="Create-post-input-input-box Create-for-border">
               <input
                 {...register("title", { required: true })}
                 name="title"
@@ -268,10 +269,10 @@ export const CreatePost = () => {
 
           <div className=" Create-post-submit-button-parent">
             <button
-              className={` Create-post-submit-button py-4  transition-colors ${
+              className={`${
                 formState.isValid
-                  ? " bg-blue-700 hover:  bg-blue-900"
-                  : " bg-slate-500 pointer-events-none"
+                  ? "Create-post-submit-button-on"
+                  : "Create-post-submit-button-off"
               }`}
             >
               {loading ? (

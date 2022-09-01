@@ -155,6 +155,7 @@ export const Posts = () => {
         title="문의 게시판"
         subtitle="Education inquiry board"
         content="문의 답변을 확인할 수 있습니다"
+        wid={10.278}
       />
       {!loading && (
         <div className="h-screen Posts-container">
@@ -170,7 +171,7 @@ export const Posts = () => {
               {data?.findAllPosts.results?.map((post, index) => (
                 <>
                   {post.password === "doro2020" ? (
-                    <div className="Posts-post-container">
+                    <div key={post.id} className="Posts-post-container">
                       <div className="Posts-post-left">
                         <button
                           onClick={() => openButton(post.isLocked, post.id)}
@@ -198,7 +199,7 @@ export const Posts = () => {
                       </div>
                     </div>
                   ) : (
-                    <div className="Posts-post-container">
+                    <div key={post.id} className="Posts-post-container">
                       <div className="Posts-post-left">
                         <button
                           onClick={() => openButton(post.isLocked, post.id)}
@@ -235,7 +236,9 @@ export const Posts = () => {
                 </>
               ))}
               {data?.findAllPosts.results?.length! < 11 &&
-                arr.map(() => <div className="Posts-post-container"></div>)}
+                arr.map((_, index) => (
+                  <div key={index} className="Posts-post-container"></div>
+                ))}
             </div>
             <Modal
               isOpen={ModalIsOpen}

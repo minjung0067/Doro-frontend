@@ -28,10 +28,10 @@
   height: 1.726rem;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   gap: 24px;
-  margin: 2rem 0rem 0.469rem 0rem;
+  margin: 2.269rem 0rem 0rem 0rem;
   padding: 0 0.444rem 0 0;
 }
 .Post-title-frame63-parent {
