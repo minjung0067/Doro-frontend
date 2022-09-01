@@ -187,24 +187,28 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div className="Main3-bottom-image2-container">
+            <div className="Main3-bottom-image3-container">
               <img
-                src={mood}
+                src={game}
                 alt="Program"
-                className="Main3-bottom-image2"
+                className="Main3-bottom-image3"
               ></img>
-              <div className="Main3-bottom-image2-letters">
-                <p className="Main3-bottom-image-title">DORO DIY 미니 무드등</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #기초회로 #전자공학 #소재공학
+              <div className="Main3-bottom-image3-letters">
+                <p className="Main3-bottom-image-title">
+                  DORO DIY 아두이노 게임기
                 </p>
-                <button className="Main3-bottom-image-button">
-                  <span className="Main3-bottom-image-inquiry">
-                    프로그램 문의하기
-                  </span>
+                <p className="Main3-bottom-image-subtitle">
+                  #중급회로 #임베디드 #아두이노 #코딩
+                </p>
 
-                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                </button>
+                <Link to="/createPost" className="Main3-bottom-image-button">
+                  <button className="Main3-bottom-image-button">
+                    <span className="Main3-bottom-image-inquiry">
+                      프로그램 문의하기
+                    </span>
+                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -231,29 +235,6 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div className="Main3-bottom-image3-container">
-              <img
-                src={game}
-                alt="Program"
-                className="Main3-bottom-image3"
-              ></img>
-              <div className="Main3-bottom-image3-letters">
-                <p className="Main3-bottom-image-title">DORO 아두이노 게임기</p>
-                <p className="Main3-bottom-image-subtitle">
-                  #중급회로 #임베디드 #아두이노 #코딩
-                </p>
-
-                <Link to="/createPost" className="Main3-bottom-image-button">
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </Link>
-              </div>
-            </div>
-
             <div className="Main3-bottom-image4-container">
               <img
                 src={balancing}
@@ -261,9 +242,9 @@ export const HomePage = () => {
                 className="Main3-bottom-image4"
               ></img>
               <div className="Main3-bottom-image4-letters">
-                <p className="Main3-bottom-image-title">DORO 밸런싱 로봇</p>
+                <p className="Main3-bottom-image-title">DORO DIY 밸런싱 로봇</p>
                 <p className="Main3-bottom-image-subtitle">
-                  #제어공학 #로봇공학 #아두이노 #코딩
+                  #제어공학 #PID #아두이노 #코딩
                 </p>
 
                 <Link to="/createPost" className="Main3-bottom-image-button">
@@ -277,12 +258,33 @@ export const HomePage = () => {
               </div>
             </div>
 
+            <div className="Main3-bottom-image2-container">
+              <img
+                src={mood}
+                alt="Program"
+                className="Main3-bottom-image2"
+              ></img>
+              <div className="Main3-bottom-image2-letters">
+                <p className="Main3-bottom-image-title">DORO DIY 미니 무드등</p>
+                <p className="Main3-bottom-image-subtitle">
+                  #기초회로 #조도센서 #전자공학
+                </p>
+                <button className="Main3-bottom-image-button">
+                  <span className="Main3-bottom-image-inquiry">
+                    프로그램 문의하기
+                  </span>
+
+                  <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                </button>
+              </div>
+            </div>
+
             <div className="Main3-bottom-car-container">
               <img src={car} alt="Program" className="Main3-bottom-car"></img>
               <div className="Main3-bottom-car-letters">
-                <p className="Main3-bottom-image-title">DORO DIY 워킹로봇</p>
+                <p className="Main3-bottom-image-title">DORO DIY IR 자동차</p>
                 <p className="Main3-bottom-image-subtitle">
-                  #기초회로 #IR센서 #기구학
+                  #기초회로 #IR센서 #동역학
                 </p>
 
                 <Link to="/createPost" className="Main3-bottom-image-button">
