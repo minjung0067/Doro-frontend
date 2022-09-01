@@ -1,14 +1,21 @@
+.Header-header {
+  padding-top: 1.534rem;
+  padding-bottom: 1.534rem;
+  min-width: 80rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 106.667rem;
+}
+
 .Header-container {
   height: 1.932rem;
   width: 65.571rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-.Header-header {
-  padding-top: 1.534rem;
-  padding-bottom: 1.534rem;
-  min-width: 80rem;
+  flex-grow: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Header-logo {

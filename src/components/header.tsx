@@ -7,9 +7,9 @@ import doroLogo from "../images/logo.png";
 export const Header: React.FC = () => {
   return (
     <>
-      <header className="h-20 Header-header">
-        <div className="flex flex-wrap justify-between items-center Header-container">
-          <Link to="/" className="flex items-center Header-logo">
+      <header className="Header-header">
+        <div className="Header-container">
+          <Link to="/" className="Header-logo">
             <img src={doroLogo} className="Header-logo" alt="Doro" />
           </Link>
           <div>

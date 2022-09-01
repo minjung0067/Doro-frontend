@@ -5,10 +5,9 @@
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-  margin: 0 0 5.056rem;
   padding: 2.444rem 0;
   background-color: var(--doro-medium);
-  min-width: 80rem;
+  min-width: 106.667rem;
 }
 
 .Banner-content-container {
