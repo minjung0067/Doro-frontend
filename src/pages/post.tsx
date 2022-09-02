@@ -158,7 +158,7 @@ export const Post = () => {
     if (data.createComment.ok === true) {
       refetch();
       console.log("create comment");
-      navigate(`/post/${+(params.id ?? "")}`);
+      navigate(`/post/${+(params.id ?? "")}`, { state: true });
     } else {
       console.log("error");
     }

@@ -84,7 +84,7 @@ export const EditPost = () => {
     } = data;
     if (ok) {
       refetch();
-      navigate("/posts", { replace: true });
+      navigate("/posts", { replace: true, state: true });
     } else {
       console.log(error);
     }
