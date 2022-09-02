@@ -434,10 +434,7 @@ export const Post = () => {
 
             {userData?.me.role === "Manager" ? (
               <form onSubmit={handleSubmit(onCommentSubmit)}>
-                <textarea
-                  {...register("comment", { required: true })}
-                  name="comment"
-                ></textarea>
+                <textarea {...register("comment")} name="comment"></textarea>
                 <Button
                   canClick={formState.isValid}
                   loading={loading}
