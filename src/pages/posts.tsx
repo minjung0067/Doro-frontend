@@ -185,8 +185,6 @@ export const Posts = () => {
                               style={{
                                 marginLeft: "0.792rem",
                                 display: "inline",
-                                width: "1rem",
-                                height: "1rem",
                               }}
                             />
                           )}
@@ -222,8 +220,6 @@ export const Posts = () => {
                               style={{
                                 marginLeft: "0.792rem",
                                 display: "inline",
-                                width: "1rem",
-                                height: "1rem",
                               }}
                             />
                           )}

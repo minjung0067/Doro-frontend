@@ -6,7 +6,7 @@ import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
 import { useMe } from "../hooks/useMe";
 import { createPost, createPostVariables } from "../__generated__/createPost";
-import infoConfirm from "../images/Frame68.png";
+import infoConfirm from "../images/Frame68.svg";
 import createPostRoute from "../images/createPostRoute.png";
 import { Helmet } from "react-helmet-async";
 
@@ -280,7 +280,7 @@ export const CreatePost = () => {
               }`}
             >
               {loading ? (
-                <span className="Create-post-submit-text">로딩 중"</span>
+                <span className="Create-post-submit-text">로딩 중</span>
               ) : (
                 <span className="Create-post-submit-text">접수하기</span>
               )}
