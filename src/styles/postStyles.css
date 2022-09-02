@@ -101,6 +101,11 @@
 
 .Post-content {
   margin: 2rem 0rem 1.917rem;
+  word-break: normal;
+  width: 65.556rem;
+}
+
+.Post-content-span {
   font-family: Pretendard;
   font-size: 1rem;
   font-weight: normal;
@@ -110,9 +115,11 @@
   letter-spacing: 0.9px;
   text-align: left;
   color: #000;
-  white-space: pre;
-  word-break: keep-all;
+  white-space: normal;
+  width: 65.556rem;
+  word-wrap: break-word;
 }
+
 .Post-Line-3 {
   height: 0.083rem;
   margin: 1.917rem 0rem 1.944rem;
@@ -204,12 +211,18 @@
   line-height: 1.44;
   letter-spacing: 0.9px;
   text-align: left;
-  white-space: pre;
-  word-break: keep-all;
+  white-space: normal;
   color: #000;
+  word-wrap: break-word;
 }
 .Post-Line-5 {
   height: 0.083rem;
   margin: 0.469rem 0rem 2rem 0rem;
   background-color: #212121;
+}
+
+.Post-comment-container {
+  width: 55.556rem;
+  height: 10rem;
+  border: 1px solid #000;
 }
