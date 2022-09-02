@@ -15,17 +15,17 @@ export const Header: React.FC = () => {
           <div>
             <ul className="flex flex-row bg-white">
               <li>
+                <Link to="/createPost" className="Header-link-inquiry">
+                  교육문의
+                </Link>
+              </li>
+              <li>
                 <Link
                   to="/posts"
                   className="Header-link-community hover:font-bold"
                   aria-current="page"
                 >
-                  커뮤니티
-                </Link>
-              </li>
-              <li>
-                <Link to="/createPost" className="Header-link-inquiry">
-                  교육문의
+                  문의게시판
                 </Link>
               </li>
             </ul>

@@ -287,3 +287,7 @@
 .Create-for-border {
   border-top: solid 1px var(--doro-light-grey);
 }
+
+.Create-post-agree-checkbox-parent {
+  align-items: center;
+}

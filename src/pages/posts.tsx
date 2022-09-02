@@ -154,7 +154,7 @@ export const Posts = () => {
         route={postsRoute}
         title="문의 게시판"
         subtitle="Education inquiry board"
-        content="문의 답변을 확인할 수 있습니다"
+        content="문의 답변을 확인할 수 있습니다."
         wid={10.278}
       />
       {!loading && (
@@ -202,6 +202,7 @@ export const Posts = () => {
                     <div key={post.id} className="Posts-post-container">
                       <div className="Posts-post-left">
                         <button
+                          className="Posts-post-left-button"
                           onClick={() => openButton(post.isLocked, post.id)}
                         >
                           <span className="Posts-post-num">
