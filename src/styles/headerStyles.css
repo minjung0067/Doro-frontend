@@ -33,7 +33,6 @@
   letter-spacing: 1.25px;
   text-align: center;
   color: var(--doro-grey);
-  margin-right: 1.611rem;
 }
 
 .Header-link-inquiry {
@@ -46,4 +45,5 @@
   letter-spacing: 1.25px;
   text-align: center;
   color: var(--doro-grey);
+  margin-right: 1.611rem;
 }

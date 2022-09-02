@@ -68,6 +68,7 @@
   flex-direction: row;
   gap: 1.306rem;
   overflow-x: hidden;
+  height: 24.863rem;
 }
 
 .Main6-bottom-image1-container,
@@ -82,7 +83,7 @@
 .Main6-bottom-image3-container,
 .Main6-bottom-image4-container {
   width: 37.701rem;
-  height: 23.563rem;
+  height: 23.863rem;
   padding: 1.885rem 1.335rem 1.964rem 1.335rem;
   border-radius: 28.3px;
   box-shadow: 0 4.2px 5.7px 0 rgba(0, 0, 0, 0.2);

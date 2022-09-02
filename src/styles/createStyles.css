@@ -200,6 +200,8 @@
   justify-content: start;
   z-index: 1;
   margin-top: 2.444rem;
+  width: 38rem;
+  height: 19.111rem;
 }
 .Create-post-submit-button-on {
   width: 9.944rem;
@@ -286,4 +288,8 @@
 
 .Create-for-border {
   border-top: solid 1px var(--doro-light-grey);
+}
+
+.Create-post-agree-checkbox-parent {
+  align-items: center;
 }

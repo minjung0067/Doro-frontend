@@ -19,11 +19,7 @@ import child3 from "../images/main6-3.png";
 import child4 from "../images/main6-4.png";
 
 import doroLogoGray from "../images/doroLogoGray.png";
-import process1 from "../images/process1.png";
-import process2 from "../images/process2.png";
-import process3 from "../images/process3.png";
-import process4 from "../images/process4.png";
-import process5 from "../images/process5.png";
+import process from "../images/process.png";
 import main8Logo from "../images/main8Logo.png";
 
 import ansan from "../images/ansan.png";
@@ -41,12 +37,12 @@ export const HomePage = () => {
     if (!horizontalScrollRef.current) return;
     if (nextType === "prev") {
       horizontalScrollRef.current.scrollTo({
-        left: horizontalScrollRef.current.scrollLeft - 180,
+        left: horizontalScrollRef.current.scrollLeft - 500,
         behavior: "smooth",
       });
     } else {
       horizontalScrollRef.current.scrollTo({
-        left: horizontalScrollRef.current.scrollLeft + 180,
+        left: horizontalScrollRef.current.scrollLeft + 500,
         behavior: "smooth",
       });
     }
@@ -440,32 +436,8 @@ export const HomePage = () => {
 
             <div className="Main7-process-images-container">
               <img
-                src={process1}
-                alt="ProcessImage1"
-                className="Main7-image"
-              ></img>
-              <div className="Main7-image-bridge"></div>
-              <img
-                src={process2}
-                alt="ProcessImage2"
-                className="Main7-image"
-              ></img>
-              <div className="Main7-image-bridge"></div>
-              <img
-                src={process3}
-                alt="ProcessImage3"
-                className="Main7-image"
-              ></img>
-              <div className="Main7-image-bridge"></div>
-              <img
-                src={process4}
-                alt="ProcessImage4"
-                className="Main7-image"
-              ></img>
-              <div className="Main7-image-bridge"></div>
-              <img
-                src={process5}
-                alt="ProcessImage5"
+                src={process}
+                alt="ProcessImage"
                 className="Main7-image"
               ></img>
             </div>

@@ -40,16 +40,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 11.722rem;
-  width: 54.444rem;
+  height: 14.115rem;
+  width: 65.541rem;
+  gap: 1.338rem;
 }
 .Main7-image {
-  width: 10rem;
-  height: 11.722rem;
+  width: 12.041rem;
+  height: 14.115rem;
 }
 .Main7-image-bridge {
-  width: 1.111rem;
-  height: 0.222rem;
+  width: 1.338rem;
+  height: 0.268rem;
 
   background-color: var(--doro-light-grey);
 }

@@ -247,7 +247,7 @@ export const CreatePost = () => {
             <div className="Create-post-input-title-notification"></div>
             <div className="Create-post-input-input-box-notification">
               <div className=" create-post-notification-checkbox-parent">
-                <div className=" flex-col justify-center align-middle">
+                <div className="Create-post-agree-checkbox-parent flex flex-row justify-center">
                   <input
                     {...register("agree", { required: true })}
                     className="Create-post-agree-checkbox"
@@ -261,7 +261,11 @@ export const CreatePost = () => {
                 </div>
 
                 <div className="Create-post-agree-info-confirm-parent">
-                  {isHovering ? <img src={infoConfirm}></img> : <></>}
+                  {isHovering ? (
+                    <img src={infoConfirm} alt="info"></img>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             </div>
