@@ -16,7 +16,8 @@
 }
 .Main5-letter-container {
   margin-top: 6.222rem;
-  height: 5.167rem;
+  height: 3.222rem;
+  margin-bottom: 2.778rem;
 }
 .Main5-title {
   flex-grow: 0;
@@ -29,7 +30,6 @@
   letter-spacing: normal;
   text-align: center;
   color: #212121;
-  margin: 0.889rem 0rem 0.3rem 0rem;
 }
 .Main5-datas-container {
   height: 24rem;

@@ -328,7 +328,7 @@ export const HomePage = () => {
         <div className="Main5">
           <div className="Main5-content-container">
             <div className="Main5-letter-container">
-              <p className="Main5-title">DORO를 신뢰할수있는 이유!</p>
+              <p className="Main5-title">DORO를 신뢰할 수 있는 이유!</p>
             </div>
             <div className="Main5-datas-container">
               <div className="Main5-data1-container">
