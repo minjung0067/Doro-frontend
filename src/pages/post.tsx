@@ -247,7 +247,11 @@ export const Post = () => {
               </div>
             </div>
             <div className="Post-Line-2"></div>
-            <div className="Post-content">{data?.findPost.post?.content}</div>
+            <div className="Post-content">
+              <span className="Post-content-span">
+                {data?.findPost.post?.content}
+              </span>
+            </div>
             <div className="Post-Line-3"></div>
 
             <div className="Post-Frame-67-parent">
@@ -434,7 +438,11 @@ export const Post = () => {
 
             {userData?.me.role === "Manager" ? (
               <form onSubmit={handleSubmit(onCommentSubmit)}>
-                <textarea {...register("comment")} name="comment"></textarea>
+                <textarea
+                  className="Post-comment-container"
+                  {...register("comment")}
+                  name="comment"
+                ></textarea>
                 <Button
                   canClick={formState.isValid}
                   loading={loading}
