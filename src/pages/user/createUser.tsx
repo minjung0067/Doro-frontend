@@ -68,10 +68,12 @@ export const CreateUser = () => {
   };
   const onCompleted = (data: createUserMutation) => {
     const {
-      createUser: { ok },
+      createUser: { ok, error },
     } = data;
     if (ok) {
       navigate("/", { replace: true });
+    } else {
+      alert(`${error}`);
     }
   };
   const [createUserMutation, { data: createUserData, loading }] = useMutation<
@@ -148,6 +150,7 @@ export const CreateUser = () => {
           type="text"
           placeholder="직급을 입력해주세요."
         />
+
         <Button
           canClick={formState.isValid}
           loading={loading}
