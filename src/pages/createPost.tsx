@@ -49,7 +49,7 @@ export const CreatePost = () => {
       createPost: { ok, error },
     } = data;
     if (ok) {
-      navigate("/posts", { replace: true });
+      navigate("/posts", { replace: true, state: true });
     } else {
       console.log(error);
     }
