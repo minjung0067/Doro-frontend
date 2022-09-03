@@ -26,6 +26,11 @@ import editLogo from "../images/edit.png";
 import deleteLogo from "../images/delete.png";
 import postsLogo from "../images/posts.png";
 import { NotFound } from "./404";
+import {
+  findAllComments,
+  findAllCommentsVariables,
+} from "../__generated__/findAllComments";
+
 export const POST_QUERY = gql`
   query findPostForPost($input: FindPostInput!) {
     findPost(input: $input) {
@@ -71,6 +76,17 @@ export const CREATE_COMMENT = gql`
     }
   }
 `;
+export const FIND_ALL_COMMENT = gql`
+  query findAllComments($input: FindAllCommentsInput!) {
+    findAllComments(input: $input) {
+      ok
+      error
+      comments {
+        content
+      }
+    }
+  }
+`;
 
 export const Post = () => {
   useEffect(() => {
@@ -107,6 +123,16 @@ export const Post = () => {
       },
     }
   );
+  const { data: commentsData, refetch: commentsRefetch } = useQuery<
+    findAllComments,
+    findAllCommentsVariables
+  >(FIND_ALL_COMMENT, {
+    variables: {
+      input: {
+        postId: +(params.id ?? ""),
+      },
+    },
+  });
   const onCheckPasswordEditCompleted = (data: checkPassword) => {
     const {
       checkPassword: { isSame },
@@ -116,6 +142,7 @@ export const Post = () => {
       navigate("edit", { state: true });
     } else {
       reset();
+      commentsRefetch();
       setPasswordIsWrong(true);
     }
   };
@@ -157,7 +184,8 @@ export const Post = () => {
   const onCreateCommentCompleted = (data: createComment) => {
     if (data.createComment.ok === true) {
       refetch();
-      console.log("create comment");
+      commentsRefetch();
+      console.log(commentsData?.findAllComments?.comments);
       navigate(`/post/${+(params.id ?? "")}`, { state: true });
     } else {
       console.log("error");
@@ -421,15 +449,15 @@ export const Post = () => {
               </div>
             </div>
 
-            {data?.findPost.post?.comments.length !== 0 && (
+            {commentsData?.findAllComments?.comments && (
               <div>
                 <span className="Post-answer-title">문의 답변</span>
                 <div className="Post-Line-2"></div>
                 <div className="Post-answer-content">
                   {
-                    data?.findPost.post?.comments[
-                      data?.findPost.post?.comments.length - 1
-                    ]?.content
+                    data?.findPost.post
+                      ?.comments[// data?.findPost.post?.comments.length - 1
+                    0]?.content
                   }
                 </div>
                 <div className="Post-Line-5"></div>
