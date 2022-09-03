@@ -48,6 +48,10 @@ export interface DeletePostInput {
   postId: number;
 }
 
+export interface FindAllCommentsInput {
+  postId: number;
+}
+
 export interface FindAllPostsInput {
   page?: number | null;
 }
