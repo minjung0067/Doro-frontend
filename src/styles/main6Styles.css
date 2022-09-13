@@ -67,8 +67,20 @@
   display: flex;
   flex-direction: row;
   gap: 1.306rem;
-  overflow-x: hidden;
+  overflow-x: visible;
   height: 24.863rem;
+  transform: translate3d(0px, 0px, 0px);
+  transition-duration: 1s;
+}
+
+.Main6-bottom-container-moved {
+  display: flex;
+  flex-direction: row;
+  gap: 1.306rem;
+  overflow-x: visible;
+  height: 24.863rem;
+  transform: translate3d(-720px, 0px, 0px);
+  transition-duration: 1s;
 }
 
 .Main6-bottom-image1-container,

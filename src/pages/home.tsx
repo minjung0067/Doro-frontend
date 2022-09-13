@@ -33,7 +33,7 @@ export const HomePage = () => {
   const main6ScrollRef = useRef<HTMLInputElement>(null);
 
   const handleNextButtonClick = (nextType: "prev" | "next") => {
-    let target = document.getElementById("scroll-box");
+    let target = document.getElementById("Main3-scroll-box");
     if (nextType == "prev") {
       target?.classList.remove("Main3-bottom-container-moved");
       target?.classList.add("Main3-bottom-container");
@@ -43,18 +43,12 @@ export const HomePage = () => {
   };
 
   const main6handleNextButtonClick = (nextType: "prev" | "next") => {
-    console.log(horizontalScrollRef.current);
-    if (!main6ScrollRef.current) return;
-    if (nextType === "prev") {
-      main6ScrollRef.current.scrollTo({
-        left: main6ScrollRef.current.scrollLeft - 500,
-        behavior: "smooth",
-      });
+    let target = document.getElementById("Main6-scroll-box");
+    if (nextType == "prev") {
+      target?.classList.remove("Main6-bottom-container-moved");
+      target?.classList.add("Main6-bottom-container");
     } else {
-      main6ScrollRef.current.scrollTo({
-        left: main6ScrollRef.current.scrollLeft + 500,
-        behavior: "smooth",
-      });
+      target?.classList.add("Main6-bottom-container-moved");
     }
   };
 
@@ -157,7 +151,7 @@ export const HomePage = () => {
               </div>
             </div>
             <div
-              id="scroll-box"
+              id="Main3-scroll-box"
               ref={horizontalScrollRef}
               className="Main3-bottom-container "
             >
@@ -393,7 +387,11 @@ export const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div ref={main6ScrollRef} className="Main6-bottom-container">
+            <div
+              id="Main6-scroll-box"
+              ref={main6ScrollRef}
+              className="Main6-bottom-container"
+            >
               <div className="Main6-bottom-image1-container">
                 <img
                   src={child1}
