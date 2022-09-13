@@ -33,18 +33,12 @@ export const HomePage = () => {
   const main6ScrollRef = useRef<HTMLInputElement>(null);
 
   const handleNextButtonClick = (nextType: "prev" | "next") => {
-    console.log(horizontalScrollRef.current);
-    if (!horizontalScrollRef.current) return;
-    if (nextType === "prev") {
-      horizontalScrollRef.current.scrollTo({
-        left: horizontalScrollRef.current.scrollLeft - 500,
-        behavior: "smooth",
-      });
+    let target = document.getElementById("scroll-box");
+    if (nextType == "prev") {
+      target?.classList.remove("Main3-bottom-container-moved");
+      target?.classList.add("Main3-bottom-container");
     } else {
-      horizontalScrollRef.current.scrollTo({
-        left: horizontalScrollRef.current.scrollLeft + 500,
-        behavior: "smooth",
-      });
+      target?.classList.add("Main3-bottom-container-moved");
     }
   };
 
@@ -162,7 +156,11 @@ export const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div ref={horizontalScrollRef} className="Main3-bottom-container">
+            <div
+              id="scroll-box"
+              ref={horizontalScrollRef}
+              className="Main3-bottom-container "
+            >
               <div className="Main3-bottom-image1-container">
                 <img
                   src={speaker}
