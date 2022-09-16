@@ -24,6 +24,7 @@ import main8Logo from "../images/main8Logo.png";
 
 import ansan from "../images/ansan.png";
 import { Helmet } from "react-helmet-async";
+import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 
 export const HomePage = () => {
   useEffect(() => {
@@ -31,6 +32,8 @@ export const HomePage = () => {
   }, []);
   const horizontalScrollRef = useRef<HTMLInputElement>(null);
   const main6ScrollRef = useRef<HTMLInputElement>(null);
+  const animatedItem = useScrollFadeIn(0.7);
+  const animatedItem2 = useScrollFadeIn(0.1);
 
   const handleNextButtonClick = (nextType: "prev" | "next") => {
     console.log(horizontalScrollRef.current);
@@ -308,7 +311,7 @@ export const HomePage = () => {
 
         <div className="Main4">
           <div className="Main4-content-container">
-            <div className="Main4-letter-container">
+            <div className="Main4-letter-container" {...animatedItem}>
               <p className="Main4-title">
                 DORO 교육은 청소년재단과 함께 합니다
               </p>
@@ -319,7 +322,7 @@ export const HomePage = () => {
                 안양시, 수원시, 군포시
               </p>
             </div>
-            <div className="Main4-image-container">
+            <div className="Main4-image-container" {...animatedItem2}>
               <img src={ansan} alt="Ansan x DORO" className="Main4-image"></img>
             </div>
           </div>
