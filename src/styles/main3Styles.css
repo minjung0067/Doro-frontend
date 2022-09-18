@@ -75,15 +75,6 @@
   transition-duration: 1s;
 }
 
-.Main3-bottom-container-moved {
-  display: flex;
-  flex-direction: row;
-  gap: 1.111rem;
-  overflow-x: visible;
-  transform: translate3d(-500px, 0, 0px);
-  transition-duration: 1s;
-}
-
 .Main3-bottom-image1-container,
 .Main3-bottom-image2-container,
 .Main3-bottom-image3-container,

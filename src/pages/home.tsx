@@ -31,24 +31,39 @@ export const HomePage = () => {
   }, []);
   const horizontalScrollRef = useRef<HTMLInputElement>(null);
   const main6ScrollRef = useRef<HTMLInputElement>(null);
-
+  let main3_current_translate = 0;
+  let main6_current_translate = 0;
   const handleNextButtonClick = (nextType: "prev" | "next") => {
     let target = document.getElementById("Main3-scroll-box");
     if (nextType == "prev") {
-      target?.classList.remove("Main3-bottom-container-moved");
-      target?.classList.add("Main3-bottom-container");
+      if (main3_current_translate < 0) {
+        main3_current_translate += 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main3_current_translate}px, 0px)`;
     } else {
-      target?.classList.add("Main3-bottom-container-moved");
+      if (main3_current_translate >= -1400) {
+        main3_current_translate -= 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main3_current_translate}px, 0px)`;
     }
   };
 
   const main6handleNextButtonClick = (nextType: "prev" | "next") => {
     let target = document.getElementById("Main6-scroll-box");
     if (nextType == "prev") {
-      target?.classList.remove("Main6-bottom-container-moved");
-      target?.classList.add("Main6-bottom-container");
+      if (main6_current_translate < 0) {
+        main6_current_translate += 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main6_current_translate}px, 0px)`;
     } else {
-      target?.classList.add("Main6-bottom-container-moved");
+      if (main6_current_translate >= -1400) {
+        main6_current_translate -= 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main6_current_translate}px, 0px)`;
     }
   };
 
