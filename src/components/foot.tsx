@@ -18,13 +18,17 @@ export const Foot: React.FC = () => {
               <p className="Foot-company">Company</p>
               <a
                 className="Foot-introduce"
-                href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3"
+                href="https://dojeonrobot.notion.site/DORO-a622f18163b74a03947551f5eebf12ff"
+                target="_blank"
+                rel="noreferrer"
               >
                 회사소개
               </a>
               <a
                 className="Foot-recruit"
-                href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3"
+                href="https://dojeonrobot.notion.site/DORO-a622f18163b74a03947551f5eebf12ff"
+                target="_blank"
+                rel="noreferrer"
               >
                 강사모집
               </a>
@@ -60,12 +64,16 @@ export const Foot: React.FC = () => {
               <a
                 className="Foot-insta-frame"
                 href="https://www.instagram.com/doro_edu/"
+                target="_blank"
+                rel="noreferrer"
               >
                 <img className="Foot-insta-img" src={insta} alt="Instagram" />
               </a>
               <a
                 className="Foot-notion-frame"
-                href="https://www.notion.so/dojeonrobot/DORO-f71ed19434a5417c96516b4b39101be3"
+                href="https://dojeonrobot.notion.site/DORO-a622f18163b74a03947551f5eebf12ff"
+                target="_blank"
+                rel="noreferrer"
               >
                 <img className="Foot-notion-img" src={notion} alt="Notion" />
               </a>
