@@ -1,13 +1,15 @@
 .Main6 {
   height: 63.222rem;
-  width: 106.667rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 15.556rem;
+
+  overflow-x: hidden;
 }
 
 .Main6-content-container {
   margin-left: 20.694rem;
+  width: 106.667rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15.556rem;
 }
 
 .Main6-top-container {
@@ -67,8 +69,10 @@
   display: flex;
   flex-direction: row;
   gap: 1.306rem;
-  overflow-x: hidden;
+  overflow-x: visible;
   height: 24.863rem;
+  transform: translate3d(0px, 0px, 0px);
+  transition-duration: 1s;
 }
 
 .Main6-bottom-image1-container,

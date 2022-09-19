@@ -454,11 +454,11 @@ export const Post = () => {
                 <span className="Post-answer-title">문의 답변</span>
                 <div className="Post-Line-2"></div>
                 <div className="Post-answer-content">
-                  {
-                    data?.findPost.post
-                      ?.comments[// data?.findPost.post?.comments.length - 1
-                    0]?.content
-                  }
+                  {process.env.NODE_ENV === "production" // production일때랑 local 일때랑 데이터 배치가 달라서 이렇게 설정
+                    ? data?.findPost.post?.comments[0]?.content
+                    : data?.findPost.post?.comments[
+                        data?.findPost.post?.comments.length - 1
+                      ]?.content}
                 </div>
                 <div className="Post-Line-5"></div>
               </div>

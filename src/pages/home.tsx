@@ -32,38 +32,45 @@ export const HomePage = () => {
   }, []);
   const horizontalScrollRef = useRef<HTMLInputElement>(null);
   const main6ScrollRef = useRef<HTMLInputElement>(null);
+
+  let main3_current_translate = 0;
+  let main6_current_translate = 0;
+
   const main4TopAnimation = useScrollFadeIn(0.7);
   const main4BottomAnimation = useScrollFadeIn(0.1);
 
+
   const handleNextButtonClick = (nextType: "prev" | "next") => {
-    console.log(horizontalScrollRef.current);
-    if (!horizontalScrollRef.current) return;
-    if (nextType === "prev") {
-      horizontalScrollRef.current.scrollTo({
-        left: horizontalScrollRef.current.scrollLeft - 500,
-        behavior: "smooth",
-      });
+    let target = document.getElementById("Main3-scroll-box");
+    if (nextType == "prev") {
+      if (main3_current_translate < 0) {
+        main3_current_translate += 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main3_current_translate}px, 0px)`;
     } else {
-      horizontalScrollRef.current.scrollTo({
-        left: horizontalScrollRef.current.scrollLeft + 500,
-        behavior: "smooth",
-      });
+      if (main3_current_translate >= -1400) {
+        main3_current_translate -= 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main3_current_translate}px, 0px)`;
     }
   };
 
   const main6handleNextButtonClick = (nextType: "prev" | "next") => {
-    console.log(horizontalScrollRef.current);
-    if (!main6ScrollRef.current) return;
-    if (nextType === "prev") {
-      main6ScrollRef.current.scrollTo({
-        left: main6ScrollRef.current.scrollLeft - 500,
-        behavior: "smooth",
-      });
+    let target = document.getElementById("Main6-scroll-box");
+    if (nextType == "prev") {
+      if (main6_current_translate < 0) {
+        main6_current_translate += 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main6_current_translate}px, 0px)`;
     } else {
-      main6ScrollRef.current.scrollTo({
-        left: main6ScrollRef.current.scrollLeft + 500,
-        behavior: "smooth",
-      });
+      if (main6_current_translate >= -1400) {
+        main6_current_translate -= 710;
+      }
+      //@ts-ignore
+      target.style.transform = `translate(${main6_current_translate}px, 0px)`;
     }
   };
 
@@ -165,7 +172,11 @@ export const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div ref={horizontalScrollRef} className="Main3-bottom-container">
+            <div
+              id="Main3-scroll-box"
+              ref={horizontalScrollRef}
+              className="Main3-bottom-container "
+            >
               <div className="Main3-bottom-image1-container">
                 <img
                   src={speaker}
@@ -398,7 +409,11 @@ export const HomePage = () => {
                 </button>
               </div>
             </div>
-            <div ref={main6ScrollRef} className="Main6-bottom-container">
+            <div
+              id="Main6-scroll-box"
+              ref={main6ScrollRef}
+              className="Main6-bottom-container"
+            >
               <div className="Main6-bottom-image1-container">
                 <img
                   src={child1}
