@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef } from "react";
 
-export const useScrollFadeIn = (thresholdValue: number) => {
+export const useScrollFadeIn = (
+  thresholdValue: number,
+  translate3d: string,
+  delay: string
+) => {
   const dom = useRef<HTMLInputElement>(null);
 
   const handleScroll = useCallback((entries: any) => {
@@ -11,7 +15,7 @@ export const useScrollFadeIn = (thresholdValue: number) => {
         current!.style.transitionProperty = "opacity transform";
         current!.style.transitionDuration = "1s";
         current!.style.transitionTimingFunction = "cubic-bezier(0, 0, 0.2, 1)";
-        current!.style.transitionDelay = "0s";
+        current!.style.transitionDelay = `${delay}`;
         current!.style.opacity = "50";
         current!.style.transform = "translate3d(0, 0, 0)";
       }
@@ -36,7 +40,7 @@ export const useScrollFadeIn = (thresholdValue: number) => {
     ref: dom,
     style: {
       opacity: "0",
-      transform: "translate3d(0, 50%, 0)",
+      transform: `translate3d(0, ${translate3d}, 0)`,
     },
   };
 };

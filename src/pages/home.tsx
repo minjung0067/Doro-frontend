@@ -36,9 +36,20 @@ export const HomePage = () => {
   let main3_current_translate = 0;
   let main6_current_translate = 0;
 
-  const main4TopAnimation = useScrollFadeIn(0.7);
-  const main4BottomAnimation = useScrollFadeIn(0.1);
+  const main1TopAnimation = useScrollFadeIn(1, "25%", "0s");
+  const main1BottomAnimation = useScrollFadeIn(1, "100%", "0.3s");
 
+  const main2TopAnimation = useScrollFadeIn(0.7, "50%", "0s");
+  const main2BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
+
+  const main4TopAnimation = useScrollFadeIn(0.7, "50%", "0s");
+  const main4BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
+
+  const main5TopAnimation = useScrollFadeIn(0.7, "100%", "0s");
+  const main5BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
+
+  const main7TopAnimation = useScrollFadeIn(0.7, "100%", "0s");
+  const main7BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
 
   const handleNextButtonClick = (nextType: "prev" | "next") => {
     let target = document.getElementById("Main3-scroll-box");
@@ -82,35 +93,39 @@ export const HomePage = () => {
       <div className="Main-Container">
         <div className="Main1">
           <div className="Main1-content-container">
-            <p className="Main1-title">
-              안녕하세요,
-              <br />
-              대학생 강사 기획사
-              <br />
-              DORO 입니다
-            </p>
-            <p className="Main1-subtitle">
-              DORO의 모든 교육은 대학생 강사가 함께합니다.
-            </p>
-            <Link
-              to="/createPost"
-              className="Main1-button-frame Main1-button:hover"
-            >
-              <button className="Main1-button">교육 문의하기</button>
-            </Link>
+            <div {...main1TopAnimation}>
+              <p className="Main1-title">
+                안녕하세요,
+                <br />
+                대학생 강사 기획사
+                <br />
+                DORO 입니다
+              </p>
+              <p className="Main1-subtitle">
+                DORO의 모든 교육은 대학생 강사가 함께합니다.
+              </p>
+            </div>
+            <div {...main1BottomAnimation}>
+              <Link
+                to="/createPost"
+                className="Main1-button-frame Main1-button:hover"
+              >
+                <button className="Main1-button">교육 문의하기</button>
+              </Link>
+            </div>
           </div>
         </div>
 
         <div className="Main2">
           <div className="Main2-content-container">
-            <div className="Main2-letter-container">
+            <div className="Main2-letter-container" {...main2TopAnimation}>
               <p className="Main2-title">전공 지식을 갖춘 대학생 강사</p>
               <p className="Main2-subtitle">
                 DORO의 대학생 강사들은 로봇공학, 전자공학, 생명공학 등<br />
                 다양한 이공계 전공 지식을 갖춘 3,4학년으로 구성되어 있습니다.
               </p>
             </div>
-            <div className="Main2-image-container">
+            <div className="Main2-image-container" {...main2BottomAnimation}>
               <img
                 src={instructor1}
                 alt="Instructor"
@@ -341,33 +356,35 @@ export const HomePage = () => {
 
         <div className="Main5">
           <div className="Main5-content-container">
-            <div className="Main5-letter-container">
+            <div className="Main5-letter-container" {...main5TopAnimation}>
               <p className="Main5-title">DORO를 신뢰할 수 있는 이유!</p>
             </div>
-            <div className="Main5-datas-container">
-              <div className="Main5-data1-container">
-                <span className="Main5-data1-letter">강의 누적 교육생</span>
-                <span className="Main5-data1-number">3187명</span>
+            <div {...main5BottomAnimation}>
+              <div className="Main5-datas-container">
+                <div className="Main5-data1-container">
+                  <span className="Main5-data1-letter">강의 누적 교육생</span>
+                  <span className="Main5-data1-number">3187명</span>
+                </div>
+                <div className="Main5-data2-container">
+                  <span className="Main5-data2-letter">누적 키트 판매수</span>
+                  <span className="Main5-data2-number">2139개</span>
+                </div>
+                <div className="Main5-data3-container">
+                  <span className="Main5-data3-letter">강의 누적 시간</span>
+                  <span className="Main5-data3-number">274시간</span>
+                </div>
+                <div className="Main5-data4-container">
+                  <span className="Main5-data4-letter">강의 출강 학교 수</span>
+                  <span className="Main5-data4-number">27개교</span>
+                </div>
               </div>
-              <div className="Main5-data2-container">
-                <span className="Main5-data2-letter">누적 키트 판매수</span>
-                <span className="Main5-data2-number">2139개</span>
+              <div className="Main5-doro-logo-gray-container">
+                <img
+                  src={doroLogoGray}
+                  alt="doroLogoGray"
+                  className="Main5-doro-logo-gray"
+                ></img>
               </div>
-              <div className="Main5-data3-container">
-                <span className="Main5-data3-letter">강의 누적 시간</span>
-                <span className="Main5-data3-number">274시간</span>
-              </div>
-              <div className="Main5-data4-container">
-                <span className="Main5-data4-letter">강의 출강 학교 수</span>
-                <span className="Main5-data4-number">27개교</span>
-              </div>
-            </div>
-            <div className="Main5-doro-logo-gray-container">
-              <img
-                src={doroLogoGray}
-                alt="doroLogoGray"
-                className="Main5-doro-logo-gray"
-              ></img>
             </div>
           </div>
         </div>
@@ -448,11 +465,14 @@ export const HomePage = () => {
 
         <div className="Main7">
           <div className="Main7-content-container">
-            <div className="Main7-title-container">
+            <div className="Main7-title-container" {...main7TopAnimation}>
               <p className="Main7-title">DORO 교육 프로세스</p>
             </div>
 
-            <div className="Main7-process-images-container">
+            <div
+              className="Main7-process-images-container"
+              {...main7BottomAnimation}
+            >
               <img
                 src={process}
                 alt="ProcessImage"
