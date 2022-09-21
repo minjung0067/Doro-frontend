@@ -131,10 +131,9 @@
   flex-grow: 0;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
-  padding: 0.222rem 1.556rem;
   border-radius: 13px;
   background-color: #d3efff;
 }
@@ -145,10 +144,9 @@
   flex-grow: 0;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
-  padding: 0.222rem 1.556rem;
   border-radius: 13px;
   background-color: #ffab49;
 }
@@ -159,10 +157,9 @@
   flex-grow: 0;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
-  padding: 0.222rem 1.556rem;
   border-radius: 13px;
   background-color: #0072b9;
 }
@@ -225,4 +222,19 @@
   width: 55.556rem;
   height: 10rem;
   border: 1px solid #000;
+}
+
+.Post-edit-logo {
+  width: 1.111rem;
+  height: 1.111rem;
+}
+
+.Post-delete-logo {
+  width: 1.111rem;
+  height: 1.111rem;
+}
+
+.Post-posts-list-logo {
+  width: 1.167rem;
+  height: 1.167rem;
 }
