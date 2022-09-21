@@ -309,6 +309,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호가 틀렸습니다"
                               className="Posts-modal-input-error"
+                              type="password"
                             ></input>
                           ) : (
                             <input
@@ -316,6 +317,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호를 입력해주세요"
                               className="Posts-modal-input"
+                              type="password"
                             ></input>
                           )}
                           <button className="Posts-modal-button transition-colors">
@@ -353,7 +355,11 @@ export const Post = () => {
                   )}
                 </Modal>
                 <button className="Post-Frame-66" onClick={editButton}>
-                  <img src={editLogo}></img>
+                  <img
+                    src={editLogo}
+                    className="Post-edit-logo"
+                    alt="Edit"
+                  ></img>
                 </button>
                 <Modal
                   isOpen={deleteModalIsOpen}
@@ -380,6 +386,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호가 틀렸습니다"
                               className="Posts-modal-input-error"
+                              type="password"
                             ></input>
                           ) : (
                             <input
@@ -387,6 +394,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호를 입력해주세요"
                               className="Posts-modal-input"
+                              type="password"
                             ></input>
                           )}
                           <button className="Posts-modal-button transition-colors">
@@ -439,11 +447,19 @@ export const Post = () => {
                   </div>
                 </Modal>
                 <button className="Post-Frame-65" onClick={deleteButton}>
-                  <img src={deleteLogo}></img>
+                  <img
+                    src={deleteLogo}
+                    className="Post-delete-logo"
+                    alt="Delete"
+                  ></img>
                 </button>
                 <button className="Post-Frame-64">
                   <Link to="/posts">
-                    <img src={postsLogo}></img>
+                    <img
+                      src={postsLogo}
+                      className="Post-posts-list-logo"
+                      alt="Posts-list"
+                    ></img>
                   </Link>
                 </button>
               </div>
