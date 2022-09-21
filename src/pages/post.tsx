@@ -309,6 +309,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호가 틀렸습니다"
                               className="Posts-modal-input-error"
+                              type="password"
                             ></input>
                           ) : (
                             <input
@@ -316,6 +317,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호를 입력해주세요"
                               className="Posts-modal-input"
+                              type="password"
                             ></input>
                           )}
                           <button className="Posts-modal-button transition-colors">
@@ -384,6 +386,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호가 틀렸습니다"
                               className="Posts-modal-input-error"
+                              type="password"
                             ></input>
                           ) : (
                             <input
@@ -391,6 +394,7 @@ export const Post = () => {
                               name="password"
                               placeholder="비밀번호를 입력해주세요"
                               className="Posts-modal-input"
+                              type="password"
                             ></input>
                           )}
                           <button className="Posts-modal-button transition-colors">
