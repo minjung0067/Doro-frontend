@@ -55,13 +55,13 @@ export const HomePage = () => {
     let target = document.getElementById("Main3-scroll-box");
     if (nextType == "prev") {
       if (main3_current_translate < 0) {
-        main3_current_translate += 710;
+        main3_current_translate += 532;
       }
       //@ts-ignore
       target.style.transform = `translate(${main3_current_translate}px, 0px)`;
     } else {
       if (main3_current_translate >= -1400) {
-        main3_current_translate -= 710;
+        main3_current_translate -= 532;
       }
       //@ts-ignore
       target.style.transform = `translate(${main3_current_translate}px, 0px)`;
@@ -72,13 +72,13 @@ export const HomePage = () => {
     let target = document.getElementById("Main6-scroll-box");
     if (nextType == "prev") {
       if (main6_current_translate < 0) {
-        main6_current_translate += 710;
+        main6_current_translate += 532;
       }
       //@ts-ignore
       target.style.transform = `translate(${main6_current_translate}px, 0px)`;
     } else {
       if (main6_current_translate >= -1400) {
-        main6_current_translate -= 710;
+        main6_current_translate -= 532;
       }
       //@ts-ignore
       target.style.transform = `translate(${main6_current_translate}px, 0px)`;
