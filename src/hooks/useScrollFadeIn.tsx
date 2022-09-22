@@ -9,7 +9,6 @@ export const useScrollFadeIn = (
 
   const handleScroll = useCallback((entries: any) => {
     const { current } = dom;
-    console.log(entries);
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
         current!.style.transitionProperty = "opacity transform";
