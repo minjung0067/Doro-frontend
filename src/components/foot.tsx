@@ -56,7 +56,7 @@ export const Foot: React.FC = () => {
               DORO(도로) | 대표 : 김진한 | 사업자 등록번호:825-01-02398
             </span>
             <span className="Foot-address">
-              경기도 안산시 상록수 한양대학로 55 학연산클러스터 4층, KF-ROOM 2호
+              경기도 안산시 상록구 한양대학로 55 학연산클러스터 4층, KF-ROOM 2호
             </span>
           </div>
           <div className="Foot-bottom-right">
