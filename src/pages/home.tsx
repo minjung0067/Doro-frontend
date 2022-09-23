@@ -52,7 +52,7 @@ export const HomePage = () => {
   const main7TopAnimation = useScrollFadeIn(0.7, "100%", "0s");
   const main7BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
 
-  const main5Count1Animation = useScrollCount(3187, 2900, 3000, "개");
+  const main5Count1Animation = useScrollCount(3187, 2900, 3000, "명");
   const main5Count2Animation = useScrollCount(2139, 1900, 3000, "개");
   const main5Count3Animation = useScrollCount(274, 250, 3000, "시간");
   const main5Count4Animation = useScrollCount(27, 19, 3000, "개교");
