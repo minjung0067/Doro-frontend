@@ -4,8 +4,6 @@ import instructor1 from "../images/instructor1.png";
 import instructor2 from "../images/instructor2.png";
 import instructor3 from "../images/instructor3.png";
 import instructor4 from "../images/instructor4.png";
-import leftButton from "../images/left-button.png";
-import rightButton from "../images/right-button.png";
 import speaker from "../images/speaker.png";
 import mood from "../images/mood.png";
 import game from "../images/game.png";
@@ -27,11 +25,16 @@ import { Helmet } from "react-helmet-async";
 import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 import { useScrollCount } from "../hooks/useScrollCountup";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper";
+
 export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const horizontalScrollRef = useRef<HTMLInputElement>(null);
   const main6ScrollRef = useRef<HTMLInputElement>(null);
 
   let main3_current_translate = 0;
@@ -56,40 +59,6 @@ export const HomePage = () => {
   const main5Count2Animation = useScrollCount(2139, 1900, 1500, "개");
   const main5Count3Animation = useScrollCount(274, 250, 1500, "시간");
   const main5Count4Animation = useScrollCount(27, 10, 1500, "개교");
-
-  const handleNextButtonClick = (nextType: "prev" | "next") => {
-    let target = document.getElementById("Main3-scroll-box");
-    if (nextType == "prev") {
-      if (main3_current_translate < 0) {
-        main3_current_translate += 532;
-      }
-      //@ts-ignore
-      target.style.transform = `translate(${main3_current_translate}px, 0px)`;
-    } else {
-      if (main3_current_translate >= -1400) {
-        main3_current_translate -= 532;
-      }
-      //@ts-ignore
-      target.style.transform = `translate(${main3_current_translate}px, 0px)`;
-    }
-  };
-
-  const main6handleNextButtonClick = (nextType: "prev" | "next") => {
-    let target = document.getElementById("Main6-scroll-box");
-    if (nextType == "prev") {
-      if (main6_current_translate < 0) {
-        main6_current_translate += 532;
-      }
-      //@ts-ignore
-      target.style.transform = `translate(${main6_current_translate}px, 0px)`;
-    } else {
-      if (main6_current_translate >= -1400) {
-        main6_current_translate -= 532;
-      }
-      //@ts-ignore
-      target.style.transform = `translate(${main6_current_translate}px, 0px)`;
-    }
-  };
 
   return (
     <>
@@ -166,178 +135,170 @@ export const HomePage = () => {
                   컨텐츠로 활용합니다.
                 </p>
               </div>
-              <div className="Main3-top-button-container">
-                <button
-                  onClick={() => {
-                    handleNextButtonClick("prev");
-                  }}
-                  className="Main3-top-left-button"
-                >
-                  <img
-                    src={leftButton}
-                    alt="Left"
-                    className="Main3-top-left-image"
-                  ></img>
-                </button>
-                <button
-                  onClick={() => {
-                    handleNextButtonClick("next");
-                  }}
-                  className="Main3-top-left-button"
-                >
-                  <img
-                    src={rightButton}
-                    alt="Right"
-                    className="Main3-top-left-image"
-                  ></img>
-                </button>
-              </div>
             </div>
-            <div
-              id="Main3-scroll-box"
-              ref={horizontalScrollRef}
-              className="Main3-bottom-container "
+
+            <Swiper
+              slidesPerView="auto"
+              spaceBetween={20}
+              // pagination={{
+              //   clickable: true,
+              // }}
+              modules={[Pagination]}
+              className="Main3-bottom-container"
             >
-              <div className="Main3-bottom-image1-container">
-                <img
-                  src={speaker}
-                  alt="Program"
-                  className="Main3-bottom-image1"
-                ></img>
-                <div className="Main3-bottom-image1-letters">
-                  <p className="Main3-bottom-image-title">
-                    DORO DIY 블루투스 스피커
-                  </p>
-                  <p className="Main3-bottom-image-subtitle">
-                    #IOT #블루투스 #음향학
-                  </p>
+              <SwiperSlide>              
+                <div className="Main3-bottom-image1-container">
+                  <img
+                    src={speaker}
+                    alt="Program"
+                    className="Main3-bottom-image1"
+                  ></img>
+                  <div className="Main3-bottom-image1-letters">
+                    <p className="Main3-bottom-image-title">
+                      DORO DIY 블루투스 스피커
+                    </p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #IOT #블루투스 #음향학
+                    </p>
 
-                  <Link to="/createPost" className="Main3-bottom-image-button">
+                    <Link to="/createPost" className="Main3-bottom-image-button">
+                      <button className="Main3-bottom-image-button">
+                        <span className="Main3-bottom-image-inquiry">
+                          프로그램 문의하기
+                        </span>
+                        <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main3-bottom-image3-container">
+                  <img
+                    src={game}
+                    alt="Program"
+                    className="Main3-bottom-image3"
+                  ></img>
+                  <div className="Main3-bottom-image3-letters">
+                    <p className="Main3-bottom-image-title">
+                      DORO DIY 아두이노 게임기
+                    </p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #중급회로 #임베디드 #아두이노 #코딩
+                    </p>
+
+                    <Link to="/createPost" className="Main3-bottom-image-button">
+                      <button className="Main3-bottom-image-button">
+                        <span className="Main3-bottom-image-inquiry">
+                          프로그램 문의하기
+                        </span>
+                        <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main3-bottom-walking-container">
+                  <img
+                    src={walking}
+                    alt="Program"
+                    className="Main3-bottom-walking"
+                  ></img>
+                  <div className="Main3-bottom-walking-letters">
+                    <p className="Main3-bottom-image-title">DORO DIY 워킹로봇</p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #기초회로 #IR센서 #기구학
+                    </p>
+
+                    <Link to="/createPost" className="Main3-bottom-image-button">
+                      <button className="Main3-bottom-image-button">
+                        <span className="Main3-bottom-image-inquiry">
+                          프로그램 문의하기
+                        </span>
+                        <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="Main3-bottom-image4-container">
+                  <img
+                    src={balancing}
+                    alt="Program"
+                    className="Main3-bottom-image4"
+                  ></img>
+                  <div className="Main3-bottom-image4-letters">
+                    <p className="Main3-bottom-image-title">
+                      DORO DIY 밸런싱 로봇
+                    </p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #제어공학 #PID #아두이노 #코딩
+                    </p>
+
+                    <Link to="/createPost" className="Main3-bottom-image-button">
+                      <button className="Main3-bottom-image-button">
+                        <span className="Main3-bottom-image-inquiry">
+                          프로그램 문의하기
+                        </span>
+                        <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main3-bottom-image2-container">
+                  <img
+                    src={mood}
+                    alt="Program"
+                    className="Main3-bottom-image2"
+                  ></img>
+                  <div className="Main3-bottom-image2-letters">
+                    <p className="Main3-bottom-image-title">
+                      DORO DIY 미니 무드등
+                    </p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #기초회로 #조도센서 #전자공학
+                    </p>
                     <button className="Main3-bottom-image-button">
                       <span className="Main3-bottom-image-inquiry">
                         프로그램 문의하기
                       </span>
+
                       <span className="Main3-bottom-image-arrow">&rsaquo;</span>
                     </button>
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </SwiperSlide>
 
-              <div className="Main3-bottom-image3-container">
-                <img
-                  src={game}
-                  alt="Program"
-                  className="Main3-bottom-image3"
-                ></img>
-                <div className="Main3-bottom-image3-letters">
-                  <p className="Main3-bottom-image-title">
-                    DORO DIY 아두이노 게임기
-                  </p>
-                  <p className="Main3-bottom-image-subtitle">
-                    #중급회로 #임베디드 #아두이노 #코딩
-                  </p>
+              <SwiperSlide>
+                <div className="Main3-bottom-car-container">
+                  <img src={car} alt="Program" className="Main3-bottom-car"></img>
+                  <div className="Main3-bottom-car-letters">
+                    <p className="Main3-bottom-image-title">DORO DIY IR 자동차</p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #기초회로 #IR센서 #동역학
+                    </p>
 
-                  <Link to="/createPost" className="Main3-bottom-image-button">
-                    <button className="Main3-bottom-image-button">
-                      <span className="Main3-bottom-image-inquiry">
-                        프로그램 문의하기
-                      </span>
-                      <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                    </button>
-                  </Link>
+                    <Link to="/createPost" className="Main3-bottom-image-button">
+                      <button className="Main3-bottom-image-button">
+                        <span className="Main3-bottom-image-inquiry">
+                          프로그램 문의하기
+                        </span>
+                        <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </SwiperSlide>
 
-              <div className="Main3-bottom-walking-container">
-                <img
-                  src={walking}
-                  alt="Program"
-                  className="Main3-bottom-walking"
-                ></img>
-                <div className="Main3-bottom-walking-letters">
-                  <p className="Main3-bottom-image-title">DORO DIY 워킹로봇</p>
-                  <p className="Main3-bottom-image-subtitle">
-                    #기초회로 #IR센서 #기구학
-                  </p>
-
-                  <Link to="/createPost" className="Main3-bottom-image-button">
-                    <button className="Main3-bottom-image-button">
-                      <span className="Main3-bottom-image-inquiry">
-                        프로그램 문의하기
-                      </span>
-                      <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-
-              <div className="Main3-bottom-image4-container">
-                <img
-                  src={balancing}
-                  alt="Program"
-                  className="Main3-bottom-image4"
-                ></img>
-                <div className="Main3-bottom-image4-letters">
-                  <p className="Main3-bottom-image-title">
-                    DORO DIY 밸런싱 로봇
-                  </p>
-                  <p className="Main3-bottom-image-subtitle">
-                    #제어공학 #PID #아두이노 #코딩
-                  </p>
-
-                  <Link to="/createPost" className="Main3-bottom-image-button">
-                    <button className="Main3-bottom-image-button">
-                      <span className="Main3-bottom-image-inquiry">
-                        프로그램 문의하기
-                      </span>
-                      <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-
-              <div className="Main3-bottom-image2-container">
-                <img
-                  src={mood}
-                  alt="Program"
-                  className="Main3-bottom-image2"
-                ></img>
-                <div className="Main3-bottom-image2-letters">
-                  <p className="Main3-bottom-image-title">
-                    DORO DIY 미니 무드등
-                  </p>
-                  <p className="Main3-bottom-image-subtitle">
-                    #기초회로 #조도센서 #전자공학
-                  </p>
-                  <button className="Main3-bottom-image-button">
-                    <span className="Main3-bottom-image-inquiry">
-                      프로그램 문의하기
-                    </span>
-
-                    <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                  </button>
-                </div>
-              </div>
-
-              <div className="Main3-bottom-car-container">
-                <img src={car} alt="Program" className="Main3-bottom-car"></img>
-                <div className="Main3-bottom-car-letters">
-                  <p className="Main3-bottom-image-title">DORO DIY IR 자동차</p>
-                  <p className="Main3-bottom-image-subtitle">
-                    #기초회로 #IR센서 #동역학
-                  </p>
-
-                  <Link to="/createPost" className="Main3-bottom-image-button">
-                    <button className="Main3-bottom-image-button">
-                      <span className="Main3-bottom-image-inquiry">
-                        프로그램 문의하기
-                      </span>
-                      <span className="Main3-bottom-image-arrow">&rsaquo;</span>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            </Swiper>
           </div>
         </div>
 
@@ -425,67 +386,57 @@ export const HomePage = () => {
                   전달하고 있습니다.
                 </p>
               </div>
-              <div className="Main6-top-button-container">
-                <button
-                  onClick={() => {
-                    main6handleNextButtonClick("prev");
-                  }}
-                  className="Main6-top-left-button"
-                >
-                  <img
-                    src={leftButton}
-                    alt="Left"
-                    className="Main6-top-left-image"
-                  ></img>
-                </button>
-                <button
-                  onClick={() => {
-                    main6handleNextButtonClick("next");
-                  }}
-                  className="Main6-top-left-button"
-                >
-                  <img
-                    src={rightButton}
-                    alt="Right"
-                    className="Main6-top-left-image"
-                  ></img>
-                </button>
-              </div>
             </div>
-            <div
-              id="Main6-scroll-box"
-              ref={main6ScrollRef}
+            <Swiper
+              slidesPerView="auto"
+              spaceBetween={20}
+              // pagination={{
+              //   clickable: true,
+              // }}
+              modules={[Pagination]}
               className="Main6-bottom-container"
             >
-              <div className="Main6-bottom-image1-container">
-                <img
-                  src={child1}
-                  alt="Program"
-                  className="Main6-bottom-image1"
-                ></img>
-              </div>
-              <div className="Main6-bottom-image2-container">
-                <img
-                  src={child2}
-                  alt="Program"
-                  className="Main6-bottom-image2"
-                ></img>
-              </div>
-              <div className="Main6-bottom-image3-container">
-                <img
-                  src={child3}
-                  alt="Program"
-                  className="Main6-bottom-image3"
-                ></img>
-              </div>
-              <div className="Main6-bottom-image4-container">
-                <img
-                  src={child4}
-                  alt="Program"
-                  className="Main6-bottom-image4"
-                ></img>
-              </div>
-            </div>
+              <SwiperSlide>
+                <div className="Main6-bottom-image1-container">
+                  <img
+                    src={child1}
+                    alt="Program"
+                    className="Main6-bottom-image1"
+                  ></img>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main6-bottom-image2-container">
+                  <img
+                    src={child2}
+                    alt="Program"
+                    className="Main6-bottom-image2"
+                  ></img>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main6-bottom-image3-container">
+                  <img
+                    src={child3}
+                    alt="Program"
+                    className="Main6-bottom-image3"
+                  ></img>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main6-bottom-image4-container">
+                  <img
+                    src={child4}
+                    alt="Program"
+                    className="Main6-bottom-image4"
+                  ></img>
+                </div>
+              </SwiperSlide>
+              
+            </Swiper>
           </div>
         </div>
 
