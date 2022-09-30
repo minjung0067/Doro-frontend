@@ -4,6 +4,8 @@ import instructor1 from "../images/instructor1.png";
 import instructor2 from "../images/instructor2.png";
 import instructor3 from "../images/instructor3.png";
 import instructor4 from "../images/instructor4.png";
+import leftButton from "../images/left-button.png";
+import rightButton from "../images/right-button.png";
 import speaker from "../images/speaker.png";
 import mood from "../images/mood.png";
 import game from "../images/game.png";
@@ -26,15 +28,15 @@ import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 import { useScrollCount } from "../hooks/useScrollCountup";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-
-import { Pagination } from "swiper";
 
 export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const horizontalScrollRef = useRef<HTMLInputElement>(null);
   const main6ScrollRef = useRef<HTMLInputElement>(null);
 
   let main3_current_translate = 0;
@@ -135,15 +137,39 @@ export const HomePage = () => {
                   컨텐츠로 활용합니다.
                 </p>
               </div>
+              
+              <div className="Main3-top-button-container">
+                <button
+                  className="Main3-top-left-button"
+                >
+                  <img
+                    src={leftButton}
+                    alt="Left"
+                    className="Main3-top-left-image"
+                  ></img>
+                </button>
+                <button
+                  className="Main3-top-right-button"
+                >
+                  <img
+                    src={rightButton}
+                    alt="Right"
+                    className="Main3-top-right-image"
+                  ></img>
+                </button>
+              </div>
+
+
             </div>
 
             <Swiper
               slidesPerView="auto"
               spaceBetween={20}
-              // pagination={{
-              //   clickable: true,
-              // }}
-              modules={[Pagination]}
+              navigation={{
+                prevEl: '.Main3-top-left-button',
+                nextEl: '.Main3-top-right-button',
+              }}
+              modules={[Navigation]}
               className="Main3-bottom-container"
             >
               <SwiperSlide>              
@@ -386,14 +412,35 @@ export const HomePage = () => {
                   전달하고 있습니다.
                 </p>
               </div>
+              <div className="Main6-top-button-container">
+                <button
+                  className="Main6-top-left-button"
+                >
+                  <img
+                    src={leftButton}
+                    alt="Left"
+                    className="Main6-top-left-image"
+                  ></img>
+                </button>
+                <button
+                  className="Main6-top-right-button"
+                >
+                  <img
+                    src={rightButton}
+                    alt="Right"
+                    className="Main6-top-right-image"
+                  ></img>
+                </button>
+              </div>
             </div>
             <Swiper
               slidesPerView="auto"
               spaceBetween={20}
-              // pagination={{
-              //   clickable: true,
-              // }}
-              modules={[Pagination]}
+              navigation={{
+                prevEl: '.Main6-top-left-button',
+                nextEl: '.Main6-top-right-button',
+              }}
+              modules={[Navigation]}
               className="Main6-bottom-container"
             >
               <SwiperSlide>
