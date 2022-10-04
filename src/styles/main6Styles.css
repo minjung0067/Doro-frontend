@@ -70,7 +70,6 @@
   display: flex;
   flex-direction: row;
   gap: 1.306rem;
-  overflow-x: visible;
   height: 24.863rem;
   transform: translate3d(0px, 0px, 0px);
   transition-duration: 1s;
@@ -88,6 +87,7 @@
 .Main6-bottom-image3-container,
 .Main6-bottom-image4-container {
   width: 37.701rem;
+  width: auto;
   height: 23.863rem;
   padding: 1.885rem 1.335rem 1.964rem 1.335rem;
   border-radius: 28.3px;
