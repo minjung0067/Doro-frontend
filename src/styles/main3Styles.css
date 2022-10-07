@@ -5,12 +5,10 @@
 }
 
 .Main3-content-container {
-  width: 106.667rem;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 8.444rem;
-  padding-left: 20.694rem;
-
+  margin-top: 8.444rem;
+  width: 65.571rem;
   background-color: var(--doro-super-light-grey);
 }
 
