@@ -146,7 +146,7 @@ export const Posts = () => {
   };
 
   return (
-    <div style={{ minWidth: "106.667rem" }}>
+    <div style={{}}>
       <Helmet>
         <title>Board | DORO</title>
       </Helmet>
