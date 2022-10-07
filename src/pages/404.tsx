@@ -5,7 +5,7 @@ export const NotFound = () => {
   return (
     <div
       className="h-screen flex flex-col items-center justify-center"
-      style={{ minWidth: "106.667rem" }}
+      style={{}}
     >
       <Helmet>
         <title>Not Found | Nuber Eats</title>

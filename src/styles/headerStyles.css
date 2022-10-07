@@ -1,11 +1,9 @@
 .Header-header {
   padding-top: 1.256rem;
   padding-bottom: 1.256rem;
-  min-width: 80rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  min-width: 106.667rem;
 }
 
 .Header-container {
