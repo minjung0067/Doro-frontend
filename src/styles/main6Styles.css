@@ -73,30 +73,20 @@
   transition-duration: 1s;
 }
 
-.Main6-bottom-image1-container,
-.Main6-bottom-image2-container,
-.Main6-bottom-image3-container,
-.Main6-bottom-image4-container {
+.Main6-bottom-image-container{
   flex: 0 0 auto;
 }
 
-.Main6-bottom-image1-container,
-.Main6-bottom-image2-container,
-.Main6-bottom-image3-container,
-.Main6-bottom-image4-container {
+.Main6-bottom-image-container {
   width: 37.701rem;
-  width: auto;
-  height: 23.863rem;
-  padding: 1.885rem 1.335rem 1.964rem 1.335rem;
+  height: 23.563rem;
+  padding: 1rem 1.535rem 1.008rem 1.5rem;
   border-radius: 28.3px;
   box-shadow: 0 4.2px 5.7px 0 rgba(0, 0, 0, 0.2);
   background-color: #f5f5f5;
 }
 
-.Main6-bottom-image1,
-.Main6-bottom-image2,
-.Main6-bottom-image3,
-.Main6-bottom-image4 {
-  width: 35.031rem;
-  height: 19.715rem;
+.Main6-bottom-image {
+  width: 34.667rem;
+  height: 21.556rem;
 }

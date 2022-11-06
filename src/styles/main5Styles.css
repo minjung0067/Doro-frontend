@@ -1,7 +1,5 @@
 .Main5 {
   height: 42.333rem;
-
-  background-color: var(--doro-super-light-grey);
 }
 .Main5-content-container {
   margin-left: auto;
@@ -10,7 +8,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--doro-super-light-grey);
 }
 .Main5-letter-container {
   margin-top: 6.222rem;
@@ -43,154 +40,82 @@
   border-bottom: solid 0.167rem #d9d9d9;
 }
 
-.Main5-data1-container {
-  height: 5.958rem;
-  width: 43.389rem;
+.Main5-data1-container, .Main5-data2-container, .Main5-data3-container,.Main5-data4-container, .Main5-data5-container{
   flex-grow: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 0.083rem #d9d9d9;
+}
+.Main5-data1-letter, .Main5-data2-letter, .Main5-data3-letter, .Main5-data4-letter, .Main5-data5-letter{
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.Main5-data1-number, .Main5-data2-number, .Main5-data3-number, .Main5-data4-number, .Main5-data5-number{
+  height: 3.222rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
+  background: linear-gradient(90deg, #48C6EF 0%, #6F86D6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.Main5-data1-container {
+  height: 5.958rem;
+  width: 43.389rem;
 }
 .Main5-data1-letter {
   width: 8.722rem;
   height: 1.611rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 1.333rem;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: left;
 }
-.Main5-data1-number {
-  height: 3.222rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 2.667rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: center;
-  color: #005d98;
-}
-
 .Main5-data2-container {
   height: 5.917rem;
   width: 43.389rem;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: solid 0.083rem #d9d9d9;
 }
 .Main5-data2-letter {
   width: 8.722rem;
   height: 1.611rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 1.333rem;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: left;
   color: var(--doro-black);
-}
-.Main5-data2-number {
-  height: 3.222rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 2.667rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: center;
-  color: #1674ae;
 }
 
 .Main5-data3-container {
   height: 5.917rem;
   width: 43.389rem;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: solid 0.083rem #d9d9d9;
 }
 .Main5-data3-letter {
   width: 7.611rem;
   height: 1.611rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 1.333rem;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: left;
   color: var(--doro-black);
-}
-.Main5-data3-number {
-  height: 3.222rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 2.667rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: center;
-  color: #2e8dc6;
 }
 
 .Main5-data4-container {
-  height: 5.958rem;
+  height: 5.917rem;
   width: 43.389rem;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 .Main5-data4-letter {
   width: 9.056rem;
   height: 1.611rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 1.333rem;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: left;
   color: var(--doro-black);
 }
-.Main5-data4-number {
-  height: 3.222rem;
-  flex-grow: 0;
-  font-family: Pretendard;
-  font-size: 2.667rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.21;
-  letter-spacing: normal;
-  text-align: center;
-  color: #48a7de;
+.Main5-data5-container {
+  height: 5.917rem;
+  width: 43.389rem;
 }
 .Main5-doro-logo-gray-container {
   margin-top: 0.643rem;

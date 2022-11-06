@@ -12,17 +12,24 @@ import game from "../images/game.png";
 import balancing from "../images/balancing.png";
 import walking from "../images/walking.png";
 import car from "../images/car.png";
+import tracer from "../images/tracer.png";
 
 import child1 from "../images/main6-1.png";
 import child2 from "../images/main6-2.png";
 import child3 from "../images/main6-3.png";
 import child4 from "../images/main6-4.png";
+import child5 from "../images/main6-5.png";
+import child6 from "../images/main6-6.png";
+import child7 from "../images/main6-7.png";
+import child8 from "../images/main6-8.png";
+import child9 from "../images/main6-9.png";
 
 import doroLogoGray from "../images/doroLogoGray.png";
 import process from "../images/process.png";
 import main8Logo from "../images/main8Logo.png";
 
 import ansan from "../images/ansan.png";
+import doroeducation from "../images/doroeducation.png";
 import { Helmet } from "react-helmet-async";
 import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 import { useScrollCount } from "../hooks/useScrollCountup";
@@ -50,6 +57,9 @@ export const HomePage = () => {
 
   const main4TopAnimation = useScrollFadeIn(0.7, "50%", "0s");
   const main4BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
+
+  const main9TopAnimation = useScrollFadeIn(0.7, "50%", "0s");
+  const main9BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
 
   const main5TopAnimation = useScrollFadeIn(0.7, "100%", "0s");
   const main5BottomAnimation = useScrollFadeIn(0.1, "25%", "0s");
@@ -93,48 +103,13 @@ export const HomePage = () => {
           </div>
         </div>
 
-        <div className="Main2">
-          <div className="Main2-content-container">
-            <div className="Main2-letter-container" {...main2TopAnimation}>
-              <p className="Main2-title">전공 지식을 갖춘 대학생 강사</p>
-              <p className="Main2-subtitle">
-                DORO의 대학생 강사들은 로봇공학, 전자공학, 생명공학 등<br />
-                다양한 이공계 전공 지식을 갖춘 3,4학년으로 구성되어 있습니다.
-              </p>
-            </div>
-            <div className="Main2-image-container" {...main2BottomAnimation}>
-              <img
-                src={instructor1}
-                alt="Instructor"
-                className="Main2-image1"
-              ></img>
-              <img
-                src={instructor2}
-                alt="Instructor"
-                className="Main2-image2"
-              ></img>
-              <img
-                src={instructor3}
-                alt="Instructor"
-                className="Main2-image3"
-              ></img>
-              <img
-                src={instructor4}
-                alt="Instructor"
-                className="Main2-image4"
-              ></img>
-            </div>
-          </div>
-        </div>
-
         <div className="Main3">
           <div className="Main3-content-container">
             <div className="Main3-top-container">
               <div className="Main3-top-letter-container">
-                <p className="Main3-title">과제 결과물을 교육 컨텐츠로</p>
+                <p className="Main3-title">DORO 메이킹 7종 키트</p>
                 <p className="Main3-subtitle">
-                  DORO는 대학교 전공 수업 중 탄생한 과제 결과물을 청소년 교육
-                  컨텐츠로 활용합니다.
+                  DORO의 모든 키트는 자체 개발 및 생산 과정을 통해 탄생합니다.
                 </p>
               </div>
               
@@ -324,7 +299,78 @@ export const HomePage = () => {
                 </div>
               </SwiperSlide>
 
+              <SwiperSlide>
+                <div className="Main3-bottom-tracer-container">
+                  <img src={tracer} alt="Program" className="Main3-bottom-tracer"></img>
+                  <div className="Main3-bottom-tracer-letters">
+                    <p className="Main3-bottom-image-title">DORO Line Tracer Robot</p>
+                    <p className="Main3-bottom-image-subtitle">
+                      #센서처리 #모터제어 #아두이노 #알고리즘
+                    </p>
+
+                    <Link to="/createPost" className="Main3-bottom-image-button">
+                      <button className="Main3-bottom-image-button">
+                        <span className="Main3-bottom-image-inquiry">
+                          프로그램 문의하기
+                        </span>
+                        <span className="Main3-bottom-image-arrow">&rsaquo;</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </SwiperSlide>
+
             </Swiper>
+          </div>
+        </div>
+
+        <div className="Main2">
+          <div className="Main2-content-container">
+            <div className="Main2-letter-container" {...main2TopAnimation}>
+              <p className="Main2-title">전공 지식을 갖춘 대학생 강사</p>
+              <p className="Main2-subtitle">
+                DORO의 대학생 강사들은 로봇공학, 전자공학, 생명공학 등<br />
+                다양한 이공계 전공 지식을 갖춘 3,4학년으로 구성되어 있습니다.
+              </p>
+            </div>
+            <div className="Main2-image-container" {...main2BottomAnimation}>
+              <img
+                src={instructor1}
+                alt="Instructor"
+                className="Main2-image1"
+              ></img>
+              <img
+                src={instructor2}
+                alt="Instructor"
+                className="Main2-image2"
+              ></img>
+              <img
+                src={instructor3}
+                alt="Instructor"
+                className="Main2-image3"
+              ></img>
+              <img
+                src={instructor4}
+                alt="Instructor"
+                className="Main2-image4"
+              ></img>
+            </div>
+          </div>
+        </div>
+
+        <div className="Main9">
+          <div className="Main9-content-container">
+            <div className="Main9-letter-container" {...main9TopAnimation}>
+              <p className="Main9-title">
+                전문가에게 배우는 미래형 진로교육
+              </p>
+              <p className="Main9-subtitle">
+              DORO의 모든 교육은 학생의 시야를 넓혀주기 위한 진로 교육을 포함하고 있습니다.
+              </p>
+            </div>
+            <div className="Main9-image-container" {...main9BottomAnimation}>
+              <img src={doroeducation} alt="doroeducation" className="Main9-image"></img>
+            </div>
           </div>
         </div>
 
@@ -390,6 +436,15 @@ export const HomePage = () => {
                     19개교
                   </span>
                 </div>
+                <div className="Main5-data5-container">
+                  <span className="Main5-data5-letter">강의 출강 지도</span>
+                  <span
+                    className="Main5-data5-number"
+                    // {...main5Count4Animation}
+                  >
+                    지도보기
+                  </span>
+                </div>
               </div>
               <div className="Main5-doro-logo-gray-container">
                 <img
@@ -444,41 +499,91 @@ export const HomePage = () => {
               className="Main6-bottom-container"
             >
               <SwiperSlide>
-                <div className="Main6-bottom-image1-container">
+                <div className="Main6-bottom-image-container">
                   <img
                     src={child1}
                     alt="Program"
-                    className="Main6-bottom-image1"
+                    className="Main6-bottom-image"
                   ></img>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="Main6-bottom-image2-container">
+                <div className="Main6-bottom-image-container">
                   <img
                     src={child2}
                     alt="Program"
-                    className="Main6-bottom-image2"
+                    className="Main6-bottom-image"
                   ></img>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="Main6-bottom-image3-container">
+                <div className="Main6-bottom-image-container">
                   <img
                     src={child3}
                     alt="Program"
-                    className="Main6-bottom-image3"
+                    className="Main6-bottom-image"
                   ></img>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="Main6-bottom-image4-container">
+                <div className="Main6-bottom-image-container">
                   <img
                     src={child4}
                     alt="Program"
-                    className="Main6-bottom-image4"
+                    className="Main6-bottom-image"
+                  ></img>
+                </div>
+              </SwiperSlide>
+              
+              <SwiperSlide>
+                <div className="Main6-bottom-image-container">
+                  <img
+                    src={child5}
+                    alt="Program"
+                    className="Main6-bottom-image"
+                  ></img>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main6-bottom-image-container">
+                  <img
+                    src={child6}
+                    alt="Program"
+                    className="Main6-bottom-image"
+                  ></img>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main6-bottom-image-container">
+                  <img
+                    src={child7}
+                    alt="Program"
+                    className="Main6-bottom-image"
+                  ></img>
+                </div>
+              </SwiperSlide>
+              
+              <SwiperSlide>
+                <div className="Main6-bottom-image-container">
+                  <img
+                    src={child8}
+                    alt="Program"
+                    className="Main6-bottom-image"
+                  ></img>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="Main6-bottom-image-container">
+                  <img
+                    src={child9}
+                    alt="Program"
+                    className="Main6-bottom-image"
                   ></img>
                 </div>
               </SwiperSlide>

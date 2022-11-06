@@ -1,6 +1,5 @@
 .Main7 {
   height: 43.722rem;
-  background-color: var(--doro-super-light-grey);
 }
 .Main7-content-container {
   margin-left: auto;
@@ -11,7 +10,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--doro-super-light-grey);
 }
 .Main7-title-container {
   margin-bottom: 4rem;

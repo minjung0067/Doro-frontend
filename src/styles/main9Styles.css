@@ -1,0 +1,42 @@
+.Main9 {
+  /* height: 48.661rem; */
+}
+
+.Main9-content-container {
+  width: 42.333rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 14.278rem;
+}
+
+.Main9-letter-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5.893rem;
+}
+
+.Main9-title {
+  width: 36.444rem;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  color: var(--doro-black);
+  border-bottom: solid 0.194rem var(--doro-deep);
+  margin-bottom: 1.5rem;
+}
+
+.Main9-subtitle {
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: 0.9px;
+  text-align: left;
+  color: var(--doro-grey);
+}

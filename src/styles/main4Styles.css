@@ -16,6 +16,7 @@
 }
 
 .Main4-title {
+  width: 42.733rem;
   font-family: Pretendard;
   font-size: 2.667rem;
   font-weight: bold;
@@ -24,7 +25,6 @@
   line-height: 1.21;
   letter-spacing: normal;
   color: var(--doro-black);
-  width: 42.733rem;
   border-bottom: solid 0.194rem var(--doro-deep);
   margin-bottom: 1.5rem;
 }
