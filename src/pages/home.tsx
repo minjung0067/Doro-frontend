@@ -39,6 +39,16 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import styled from "styled-components"
+
+const Mant = styled.div`
+width: 100vw;
+height : 200px;
+p{
+  font-size : 30px;
+}
+`
+
 export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -78,6 +88,15 @@ export const HomePage = () => {
         <title>DORO</title>
       </Helmet>
       <div className="Main-Container">
+
+        <Mant>
+          <p>
+            애기 궁둥이 민정이
+            
+          </p>
+        </Mant>
+
+
         <div className="Main1">
           <div className="Main1-content-container">
             <div {...main1TopAnimation}>
