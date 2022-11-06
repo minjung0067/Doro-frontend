@@ -222,3 +222,21 @@
 .Main3-bottom-car-letters {
   margin-top: 1rem;
 }
+
+/* todo */
+.Main3-bottom-tracer-container {
+  background-color: #005C97E5;
+  width: 21.111rem;
+  height: 21.222rem;
+  border-radius: 20px;
+  padding: 1.5rem 2.083rem 1rem 2.056rem;
+}
+.Main3-bottom-tracer {
+  width: 12.444rem;
+  height: 11.333rem;
+  margin: 0 1.583rem 1rem 2.944rem;
+}
+.Main3-bottom-tracer-letters {
+  margin-top: 1rem;
+}
+
