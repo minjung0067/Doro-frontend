@@ -72,14 +72,13 @@ export const HomePage = () => {
           <div className="Main1-content-container">
             <div {...main1TopAnimation}>
               <p className="Main1-title">
-                안녕하세요,
+                '4차 산업혁명 핵심기술'
                 <br />
-                대학생 강사 기획사
-                <br />
-                DORO 입니다
+                메이킹, 로봇, AI 청소년 교육 솔루션
+
               </p>
               <p className="Main1-subtitle">
-                DORO의 모든 교육은 대학생 강사가 함께합니다.
+                청소년들에게 4차 산업혁명 핵심기술의 경험을 전달하고 시야를 넓혀주기 위해 노력합니다.
               </p>
             </div>
             <div {...main1BottomAnimation}>
@@ -137,7 +136,7 @@ export const HomePage = () => {
                   컨텐츠로 활용합니다.
                 </p>
               </div>
-              
+
               <div className="Main3-top-button-container">
                 <button
                   className="Main3-top-left-button"
@@ -172,7 +171,7 @@ export const HomePage = () => {
               modules={[Navigation]}
               className="Main3-bottom-container"
             >
-              <SwiperSlide>              
+              <SwiperSlide>
                 <div className="Main3-bottom-image1-container">
                   <img
                     src={speaker}
@@ -482,7 +481,7 @@ export const HomePage = () => {
                   ></img>
                 </div>
               </SwiperSlide>
-              
+
             </Swiper>
           </div>
         </div>
