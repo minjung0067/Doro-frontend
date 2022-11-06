@@ -23,6 +23,8 @@
   font-stretch: normal;
   font-style: normal;
   line-height: 1.21;
+  margin-left: auto;
+  margin-right: auto;
   letter-spacing: normal;
   color: var(--doro-black);
   border-bottom: solid 0.194rem var(--doro-deep);
@@ -33,6 +35,8 @@
   font-family: Pretendard;
   font-size: 1rem;
   font-weight: normal;
+  margin-left: auto;
+  margin-right: auto;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.44;
