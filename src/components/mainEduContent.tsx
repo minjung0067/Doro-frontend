@@ -72,7 +72,7 @@ const Container = styled.div`
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
         border: 2px solid transparent;
         background-image: linear-gradient(var(--doro-super-light-grey), var(--doro-super-light-grey)), 
-        linear-gradient(to right, #48C6EF 0%,  #6F86D6 100%);
+        linear-gradient(to bottom right,#48C6EF, #6F86D6);
         background-origin: content-box;
         background-clip: content-box, border-box;
     }
