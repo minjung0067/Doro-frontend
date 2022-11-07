@@ -12,7 +12,6 @@ import rightarrow from "../images/rightarrow.png";
 
 const MainContainer = styled.div`
     width: 65.555rem;
-    height: 59.056rem;
     display: flex;
     flex-direction: column;
 
