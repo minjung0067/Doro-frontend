@@ -103,6 +103,9 @@ export const Post = () => {
   const { register, formState, getValues, handleSubmit, reset } = useForm({
     mode: "onChange",
   });
+  //get query for kakao notification
+  const query = new URLSearchParams(location.search);
+  const hashedpassword = query.get("hp");
 
   const { data: userData } = useMe();
   const editButton = () => {
@@ -248,7 +251,8 @@ export const Post = () => {
         <title>Post | DORO</title>
       </Helmet>
 
-      {data?.findPost.ok && state ? (
+      {(data?.findPost.ok && state) ||
+      (hashedpassword && hashedpassword === data?.findPost.post?.password) ? (
         <div>
           <Banner
             wid={10.278}
