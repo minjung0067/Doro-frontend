@@ -104,7 +104,7 @@ export const Post = () => {
     mode: "onChange",
   });
   //get query for kakao notification
-  const query = new URLSearchParams(location.search);
+  const query = new URLSearchParams(window.location.search);
   const hashedpassword = query.get("hp");
 
   const { data: userData } = useMe();
