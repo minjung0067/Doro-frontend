@@ -1,5 +1,4 @@
-.Main-Container {
-}
+.Main-Container {}
 
 .Main1 {
   background-image: url("/src/images/main1.png");
@@ -14,7 +13,7 @@
 }
 
 .Main1-content-container {
-  margin-top: 16.994rem;
+  margin-top: 23.313rem;
   margin-left: auto;
   margin-right: auto;
   width: 65.571em;
@@ -30,13 +29,13 @@
   line-height: 1.21;
   letter-spacing: normal;
   color: #fff;
-  margin-bottom: 0.611rem;
+  margin-bottom: 0.5rem;
 }
 
 .Main1-subtitle {
   font-family: Pretendard;
   font-size: 1.333rem;
-  font-weight: 500;
+  font-weight: 700;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.21;
@@ -63,6 +62,7 @@
   border-radius: 25px;
   background-color: var(--doro-super-light-grey);
 }
+
 .Main1-button:hover {
   background-color: var(--doro-medium);
   font-weight: bold;
