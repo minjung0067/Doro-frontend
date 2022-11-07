@@ -40,14 +40,27 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import styled from "styled-components"
+import MainEduContent from "../components/mainEduContent"
 
-const Mant = styled.div`
-width: 100vw;
-height : 200px;
-p{
-  font-size : 30px;
-}
+const Hoverdiv = styled.div`
+
+  position : relative;
+
+  div{
+    display: none;
+    width: 248.891px;
+    height: 374.219px;
+  }
+  &:hover{
+    div{
+      position: absolute;
+      bottom: 0;
+      display : block;
+      background-color: #000000;
+    }
+  }
 `
+
 
 export const HomePage = () => {
   useEffect(() => {
@@ -88,15 +101,6 @@ export const HomePage = () => {
         <title>DORO</title>
       </Helmet>
       <div className="Main-Container">
-
-        <Mant>
-          <p>
-            애기 궁둥이 민정이
-            
-          </p>
-        </Mant>
-
-
         <div className="Main1">
           <div className="Main1-content-container">
             <div {...main1TopAnimation}>
@@ -120,6 +124,10 @@ export const HomePage = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        <div className="Item-center">
+          <MainEduContent/>
         </div>
 
         <div className="Main3">
@@ -353,11 +361,14 @@ export const HomePage = () => {
               </p>
             </div>
             <div className="Main2-image-container" {...main2BottomAnimation}>
-              <img
-                src={instructor1}
-                alt="Instructor"
-                className="Main2-image1"
-              ></img>
+              <Hoverdiv>
+                
+                <img
+                  src={instructor1}
+                  alt="Instructor"
+                  className="Main2-image1"
+                  />
+                </Hoverdiv>
               <img
                 src={instructor2}
                 alt="Instructor"
