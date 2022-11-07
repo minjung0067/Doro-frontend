@@ -39,6 +39,29 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import styled from "styled-components"
+import MainEduContent from "../components/mainEduContent"
+
+const Hoverdiv = styled.div`
+
+  position : relative;
+
+  div{
+    display: none;
+    width: 248.891px;
+    height: 374.219px;
+  }
+  &:hover{
+    div{
+      position: absolute;
+      bottom: 0;
+      display : block;
+      background-color: #000000;
+    }
+  }
+`
+
+
 export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -100,6 +123,10 @@ export const HomePage = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        <div className="Item-center">
+          <MainEduContent/>
         </div>
 
         <div className="Main3">
@@ -333,11 +360,14 @@ export const HomePage = () => {
               </p>
             </div>
             <div className="Main2-image-container" {...main2BottomAnimation}>
-              <img
-                src={instructor1}
-                alt="Instructor"
-                className="Main2-image1"
-              ></img>
+              <Hoverdiv>
+                
+                <img
+                  src={instructor1}
+                  alt="Instructor"
+                  className="Main2-image1"
+                  />
+                </Hoverdiv>
               <img
                 src={instructor2}
                 alt="Instructor"
