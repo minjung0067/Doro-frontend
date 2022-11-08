@@ -1,13 +1,6 @@
 ################
-<feat> : <kakao notification> 
 ################
-
-카카오 노티피케이션을 위한 front 수정 post부분에서 query문을 받아서
-password 와 post의 password가 일치할경우 NotFound가 아닌 post게시물을 
-보여준다.
-
 ################
-
 
 ################
 # feat : 새로운 기능 추가

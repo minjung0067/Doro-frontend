@@ -41,6 +41,8 @@ import "swiper/css/pagination";
 
 import styled from "styled-components"
 import MainEduContent from "../components/mainEduContent"
+import MainEduType from "../components/mainEduType"
+
 
 const Hoverdiv = styled.div`
 
@@ -127,6 +129,10 @@ export const HomePage = () => {
 
         <div className="Item-center">
           <MainEduContent/>
+        </div>
+
+        <div className="Item-center">
+          <MainEduType/>
         </div>
 
         <div className="Main3">
