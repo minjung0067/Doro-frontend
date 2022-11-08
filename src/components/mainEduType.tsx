@@ -7,6 +7,11 @@ import type2 from "../images/icon_people2.png";
 import type3 from "../images/icon_people3.png";
 import type4 from "../images/icon_people4.png";
 
+import type1_photo from "../images/edutype1.png";
+import type2_photo from "../images/edutype2.png";
+import type3_photo from "../images/edutype3.png";
+import type4_photo from "../images/edutype3.png";
+
 const MainContainer = styled.div`
     width: 65.555rem;
     height: 59.056rem;
@@ -58,15 +63,42 @@ const Line = styled.div`
     margin-bottom: 2.944rem;
     background-color: var(--doro-deep);
 `
-const Container = styled.div`
+const Container = styled.div<{ hoverimg:string }>`
     width: 26.667rem;
     height: 17.556rem;
     border-radius: 9.9px;
-    background-color: var(--doro-super-light-grey);
+    background-color:var(--doro-super-light-grey); 
     text-align: left;
     position: relative;
     &:hover{
-        /* background: yellow; */
+        background: url(${({ hoverimg }) => hoverimg});
+        background-size: 26.667rem 17.556rem;
+        p:nth-child(2){
+            display: none;
+        }
+        p:nth-child(3){
+            display: none;
+        }
+        p:nth-child(4){
+            display: none;
+        }
+        span{
+            display: none;
+        }
+        img{
+            display: none;
+        }
+        p:nth-child(5){
+            display: block;
+            text-align: right;
+        }
+    }
+    img{
+        width: 3.737rem;
+        height: 3.667rem;
+        position: absolute;
+        left: 2.222rem;
+        top: 2.167rem;
     }
     p:nth-child(2){
         position: absolute;
@@ -134,52 +166,63 @@ const Container = styled.div`
         text-align: left;
         color: var(--doro-black);
         }
-
+    p:nth-child(5){
+        display: none;
+        position: absolute;
+        right: 1.389rem;
+        bottom: 0.82rem;
+        width: 6.333rem;
+        height: 1.611rem;
+        flex-grow: 0;
+        font-family: Pretendard;
+        font-size: 1.111rem;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.45;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--doro-super-light-grey);
+    }
 `
-
-const Image = styled.img`
-    width: 3.737rem;
-    height: 3.667rem;
-    position: absolute;
-    left: 2.222rem;
-    top: 2.167rem;
-
-`
-
 
 const MainEduContent = () => {
     const dummyData = [
-        {   imgURL : type1,
+        {   iconURL : type1,
             title : "찾아가는 현장 교육",
             textblue: "현장에서 생생하게",
             textBold: "교육 현장에 DORO 선생님들이 직접 방문하여 ",
             textNormalFirst : " 각 지역별 학교, 학원, 청소년 재단, 문화센터 등의 ",
             textNormalLast : "교육을 진행합니다.",
-            hoverimg : " "
+            hoverimg :type1_photo,
+            hovertext: "현장교육"
         },
-        {   imgURL : type2,
+        {   iconURL : type2,
             title : "체험형 교육 부스",
             textblue: "부스에서 만나는 4차 산업혁명",
             textBold: " DORO 선생님들이 기술 체험의 경험을 전달",
             textNormalFirst : "과학 축제, 진로 체험 축제, 청소년 축제 등의 현장에서",
             textNormalLast : "합니다.",
-            hoverimg : " "
+            hoverimg : type2_photo,
+            hovertext: "교육부스"
         },
-        {   imgURL : type3,
+        {   iconURL : type3,
             title : "DORO 챌린지",
             textblue: "창의적인 문제해결능력 향상",
             textBold: " 문제를 해결해 나가며 최종적으로 청소년에게 성취감을 제공",
             textNormalFirst : "라인 트레이싱 대회, 해커톤 등의 대회를 개최합니다. 팀원들과 함께",
             textNormalLast : "합니다.",
-            hoverimg : " "
+            hoverimg : type3_photo,
+            hovertext: "DORO 챌린지"
         },
-        {   imgURL : type4,
+        {   iconURL : type4,
             title : "비대면 온라인 교육",
             textblue: "실시간 소통하며 집에서도 안전하게",
             textBold: " 비대면 온라인 교육을 진행",
             textNormalFirst : "DORO 선생님들이 직접 방문하기 어려울 경우",
             textNormalLast : "합니다.",
-            hoverimg : " "
+            hoverimg : type4_photo,
+            hovertext: "온라인 교육"
         }
     ]
     return(
@@ -191,8 +234,8 @@ const MainEduContent = () => {
             <Box>
                 
             {dummyData.map((data,idx) => 
-                <Container key={idx}>
-                    <Image src={data.imgURL} alt="icon" />
+                <Container key={idx}hoverimg={data.hoverimg}>
+                    <img src={data.iconURL} alt="icon" />
                     <p>
                         {data.textblue}
                     </p>
@@ -204,6 +247,9 @@ const MainEduContent = () => {
                         {data.textNormalFirst} 
                         <strong>{data.textBold}</strong>
                         {data.textNormalLast}
+                    </p>
+                    <p>
+                        {data.hovertext} 
                     </p>
                 </Container>
             )}
