@@ -43,27 +43,28 @@ import "swiper/css/pagination";
 import styled from "styled-components"
 import MainEduContent from "../components/mainEduContent"
 import MainEduType from "../components/mainEduType"
+import DoroInstructor from "../components/DoroInstructor"
 import ModalMap from "../components/ModalMap";
 
 
-const Hoverdiv = styled.div`
+// const Hoverdiv = styled.div`
 
-  position : relative;
+//   position : relative;
 
-  div{
-    display: none;
-    width: 248.891px;
-    height: 374.219px;
-  }
-  &:hover{
-    div{
-      position: absolute;
-      bottom: 0;
-      display : block;
-      background-color: #000000;
-    }
-  }
-`
+//   /* div{ */
+//     display: none;
+//     width: 248.891px;
+//     height: 374.219px;
+//   }
+//   &:hover{
+//     div{
+//       position: absolute;
+//       bottom: 0;
+//       display : block;
+//       background-color: #000000;
+//     }
+//   }
+// `
 const DialogButton = styled.button`
   width: 10.833rem;
   height: 3.222rem;
@@ -386,37 +387,8 @@ export const HomePage = () => {
 
         <div className="Main2">
           <div className="Main2-content-container">
-            <div className="Main2-letter-container" {...main2TopAnimation}>
-              <p className="Main2-title">전공 지식을 갖춘 대학생 강사</p>
-              <p className="Main2-subtitle">
-                DORO의 대학생 강사들은 로봇공학, 전자공학, 생명공학 등<br />
-                다양한 이공계 전공 지식을 갖춘 3,4학년으로 구성되어 있습니다.
-              </p>
-            </div>
-            <div className="Main2-image-container" {...main2BottomAnimation}>
-              <Hoverdiv>
-                
-                <img
-                  src={instructor1}
-                  alt="Instructor"
-                  className="Main2-image1"
-                  />
-                </Hoverdiv>
-              <img
-                src={instructor2}
-                alt="Instructor"
-                className="Main2-image2"
-              ></img>
-              <img
-                src={instructor3}
-                alt="Instructor"
-                className="Main2-image3"
-              ></img>
-              <img
-                src={instructor4}
-                alt="Instructor"
-                className="Main2-image4"
-              ></img>
+            <div className="Item-center"  {...main2TopAnimation}>
+              <DoroInstructor/>
             </div>
           </div>
         </div>
