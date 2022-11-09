@@ -197,7 +197,9 @@ export const Posts = () => {
                           <span className="Posts-comment">답변완료</span>
                         )}
                         <span className="Posts-username">{post.ownerName}</span>
-                        <span>{post.createdAt.slice(0, 10)}</span>
+                        <span className="Posts-date">
+                          {post.createdAt.slice(0, 10)}
+                        </span>
                       </div>
                     </div>
                   ) : (
@@ -234,7 +236,9 @@ export const Posts = () => {
                           <span className="Posts-comment">답변완료</span>
                         )}
                         <span className="Posts-username">{post.ownerName}</span>
-                        <span>{post.createdAt.slice(0, 10)}</span>
+                        <span className="Posts-date">
+                          {post.createdAt.slice(0, 10)}
+                        </span>
                       </div>
                     </div>
                   )}
