@@ -10,7 +10,7 @@ import type4 from "../images/icon_people4.png";
 import type1_photo from "../images/edutype1.png";
 import type2_photo from "../images/edutype2.png";
 import type3_photo from "../images/edutype3.png";
-import type4_photo from "../images/edutype3.png";
+import type4_photo from "../images/edutype4.png";
 
 const MainContainer = styled.div`
     width: 65.555rem;
@@ -91,6 +91,8 @@ const Container = styled.div<{ hoverimg:string }>`
         p:nth-child(5){
             display: block;
             text-align: right;
+            border-radius: 5px;
+            text-shadow: 0 0 25px rgba(33, 33, 33, 0.8);
         }
     }
     img{
@@ -171,8 +173,6 @@ const Container = styled.div<{ hoverimg:string }>`
         position: absolute;
         right: 1.389rem;
         bottom: 0.82rem;
-        width: 6.333rem;
-        height: 1.611rem;
         flex-grow: 0;
         font-family: Pretendard;
         font-size: 1.111rem;

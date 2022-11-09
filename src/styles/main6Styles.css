@@ -1,6 +1,5 @@
 .Main6 {
   height: 63.222rem;
-
   overflow-x: hidden;
 }
 
@@ -73,10 +72,6 @@
   transition-duration: 1s;
 }
 
-.Main6-bottom-image-container{
-  flex: 0 0 auto;
-}
-
 .Main6-bottom-image-container {
   width: 37.701rem;
   height: 23.563rem;
@@ -84,6 +79,7 @@
   border-radius: 28.3px;
   box-shadow: 0 4.2px 5.7px 0 rgba(0, 0, 0, 0.2);
   background-color: #f5f5f5;
+  /* flex: 0 0 auto; */
 }
 
 .Main6-bottom-image {

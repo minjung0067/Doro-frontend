@@ -3,6 +3,7 @@
   height: 46.722rem;
   overflow-x: hidden;
   background-color: var(--doro-super-light-grey);
+  position: relative;
 }
 
 .Main3-content-container {
