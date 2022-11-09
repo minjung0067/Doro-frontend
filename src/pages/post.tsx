@@ -469,7 +469,7 @@ export const Post = () => {
               </div>
             </div>
 
-            {commentsData?.findAllComments?.comments && (
+            {commentsData?.findAllComments?.comments?.length !== 0 && (
               <div>
                 <span className="Post-answer-title">문의 답변</span>
                 <div className="Post-Line-2"></div>

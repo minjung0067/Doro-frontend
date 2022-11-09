@@ -71,8 +71,21 @@
 .Posts-username {
   margin-right: 2.944rem;
   display: inline-block;
-  width: 3.5rem;
+  width: 4rem;
   text-align: center;
+  font-size: 0.778rem;
+  font-weight: 500;
+  color: var(--doro-grey);
+  letter-spacing: normal;
+}
+
+.Posts-date {
+  width: 5rem;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.778rem;
+  font-weight: 500;
+  color: var(--doro-grey);
 }
 
 .Posts-comment {

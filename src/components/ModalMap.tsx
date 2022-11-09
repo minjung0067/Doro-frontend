@@ -11,13 +11,17 @@ function Modal({
 }: PropsWithChildren<ModalDefaultType>) {
   return (
     <ModalContainer>
-      <DialogBox        onClick={(e: React.MouseEvent) => {
+      <DialogBox
+        onClick={(e: React.MouseEvent) => {
           e.preventDefault();
 
           if (onClickToggleModal) {
             onClickToggleModal();
           }
-        }}>{children}</DialogBox>
+        }}
+      >
+        {children}
+      </DialogBox>
       <ClickArea
         onClick={(e: React.MouseEvent) => {
           e.preventDefault();
@@ -41,6 +45,7 @@ const ModalContainer = styled.div`
   overflow: hidden;
   top: 0;
   left: 0;
+  z-index: 10000;
 `;
 
 const DialogBox = styled.dialog`
@@ -63,9 +68,8 @@ const ClickArea = styled.div`
   top: 0;
   left: 0;
   z-index: 9999;
-  background-color:transparent;
+  background-color: transparent;
 `;
-
 
 const Backdrop = styled.div`
   width: 100vw;
