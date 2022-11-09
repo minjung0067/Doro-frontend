@@ -162,7 +162,7 @@ const Container = styled.div`
     p:nth-child(10){
         position: absolute;
         left: 5.667rem;
-        top: 8.919rem;
+        top: 8.719rem;
         width: 9rem;
         height: 1.108rem;
         flex-grow: 0;
