@@ -1,4 +1,6 @@
-.Main-Container {}
+.Main-Container {
+  z-index: 1;
+}
 
 .Main1 {
   background-image: url("/src/images/main1.png");

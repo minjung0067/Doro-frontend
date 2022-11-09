@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback} from "react";
 import { Link } from "react-router-dom";
 import instructor1 from "../images/instructor1.png";
 import instructor2 from "../images/instructor2.png";
@@ -27,6 +27,7 @@ import child9 from "../images/main6-9.png";
 import doroLogoGray from "../images/doroLogoGray.png";
 import process from "../images/process.png";
 import main8Logo from "../images/main8Logo.png";
+import doromap from "../images/doromap.png";
 
 import ansan from "../images/ansan.png";
 import doroeducation from "../images/doroeducation.png";
@@ -42,6 +43,7 @@ import "swiper/css/pagination";
 import styled from "styled-components"
 import MainEduContent from "../components/mainEduContent"
 import MainEduType from "../components/mainEduType"
+import ModalMap from "../components/ModalMap";
 
 
 const Hoverdiv = styled.div`
@@ -62,12 +64,38 @@ const Hoverdiv = styled.div`
     }
   }
 `
+const DialogButton = styled.button`
+  width: 10.833rem;
+  height: 3.222rem;
+  flex-grow: 0;
+  cursor: pointer;
+  font-family: Pretendard;
+  font-size: 2.667rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: center;
 
+  &:hover {
+    width: 10.833rem;
+    height: 3.222rem;
+    font-size: 2.767rem;
+    align-items:center;
+  }
+`;
 
 export const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [isOpenModal, setOpenModal] = useState<boolean>(false);
+
+  const onClickToggleModal = useCallback(() => {
+    setOpenModal(!isOpenModal);
+  }, [isOpenModal]);
+
   const horizontalScrollRef = useRef<HTMLInputElement>(null);
   const main6ScrollRef = useRef<HTMLInputElement>(null);
 
@@ -477,7 +505,7 @@ export const HomePage = () => {
                     className="Main5-data5-number"
                     // {...main5Count4Animation}
                   >
-                    지도보기
+                  <DialogButton onClick={onClickToggleModal}>지도 보기</DialogButton>
                   </span>
                 </div>
               </div>
@@ -491,6 +519,11 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
+        {isOpenModal && (
+                    <ModalMap onClickToggleModal={onClickToggleModal}>
+                      <img src={doromap}></img>
+                    </ModalMap>
+                  )}
 
         <div className="Main6">
           <div className="Main6-content-container">
