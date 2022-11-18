@@ -156,14 +156,17 @@ export const HomePage = () => {
           </div>
         </div>
 
+        {/* DORO 대표 교육 컨텐츠 */}
         <div className="Item-center">
           <MainEduContent/>
         </div>
 
+        {/* DORO 교육 수행 유형 */}
         <div className="Item-center">
           <MainEduType/>
         </div>
 
+        {/* DORO 메이종 7종 키트 */}
         <div className="Main3">
           <div className="Main3-content-container">
             <div className="Main3-top-container">
@@ -409,25 +412,6 @@ export const HomePage = () => {
           </div>
         </div>
 
-        <div className="Main4">
-          <div className="Main4-content-container">
-            <div className="Main4-letter-container" {...main4TopAnimation}>
-              <p className="Main4-title">
-                DORO 교육은 청소년재단과 함께 합니다
-              </p>
-              <p className="Main4-subtitle">
-                DORO 교육은 청소년재단과 함께 진행되어 학교 예산 부담을
-                줄여줍니다.
-                <br /> 청소년재단 협업 교육 가능 지역 : 경기도 안산시, 시흥시,
-                안양시, 수원시, 군포시
-              </p>
-            </div>
-            <div className="Main4-image-container" {...main4BottomAnimation}>
-              <img src={ansan} alt="Ansan x DORO" className="Main4-image"></img>
-            </div>
-          </div>
-        </div>
-
         <div className="Main5">
           <div className="Main5-content-container">
             <div className="Main5-letter-container" {...main5TopAnimation}>
@@ -496,6 +480,25 @@ export const HomePage = () => {
                       <img src={doromap}></img>
                     </ModalMap>
                   )}
+
+        <div className="Main4">
+          <div className="Main4-content-container">
+            <div className="Main4-letter-container" {...main4TopAnimation}>
+              <p className="Main4-title">
+                DORO 교육은 청소년재단과 함께 합니다
+              </p>
+              <p className="Main4-subtitle">
+                DORO 교육은 청소년재단과 함께 진행되어 학교 예산 부담을
+                줄여줍니다.
+                <br /> 청소년재단 협업 교육 가능 지역 : 경기도 안산시, 시흥시,
+                안양시, 수원시, 군포시
+              </p>
+            </div>
+            <div className="Main4-image-container" {...main4BottomAnimation}>
+              <img src={ansan} alt="Ansan x DORO" className="Main4-image"></img>
+            </div>
+          </div>
+        </div>
 
         <div className="Main6">
           <div className="Main6-content-container">
