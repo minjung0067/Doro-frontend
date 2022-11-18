@@ -166,7 +166,7 @@ export const HomePage = () => {
           <MainEduType/>
         </div>
 
-        {/* DORO 메이종 7종 키트 */}
+        {/* DORO 메이킹 7종 키트 */}
         <div className="Main3">
           <div className="Main3-content-container">
             <div className="Main3-top-container">
