@@ -16,7 +16,7 @@ const MainContainer = styled.div`
     width: 65.555rem;
     display: flex;
     flex-direction: column;
-
+    /* title */
     p:nth-child(1){
         width: 30.167rem;
         height: 3.222rem;
@@ -28,10 +28,11 @@ const MainContainer = styled.div`
         font-style: normal;
         line-height: 1.21;
         letter-spacing: normal;
-        text-align: left;
+        text-align: center;
         color: var(--doro-black);
         margin-top: 11.222rem;
     }
+    /* grey description */
     p:nth-child(3){
         width: 28.989rem;
         height: 2.556rem;
@@ -44,7 +45,7 @@ const MainContainer = styled.div`
         line-height: 1.28;
         letter-spacing: 0.9px;
         text-align: left;
-        margin-top: 0.681rem;
+        margin-top: 1.125rem;
         color: var(--doro-grey);
     }
 `
@@ -53,6 +54,7 @@ const Box = styled.div`
     display: flex;
     gap: 1.111rem;
 `
+/* line between title & description */
 const Line = styled.div`
     width: 30.222rem;
     height: 0.194rem;
@@ -88,7 +90,7 @@ const Container = styled.div`
         @keyframes fadeInUp {
         0% {
             opacity: 0;
-            transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 50%, 0);
         }
         to {
             opacity: 1;
@@ -135,7 +137,6 @@ const MainEduContent = () => {
                 DORO의 대학생 강사들은 로봇공학, 전자공학, 생명공학 등<br></br>다양한 이공계 전공 지식을 갖춘 3,4학년으로 구성되어 있습니다.
                 </p>
             <Box>
-                
             {dummyData.map((data,idx) => 
                 <Container key={idx}>
                     <Image src={data.imgURL} alt="icon" />

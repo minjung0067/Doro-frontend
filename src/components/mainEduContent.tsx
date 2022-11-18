@@ -14,7 +14,7 @@ const MainContainer = styled.div`
     width: 65.555rem;
     display: flex;
     flex-direction: column;
-
+    /* title */
     p:nth-child(1){
         width: 25.556rem;
         height: 3.222rem;
@@ -30,6 +30,7 @@ const MainContainer = styled.div`
         color: var(--doro-black);
         margin-top: 11.222rem;
     }
+    /* description under title */
     p:nth-child(3){
         width: 25.111rem;
         height: 1.444rem;
@@ -42,7 +43,7 @@ const MainContainer = styled.div`
         line-height: 1.44;
         letter-spacing: 0.9px;
         text-align: left;
-        margin-top: 0.681rem;
+        margin-top: 0.944rem;
         color: var(--doro-grey);
     }
 `
@@ -57,6 +58,7 @@ const Line = styled.div`
     flex-grow: 0;
     background-color: var(--doro-deep);
 `
+// 컨텐츠 박스
 const Container = styled.div`
     width: 15.556rem;
     height: 23.5rem;
@@ -75,6 +77,7 @@ const Container = styled.div`
         linear-gradient(to bottom right,#48C6EF, #6F86D6);
         background-clip: content-box, border-box;
     }
+    /* 박스 내부 타이틀 */
     p:nth-child(2){
         font-family: Pretendard;
         font-size: 2rem;
@@ -84,6 +87,7 @@ const Container = styled.div`
         color: #000;
         margin-top: 0.768rem;
     }
+    /* 설명 */
     p:nth-child(3){
         width: 12.911rem;
         height: 5.111rem;
@@ -96,7 +100,7 @@ const Container = styled.div`
         margin-right: auto;
         color: var(--doro-grey);
     }
-
+    /* 교육커리큘럼보기 */
     span{
         margin-bottom: 1.111rem;
         position: absolute;

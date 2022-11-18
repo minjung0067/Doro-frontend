@@ -37,7 +37,8 @@
   letter-spacing: normal;
   color: var(--doro-black);
   border-bottom: solid 0.194rem var(--doro-deep);
-  width: 29.8rem;
+  width: 24.778rem;
+  height: 3.416rem;
 }
 
 .Main3-subtitle {
@@ -49,7 +50,7 @@
   line-height: 1.44;
   letter-spacing: 0.9px;
   color: var(--doro-grey);
-  margin-top: 1.111rem;
+  margin-top: 0.944rem;
 }
 
 .Main3-top-button-container {

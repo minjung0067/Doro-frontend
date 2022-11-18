@@ -26,7 +26,6 @@
   letter-spacing: normal;
   color: var(--doro-black);
   border-bottom: solid 0.194rem var(--doro-deep);
-  margin-bottom: 1.5rem;
 }
 
 .Main4-subtitle {
@@ -39,4 +38,5 @@
   letter-spacing: 0.9px;
   text-align: left;
   color: var(--doro-grey);
+  margin-top: 0.944rem;
 }
