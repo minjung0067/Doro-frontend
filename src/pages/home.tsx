@@ -387,7 +387,7 @@ export const HomePage = () => {
 
         <div className="Main2">
           <div className="Main2-content-container">
-            <div className="Item-center"  {...main2TopAnimation}>
+            <div className="Item-center"  {...main2BottomAnimation}>
               <DoroInstructor/>
             </div>
           </div>
