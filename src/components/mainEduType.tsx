@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components" ;
 
 import type1 from "../images/icon_people1.png";
 import type2 from "../images/icon_people2.png";
@@ -12,6 +12,24 @@ import type2_photo from "../images/edutype2.png";
 import type3_photo from "../images/edutype3.png";
 import type4_photo from "../images/edutype4.png";
 
+const FadeOut = keyframes`
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+`
+
+const FadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
 const MainContainer = styled.div`
     width: 65.555rem;
     height: 59.056rem;
@@ -19,6 +37,7 @@ const MainContainer = styled.div`
     align-items: center;
     flex-direction: column;
 
+    // DORO 교육 수행 유형 글자
     p:nth-child(1){
         width: 23.278rem;
         height: 3.222rem;
@@ -34,6 +53,8 @@ const MainContainer = styled.div`
         color: var(--doro-black);
         margin-top: 15.778rem;
     }
+
+    // 컨텐츠 별 메인 글자
     p:nth-child(3){
         width: 25.111rem;
         height: 1.444rem;
@@ -70,23 +91,36 @@ const Container = styled.div<{ hoverimg:string }>`
     background-color:var(--doro-super-light-grey); 
     text-align: left;
     position: relative;
+    // visibility: visible;
+    
+    
     &:hover{
         background: url(${({ hoverimg }) => hoverimg});
         background-size: 26.667rem 17.556rem;
+        animation: ${FadeIn} 1s ease;
         p:nth-child(2){
             display: none;
+            animation: ${FadeOut} 1s ease;
         }
         p:nth-child(3){
             display: none;
+            animation: ${FadeOut} 1s ease;
+
         }
         p:nth-child(4){
             display: none;
+            animation: ${FadeOut} 1s ease;
+
         }
         span{
             display: none;
+            animation: ${FadeOut} 1s ease;
+
         }
         img{
             display: none;
+            animation: ${FadeOut} 1s ease;
+
         }
         p:nth-child(5){
             display: block;
@@ -168,6 +202,7 @@ const Container = styled.div<{ hoverimg:string }>`
         text-align: left;
         color: var(--doro-black);
         }
+    // 오른쪽 밑 글자?
     p:nth-child(5){
         display: none;
         position: absolute;
@@ -183,6 +218,7 @@ const Container = styled.div<{ hoverimg:string }>`
         letter-spacing: normal;
         text-align: left;
         color: var(--doro-super-light-grey);
+        animation: ${FadeIn} 1s ease;
     }
 `
 
