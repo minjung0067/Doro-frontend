@@ -62,6 +62,7 @@ const Container = styled.div`
     height: 23.5rem;
     border-radius: 10px;
     margin-top: 2.944rem;
+    border: 2px solid var(--doro-super-light-grey);
     background-color: var(--doro-super-light-grey);
     text-align: center;
     justify-content: center;
@@ -72,7 +73,6 @@ const Container = styled.div`
         border: 2px solid transparent;
         background-image: linear-gradient(var(--doro-super-light-grey), var(--doro-super-light-grey)), 
         linear-gradient(to bottom right,#48C6EF, #6F86D6);
-        background-origin: content-box;
         background-clip: content-box, border-box;
     }
     p:nth-child(2){
@@ -84,7 +84,6 @@ const Container = styled.div`
         color: #000;
         margin-top: 0.768rem;
     }
-
     p:nth-child(3){
         width: 12.911rem;
         height: 5.111rem;
