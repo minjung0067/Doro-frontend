@@ -66,7 +66,9 @@ const BlurBox = styled.div`
     height: 10.697rem;
     flex-grow: 0;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.45);
     display: none;
     
 `
@@ -82,6 +84,17 @@ const Container = styled.div`
     position: relative;
 &:hover ${BlurBox}{
         display: block;
+        animation: fadeInUp 1.5s;
+        @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
     }
 `
 
