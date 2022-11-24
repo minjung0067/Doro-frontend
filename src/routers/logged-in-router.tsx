@@ -10,6 +10,8 @@ import { Post } from "../pages/post";
 import { Posts } from "../pages/posts";
 import { EditUser } from "../pages/user/editUser";
 import { ApplyNewEducation } from "../pages/applyNewEducation";
+import { ShowDetailContent } from "../pages/showDetailContent";
+
 
 export const LoggedInRouter = () => {
   return (
@@ -23,7 +25,7 @@ export const LoggedInRouter = () => {
         <Route path="/post/:id/edit" element={<EditPost />} />
         <Route path="/post/:id" element={<Post />} />
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="/applyNewEducation" element={<ApplyNewEducation />}></Route>
+        <Route path="/showDetailContent" element={<ShowDetailContent />}></Route>
       </Routes>
       <Foot />
     </BrowserRouter>

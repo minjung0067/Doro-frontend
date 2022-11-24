@@ -14,9 +14,14 @@ export const Header: React.FC = () => {
           </Link>
           <div>
             <ul className="flex flex-row bg-white">
-              <li>
+              {/* <li>
                 <Link to="/createPost" className="Header-link-inquiry">
                   교육문의
+                </Link>
+              </li> */}
+              <li>
+                <Link to="/showDetailContent" className="Header-link-inquiry">
+                  교육 컨텐츠
                 </Link>
               </li>
               <li>
