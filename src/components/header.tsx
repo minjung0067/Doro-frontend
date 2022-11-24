@@ -20,6 +20,11 @@ export const Header: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/applyNewEducation" className="Header-link-inquiry">
+                  교육 신청
+                </Link>
+              </li>
+              <li>
                 <Link
                   to="/posts"
                   className="Header-link-community hover:font-bold"
