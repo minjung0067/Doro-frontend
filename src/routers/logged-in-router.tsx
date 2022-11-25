@@ -25,6 +25,7 @@ export const LoggedInRouter = () => {
         <Route path="/post/:id/edit" element={<EditPost />} />
         <Route path="/post/:id" element={<Post />} />
         <Route path="*" element={<NotFound />}></Route>
+        <Route path="/applyNewEducation" element={<ApplyNewEducation />}></Route>
         <Route path="/showDetailContent" element={<ShowDetailContent />}></Route>
       </Routes>
       <Foot />
