@@ -7,6 +7,12 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum SchoolRank {
+  Elementary = "Elementary",
+  High = "High",
+  Middle = "Middle",
+}
+
 export enum UserRole {
   Client = "Client",
   Manager = "Manager",
@@ -20,6 +26,20 @@ export interface CheckPasswordInput {
 export interface CreateCommentInput {
   content: string;
   postId: number;
+}
+
+export interface CreateEduInput {
+  name: string;
+  institution_name: string;
+  position: string;
+  phone_number: string;
+  email: string;
+  student_count: number;
+  school_rank: SchoolRank;
+  grade: number;
+  budget: number;
+  overall_remark?: string | null;
+  detail_classes: Detail_class_item[];
 }
 
 export interface CreatePostInput {
@@ -46,6 +66,14 @@ export interface CreateUserInput {
 
 export interface DeletePostInput {
   postId: number;
+}
+
+export interface Detail_class_item {
+  class_name: string;
+  student_number: number;
+  date: string;
+  remark?: string | null;
+  unfixed: boolean;
 }
 
 export interface FindAllCommentsInput {

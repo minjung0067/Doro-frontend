@@ -1,100 +1,117 @@
+import { Link } from "react-router-dom";
+
 import { gql, useMutation, useReactiveVar } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { appendErrors, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { isLoggedInVar } from "../apollo";
 import { Banner } from "../components/banner";
-import { useMe } from "../hooks/useMe";
-import { createPost, createPostVariables } from "../__generated__/createPost";
-import infoConfirm from "../images/Frame68.svg";
-import createPostRoute from "../images/createPostRoute.png";
+import { createEdu, createEduVariables} from "../__generated__/createEdu";
+import createPostRoute from "../images/createPostRoute.png"; // to do
 import { Helmet } from "react-helmet-async";
 
-// mutation 스키마
-const CREATE_POST_MUTATION = gql`
-  mutation createPost($input: CreatePostInput!) {
-    createPost(input: $input) {
+//mutation 부분은 전적으로 apollo를 위한 줄, apollo에서 앞에 $가 붙으면 해당 부분을 변수로 인식함.
+const CREATE_EDU_MUTATION = gql`
+  mutation createEdu($createEduInput: CreateEduInput!) {
+    CreateEdu(input: $createEduInput) {
       error
       ok
     }
   }
 `;
 
-interface ICreatePostForm {
-  title: string;
-  content: string;
-  password?: string;
-  ownerName: string;
-  institution: string;
-  phoneNumber: string;
-  email: string;
-  isLocked: boolean;
-  agree: boolean;
+enum SCHOOL_RANKS {
+  Elementary,
+  Middle,
+  High,
 }
 
-export const CreatePost = () => {
+interface Detail_class_item{
+  class_name: String;
+  student_number: number;
+  date: String;
+  remark: String;
+  unfixed: Boolean;
+}
+
+interface ICreateEduForm {
+  name: String;
+  institution_name: String;
+  position: String;
+  phone_number: String;
+  email: String;
+  student_count: number;
+  school_rank: SCHOOL_RANKS;
+  grade: number;
+  budget: number;
+  overall_remark: String;
+  detail_classes: Detail_class_item[];
+}
+
+const onCompleted = (data: createEdu) => {
+  const {
+    createEdu: { ok, error },
+  } = data;
+  if (ok) {
+    // navigate("/home", { replace: true, state: true }); //바로 완료 페이지로 보내면 안되고, 신청한 내용을 전부 확인하는 페이지로 일단 보내야함.
+    alert("보내기 성공");
+  } else {
+    console.log(error);
+  }
+};
+
+export const CreateEdu = () => {
+  const { register, getValues, handleSubmit, setError, formState: {errors}} = useForm<ICreateEduForm>();
+  
+  const [createEduMutation, { data }] = useMutation<
+    createEdu, createEduVariables
+    >(CREATE_EDU_MUTATION, {
+      onCompleted,
+    });
+  //mutation function, 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const isLoggedIn = useReactiveVar(isLoggedInVar);
-  const { data: userData, refetch } = useMe();
-  const [isHovering, setIsHovering] = useState(0);
   const navigate = useNavigate();
-
-  // [특정, ?, value값가져오는애, 전송 ]
-  const { register, formState, getValues, handleSubmit } =
-    useForm<ICreatePostForm>({
-      mode: "onChange",
-    });
-  const onCompleted = (data: createPost) => {
-    const {
-      createPost: { ok, error },
-    } = data;
-    if (ok) {
-      navigate("/posts", { replace: true, state: true });
-    } else {
-      console.log(error);
-    }
-  };
-
-  // [ 보낼 데이터 , {data, ...}] = useMutation(스키마, 옵션)
-  const [createPostMutation, { data: creataPostData, loading }] = useMutation<
-    createPost,
-    createPostVariables
-  >(CREATE_POST_MUTATION, { onCompleted });
-
   const onSubmit = () => {
-    // useForm에서 가져온값 - 변수에 get value로 가져온 값을 담는다
-    if(!loading){
-      const {
-          ownerName,
-          institution,
-          phoneNumber,
+    const {
+      name,
+      institution_name,
+      position,
+      phone_number,
+      email,
+      student_count,
+      school_rank,
+      grade,
+      budget,
+      overall_remark,
+      detail_classes,
+    } = getValues();
+
+    createEduMutation({
+      variables: {
+        createEduInput: {
+          name,
+          institution_name,
+          position,
+          phone_number,
           email,
-          title,
-          content,
-          password,
-          isLocked,
-        } = getValues();
-
-        createPostMutation({
-          //실제 보낼 데이터
-          variables: {
-            input: {
-              ownerName,
-              institution,
-              phoneNumber,
-              email,
-              title,
-              content,
-              password,
-              isLocked,
-            },
-          },
-        });      
-      }
-
+          student_count,
+          school_rank,
+          grade,
+          budget,
+          overall_remark,
+          detail_classes,
+        },
+      },
+    });
   };
+
+  const onInvalid = () => {
+    alert("교육 신청 중 오류가 발생하였습니다.")
+  }
+
 
   return (
     <div className="Create-post-root">
@@ -104,13 +121,13 @@ export const CreatePost = () => {
       <Banner
         wid={5.444}
         route={createPostRoute}
-        title="교육문의"
-        subtitle="Education inquiry"
-        content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
+        title="교육 신청"
+        subtitle="Education Application"
+        content="희망 교육과 문의 사항을 작성해주시면 빠르게 답변해드리겠습니다."
       />
       <div className="Create-post-content-root">
-        <div className="Create-post-title">문의신청정보</div>
-        <form className="Create-post-form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="Create-post-title">신청자 정보</div>
+        <form className="Create-post-form" onSubmit={handleSubmit(onSubmit, onInvalid)}>
           <div className=" Create-post-input-parent ">
             <div className="Create-post-input-description-box">
               <span className="Create-post-input-description-text">
@@ -118,15 +135,18 @@ export const CreatePost = () => {
               </span>
               <span style={{ color: "red" }}>*</span>
             </div>
-            <div className="Create-post-input-input-box">
+            <div className="Crxeate-post-input-input-box">
               <input
-                {...register("ownerName", { required: true, maxLength: 4 })}
+                {...register("name", { required: "성함을 입력해주세요.",  })}
                 className="Create-post-input-input-content"
-                name="ownerName"
-                placeholder="성함 입력"
+                name="name"
+                placeholder="신청자 성함"
                 maxLength={4}
-                defaultValue={userData?.me.name ? userData?.me.name : ""}
+                // defaultValue={userData?.me.name ? userData?.me.name : ""}
               />
+              {/* {errors.name?.message &&(
+                <span >{errors.name?.message}</span>
+              )} */}
             </div>
           </div>
           <div className=" Create-post-input-parent">
@@ -137,13 +157,13 @@ export const CreatePost = () => {
             </div>
             <div className="Create-post-input-input-box">
               <input
-                {...register("institution")}
+
                 name="institution"
                 placeholder="도로 초등학교"
                 className="Create-post-input-input-content"
-                defaultValue={
-                  userData?.me.institution ? userData?.me.institution : ""
-                }
+                // defaultValue={
+                //   userData?.me.institution ? userData?.me.institution : ""
+                // }
               />
             </div>
           </div>
@@ -155,13 +175,10 @@ export const CreatePost = () => {
             </div>
             <div className="Create-post-input-input-box">
               <input
-                {...register("phoneNumber", { required: true })}
+                // {...register("phoneNumber", { required: true })}
                 name="phoneNumber"
                 placeholder="하이픈(-) 없이 숫자만 입력"
                 className="Create-post-input-input-content"
-                defaultValue={
-                  userData?.me.institution ? userData?.me.institution : ""
-                }
               />
             </div>
           </div>
@@ -172,45 +189,16 @@ export const CreatePost = () => {
             </div>
             <div className="Create-post-input-input-box">
               <input
-                {...register("email")}
+                // {...register("phoneNumber", { required: true,validate: (email:string) => email.includes("@") })}
                 name="email"
                 placeholder="이메일 주소 입력"
                 className="Create-post-input-input-content"
-                // sdefaultValue={userData?.me.email ? userData?.me.email : ""}
+                // defaultValue={userData?.me.email ? userData?.me.email : ""}
               />
             </div>
           </div>
 
-          <div className=" Create-post-input-parent">
-            <div className="Create-post-input-description-box">
-              <span className="Create-post-input-description-text">비밀글</span>
-            </div>
-            <div className="Create-post-input-input-box-checkbox">
-              <input
-                {...register("isLocked")}
-                name="isLocked"
-                className="Create-post-input-checkbox  w-6 h-6 ml-4 mt-2"
-                type={"checkbox"}
-              />
-            </div>
-          </div>
 
-          <div className=" Create-post-input-parent">
-            <div className="Create-post-input-description-box">
-              <span className="Create-post-input-description-text">
-                게시글 비밀번호
-              </span>
-              <span style={{ color: "red" }}>*</span>
-            </div>
-            <div className="Create-post-input-input-box">
-              <input
-                {...register("password", { required: true })}
-                name="password"
-                className="Create-post-input-input-content"
-                placeholder="글 삭제 및 수정시 필요합니다"
-              />
-            </div>
-          </div>
 
           <div className="Create-post-title">문의내용</div>
 
@@ -222,13 +210,13 @@ export const CreatePost = () => {
               <span style={{ color: "red" }}>*</span>
             </div>
             <div className="Create-post-input-input-box Create-for-border">
-              <input
+              {/* <input
                 {...register("title", { required: true })}
                 name="title"
                 maxLength={30}
                 className="Create-post-input-input-content"
                 placeholder=""
-              />
+              /> */}
             </div>
           </div>
 
@@ -241,7 +229,7 @@ export const CreatePost = () => {
             </div>
             <div className="Create-post-input-textarea-div">
               <textarea
-                {...register("content", { required: true })}
+                // {...register("content", { required: true })}
                 name="content"
                 placeholder="문의 내용을 입력해주세요"
                 className="Create-post-textarea"
@@ -251,15 +239,13 @@ export const CreatePost = () => {
 
           <div
             className="Create-post-input-parent-notification"
-            onMouseOver={() => setIsHovering(1)}
-            onMouseOut={() => setIsHovering(0)}
           >
             <div className="Create-post-input-title-notification"></div>
             <div className="Create-post-input-input-box-notification">
               <div className=" create-post-notification-checkbox-parent">
                 <div className="Create-post-agree-checkbox-parent flex flex-row justify-center">
                   <input
-                    {...register("agree", { required: true })}
+                    // {...register("agree", { required: true })}
                     className="Create-post-agree-checkbox"
                     name="agree"
                     type={"checkbox"}
@@ -270,13 +256,13 @@ export const CreatePost = () => {
                   </span>
                 </div>
 
-                <div className="Create-post-agree-info-confirm-parent">
+                {/* <div className="Create-post-agree-info-confirm-parent">
                   {isHovering ? (
                     <img src={infoConfirm} alt="info"></img>
                   ) : (
                     <></>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -301,3 +287,4 @@ export const CreatePost = () => {
     </div>
   );
 };
+

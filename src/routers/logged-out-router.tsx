@@ -10,7 +10,7 @@ import { Post } from "../pages/post";
 import { Posts } from "../pages/posts";
 import { CreateUser } from "../pages/user/createUser";
 import { Login } from "../pages/user/login";
-import { ApplyNewEducation } from "../pages/applyNewEducation";
+import { CreateEdu } from "../pages/createEdu";
 import { ShowDetailContent } from "../pages/showDetailContent";
 
 export const LoggedOutRouter = () => {
@@ -26,7 +26,7 @@ export const LoggedOutRouter = () => {
         <Route path="/post/:id/edit" element={<EditPost />} />
         <Route path="/post/:id" element={<Post />} />
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="/applyNewEducation" element={<ApplyNewEducation />}></Route>
+        <Route path="/createEdu" element={<CreateEdu/>}></Route>
         <Route path="/showDetailContent" element={<ShowDetailContent />}></Route>
       </Routes>
       <Foot />
