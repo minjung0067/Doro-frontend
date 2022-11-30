@@ -24,6 +24,7 @@ import "./styles/main8Styles.css";
 import "./styles/main4Styles.css";
 import "./styles/main9Styles.css";
 import "./styles/customswiper.css";
+import "./styles/createEdu.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

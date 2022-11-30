@@ -7,15 +7,19 @@
 // START Enums and Input Objects
 //==============================================================
 
-export enum SchoolRank {
-  Elementary = "Elementary",
-  High = "High",
-  Middle = "Middle",
-}
-
 export enum UserRole {
   Client = "Client",
   Manager = "Manager",
+}
+
+export enum sendOption {
+  auth = "auth",
+  mypage = "mypage",
+}
+
+export interface CheckAuthNumInput {
+  authNum: string;
+  phoneNumber: string;
 }
 
 export interface CheckPasswordInput {
@@ -35,8 +39,7 @@ export interface CreateEduInput {
   phone_number: string;
   email: string;
   student_count: number;
-  school_rank: SchoolRank;
-  grade: number;
+  school_rank: string;
   budget: number;
   overall_remark?: string | null;
   detail_classes: Detail_class_item[];
@@ -91,6 +94,12 @@ export interface FindPostInput {
 export interface LoginInput {
   email: string;
   password: string;
+}
+
+export interface SendAuthNumInput {
+  name: string;
+  phoneNumber: string;
+  Option: sendOption;
 }
 
 export interface UpdatePostInput {
