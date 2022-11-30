@@ -1,0 +1,289 @@
+.CreateEdu-content-root {
+  margin-left: auto;
+  margin-right: auto;
+  width: 65.571rem;
+  flex-grow: 0;
+  margin-bottom: 7.677rem;
+}
+
+.CreateEdu-title {
+  /* width: 6.944rem; */
+  height: 1.611rem;
+  margin-bottom: 1.167rem;
+  margin-top: 5.5rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 1.333rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.Create-post-form {
+  border-top: solid 1px var(--doro-light-grey);
+}
+
+.Create-post-input-parent {
+  display: flex;
+  height: 4.056rem;
+}
+.Create-post-input-input-box {
+  width: 84%;
+  height: 4.056rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 0.722rem 0;
+  background-color: #fff;
+  border-bottom: solid 1px var(--doro-light-grey);
+}
+.Create-post-input-description-box {
+  width: 16%;
+  height: 4.056rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1.167rem, 20.556rem;
+  gap: 8px;
+  padding: 1.111rem 1.389rem;
+  background-color: var(--doro-super-light-grey);
+  border-bottom: solid 1px var(--doro-light-grey);
+  border-left: solid 1px var(--doro-light-grey);
+  border-right: solid 1px var(--doro-light-grey);
+}
+.Create-post-input-description-text {
+  height: 1.444rem;
+  flex-grow: 0;
+  margin: 0.167rem 0 0;
+  font-family: Pretendard;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: 0.9px;
+  text-align: left;
+  color: var(--doro-grey);
+}
+.Create-post-Group-43 {
+  width: 5.222rem;
+  height: 1.611rem;
+  flex-grow: 0;
+}
+
+.Create-post-input-input-content {
+  width: 99%;
+  height: 2.556rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 0.556rem 0.778rem;
+  border-radius: 4px;
+  border: solid 1px var(--doro-light-grey);
+}
+
+.Create-post-input-checkbox {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 0.556rem 0.778rem;
+  border-radius: 4px;
+  border: solid 1px var(--doro-light-grey);
+}
+.Create-post-input-input-box-checkbox {
+  width: 84%;
+  height: 4.056rem;
+  flex-grow: 0;
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  padding: 0.722rem 0;
+  border-bottom: solid 1px var(--doro-light-grey);
+  background-color: #fff;
+}
+
+.Create-post-input-textarea-parent {
+  display: flex;
+  height: 23.056rem;
+}
+
+.Create-post-input-textarea-span-box {
+  width: 16%;
+  height: 23.056rem;
+  flex-grow: 0;
+  padding: 1.111rem 5.111rem 20.333rem 1.389rem;
+  border-bottom: solid 1px var(--doro-light-grey);
+  border-left: solid 1px var(--doro-light-grey);
+  border-right: solid 1px var(--doro-light-grey);
+  background-color: var(--doro-super-light-grey);
+}
+
+.Create-post-input-textarea-div {
+  width: 84%;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 0.944rem 0;
+  border-bottom: solid 1px var(--doro-light-grey);
+  background-color: #fff;
+}
+
+.Create-post-textarea {
+  width: 99%;
+  height: 20.889rem;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0.722rem 0.778rem;
+  border-radius: 4px;
+  border: solid 1px var(--doro-light-grey);
+}
+
+.Create-post-agree-notification-parent {
+  margin-top: 0.944rem;
+  height: 1.444rem;
+}
+.create-post-notification-checkbox-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-content: center;
+  margin-left: 1.111rem;
+  margin-top: 0.944rem;
+}
+.Create-post-agree-notification {
+  padding: 0 1.889rem 0.056rem 0;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: 0.9px;
+  text-align: left;
+  color: var(--doro-grey);
+}
+.Create-post-agree-checkbox {
+  width: 1.306rem;
+  height: 1.306rem;
+  margin-right: 0.672rem;
+  border: solid 0.9px var(--doro-grey);
+}
+.Create-post-agree-info-confirm-parent {
+  display: flex;
+  position: absolute;
+  justify-content: start;
+  z-index: 1;
+  margin-top: 2.444rem;
+}
+.Create-post-submit-button-on {
+  width: 9.944rem;
+  height: 3.667rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 1.111rem 3.167rem;
+  border-radius: 5px;
+  background-color: var(--doro-medium);
+}
+
+.Create-post-submit-button-on:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25),
+    0 0.35rem 0.35rem rgba(0, 0, 0, 0.22);
+}
+
+.Create-post-submit-button-off {
+  width: 9.944rem;
+  height: 3.667rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 1.111rem 3.167rem;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  pointer-events: none;
+}
+
+.Create-post-submit-text {
+  width: 3.611rem;
+  height: 1.444rem;
+  flex-grow: 0;
+  font-family: Pretendard;
+  font-size: 0.95rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: 0.9px;
+  text-align: left;
+  color: #fff;
+}
+
+.Create-post-input-title-notification {
+  width: 16%;
+
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1.167rem, 20.556rem;
+  gap: 8px;
+  padding: 1.111rem 1.389rem;
+}
+
+.Create-post-Frame-72-notification {
+  width: 84%;
+
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0.722rem 0;
+  background-color: #fff;
+}
+
+.Create-post-input-parent-notification {
+  display: flex;
+}
+
+.Create-post-submit-button-parent {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.44rem;
+}
+
+.Create-for-border {
+  border-top: solid 1px var(--doro-light-grey);
+}
+
+.Create-post-agree-checkbox-parent {
+  align-items: center;
+}

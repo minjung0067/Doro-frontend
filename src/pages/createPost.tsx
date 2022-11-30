@@ -10,6 +10,7 @@ import infoConfirm from "../images/Frame68.svg";
 import createPostRoute from "../images/createPostRoute.png";
 import { Helmet } from "react-helmet-async";
 
+// mutation 스키마
 const CREATE_POST_MUTATION = gql`
   mutation createPost($input: CreatePostInput!) {
     createPost(input: $input) {
@@ -40,6 +41,7 @@ export const CreatePost = () => {
   const [isHovering, setIsHovering] = useState(0);
   const navigate = useNavigate();
 
+  // [특정, ?, value값가져오는애, 전송 ]
   const { register, formState, getValues, handleSubmit } =
     useForm<ICreatePostForm>({
       mode: "onChange",
@@ -54,25 +56,17 @@ export const CreatePost = () => {
       console.log(error);
     }
   };
+
+  // [ 보낼 데이터 , {data, ...}] = useMutation(스키마, 옵션)
   const [createPostMutation, { data: creataPostData, loading }] = useMutation<
     createPost,
     createPostVariables
   >(CREATE_POST_MUTATION, { onCompleted });
-  const onSubmit = () => {
-    const {
-      ownerName,
-      institution,
-      phoneNumber,
-      email,
-      title,
-      content,
-      password,
-      isLocked,
-    } = getValues();
 
-    createPostMutation({
-      variables: {
-        input: {
+  const onSubmit = () => {
+    // useForm에서 가져온값 - 변수에 get value로 가져온 값을 담는다
+    if(!loading){
+      const {
           ownerName,
           institution,
           phoneNumber,
@@ -81,9 +75,25 @@ export const CreatePost = () => {
           content,
           password,
           isLocked,
-        },
-      },
-    });
+        } = getValues();
+
+        createPostMutation({
+          //실제 보낼 데이터
+          variables: {
+            input: {
+              ownerName,
+              institution,
+              phoneNumber,
+              email,
+              title,
+              content,
+              password,
+              isLocked,
+            },
+          },
+        });      
+      }
+
   };
 
   return (
@@ -166,7 +176,7 @@ export const CreatePost = () => {
                 name="email"
                 placeholder="이메일 주소 입력"
                 className="Create-post-input-input-content"
-                defaultValue={userData?.me.email ? userData?.me.email : ""}
+                // sdefaultValue={userData?.me.email ? userData?.me.email : ""}
               />
             </div>
           </div>
