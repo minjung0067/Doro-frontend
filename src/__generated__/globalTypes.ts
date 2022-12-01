@@ -73,6 +73,7 @@ export interface DeletePostInput {
 
 export interface Detail_class_item {
   class_name: string;
+  edu_concept: string;
   student_number: number;
   date: string;
   remark?: string | null;
