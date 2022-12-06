@@ -1,0 +1,65 @@
+.EduTabble-container {
+    width: 65.556rem;
+}
+
+.EduDetailContents-title-box{
+    width: 7.1rem;
+    border-bottom: 0.194rem solid #005c97;
+}
+
+.EduDetailContents-title {
+    font-size: 1.889rem;
+    font-family: Pretendard;
+    font-weight: 600;
+}
+
+.EduTabble-table{
+    width: 65.556rem;
+    margin-top: 2.333rem;
+    border-top: 0.056rem solid #d9d9d9;
+    border-bottom: 0.056rem solid #d9d9d9;
+    
+    font-family: Pretendard;
+    font-size: 1rem;
+}
+
+.EduTabble-table th, td {
+    border-top: 0.056rem solid #d9d9d9;
+}
+
+.EduTabble-table th {
+    border-right: 0.056rem solid #d9d9d9;
+    color: #212121;
+    background-color: #f8f9fd;
+}
+
+.EduTabble-table td {
+    padding: 0.889rem 0;
+    letter-spacing: 0.9px;
+}
+
+.EduTabble-table-subContents {
+    margin-left: 1.111rem;
+    color: #777777;
+}
+
+.List-style-dics {
+    margin-left: 2.9rem;
+    list-style-type: disc;
+}
+
+
+/* -------------------------------- 수업 목표 ----------------------------------- */
+
+.LearningObjective-content-container {
+    display: flex;
+    align-items: center;
+    width: 65.556rem;
+    height: 4.278rem;
+    border: 1px solid #d9d9d9;
+    background-color: #f8f9fd;
+    font-family: Pretendard;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #0072b9;
+}
