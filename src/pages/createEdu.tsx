@@ -14,9 +14,14 @@ import { SendAuthNum, SendAuthNumVariables} from "../__generated__/SendAuthNum";
 import { sendOption } from "../__generated__/globalTypes";
 import { checkAuthNumQuery, checkAuthNumQueryVariables} from "../__generated__/checkAuthNumQuery";
 import DatePicker from "react-multi-date-picker";
+import DatePanel from "react-multi-date-picker/plugins/date_panel"
 import { setAppElement } from "react-modal";
+// import { useSelector } from 'react-redux'
 
+
+//date picker language custom
 const weekDays = ["일", "월", "화", "수", "목", "금", "토"]
+const months = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
 
 const CREATE_EDU_MUTATION = gql`
   mutation createEdu($createEduInput: CreateEduInput!) {
@@ -88,7 +93,7 @@ interface ICheckAuthForm {
   authNum: string;
   phoneNumber: string;
 }
-  
+
 export const CreateEdu = () => {
   const [startDate, setapplyDate] = useState(new Date());
   const { register, getValues, handleSubmit, formState} = useForm<ICreateEduForm>();
@@ -188,8 +193,10 @@ export const CreateEdu = () => {
   const onSubmit_check = () => {
     const { 
       authNum,
-      phoneNumber 
     } = getValues_check();
+    const {
+      phoneNumber,
+    } = getValues_send();
     checkAuthNumQuery({
       variables: {
         input: {
@@ -298,11 +305,8 @@ export const CreateEdu = () => {
             <div >
               <input
                 {...register_send("phoneNumber", {required: true })}
-                // {...register("phone_number", { required: true })}
-                {...register_check("phoneNumber", {required: true })}
                 name="phoneNumber"
                 placeholder="01012345678"
-                // className="Create-post-input-input-content"
               />
 
               <button 
@@ -426,7 +430,16 @@ export const CreateEdu = () => {
             <div>
               <span>교육 날짜</span>
               <DatePicker 
-                weekDays = {weekDays}/>
+                multiple
+                weekDays = {weekDays}
+                months={months}
+                plugins={[
+                  <DatePanel />
+                ]}
+                placeholder="교육 날짜를 입력해주세요."
+                containerClassName="custom-container"
+                calendarPosition="bottom-center"
+              />
             </div>
             <div>
               <span>희망 교육 시간</span>
