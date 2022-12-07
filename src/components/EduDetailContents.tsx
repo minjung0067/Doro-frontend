@@ -359,11 +359,11 @@ const subBtnControl = (btn: string) => {
         return nested.a1.map(function(a){
           return(
                 <button className="EduDetail-content-container">
-                  <Link to={a.link}>
+                  {/* <Link to={a.link}> */}
                     <img src={require('../images/detailContents/' + a.img + '.png')}/>
                       <p className="HashTag-text">{a.hash}</p>
                       <p className="Title-text">{a.title}</p>
-                  </Link>
+                  { /* </Link> */}
                 </button>
           );
         });
@@ -373,11 +373,11 @@ const subBtnControl = (btn: string) => {
       return nested.a2.map(function(a){
         return(
               <button className="EduDetail-content-container">
-                <Link to={a.link}>
+                {/* <Link to={a.link}> */}
                 <img src={require('../images/detailContents/' + a.img + '.png')}/>
                   <p className="HashTag-text">{a.hash}</p>
                   <p className="Title-text">{a.title}</p>
-                </Link>
+                { /* </Link> */}
               </button>
         );
       });
@@ -387,11 +387,11 @@ const subBtnControl = (btn: string) => {
     return nested.a3.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
+              {/* <Link to={a.link}> */}
               <img src={require('../images/detailContents/' + a.img + '.png')}/>
                 <p className="HashTag-text">{a.hash}</p>
                 <p className="Title-text">{a.title}</p>
-              </Link>
+              { /* </Link> */}
             </button>
       );
     });
@@ -401,11 +401,11 @@ const subBtnControl = (btn: string) => {
     return nested.a4.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
+              {/* <Link to={a.link}> */}
               <img src={require('../images/detailContents/' + a.img + '.png')}/>
                 <p className="HashTag-text">{a.hash}</p>
                 <p className="Title-text">{a.title}</p>
-              </Link>
+              { /* </Link> */}
             </button>
       );
     });
@@ -415,11 +415,11 @@ const subBtnControl = (btn: string) => {
     return nested.a5.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
+              {/* <Link to={a.link}> */}
               <img src={require('../images/detailContents/' + a.img + '.png')}/>
                 <p className="HashTag-text">{a.hash}</p>
                 <p className="Title-text">{a.title}</p>
-              </Link>
+              { /* </Link> */}
             </button>
       );
     });
@@ -429,11 +429,11 @@ const subBtnControl = (btn: string) => {
     return nested.a6.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
+              {/* <Link to={a.link}> */}
               <img src={require('../images/detailContents/' + a.img + '.png')}/>
                 <p className="HashTag-text">{a.hash}</p>
                 <p className="Title-text">{a.title}</p>
-              </Link>
+              { /* </Link> */}
             </button>
       );
     });
@@ -443,11 +443,11 @@ const subBtnControl = (btn: string) => {
     return nested.b.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
+              {/* <Link to={a.link}> */}
               <img src={require('../images/detailContents/' + a.img + '.png')}/>
                 <p className="HashTag-text">{a.hash}</p>
                 <p className="Title-text">{a.title}</p>
-              </Link>
+              { /* </Link> */}
             </button>
       );
     });
@@ -457,11 +457,11 @@ const subBtnControl = (btn: string) => {
     return nested.c.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
+              {/* <Link to={a.link}> */}
               <img src={require('../images/detailContents/' + a.img + '.png')}/>
                 <p className="HashTag-text">{a.hash}</p>
                 <p className="Title-text">{a.title}</p>
-              </Link>
+              { /* </Link> */}
             </button>
       );
     });
@@ -471,12 +471,12 @@ const subBtnControl = (btn: string) => {
     return nested.d.map(function(a){
       return(
             <button className="EduDetail-content-container">
-              <Link to={a.link}>
-              <img src={require('../images/detailContents/' + a.img + '.png')}/>
-              <p className="HashTag-text-Main4">{a.hash}</p>
-              <p className="Title-text-Main4">{a.title1}</p>
-              </Link>
-              <p className="Title-text">{a.title2}</p>
+              {/* <Link to={a.link}> */}
+                <img src={require('../images/detailContents/' + a.img + '.png')}/>
+                <p className="HashTag-text-Main4">{a.hash}</p>
+                <p className="Title-text-Main4">{a.title1}</p>
+                <p className="Title-text">{a.title2}</p>
+              { /* </Link> */}
             </button>
       );
     });

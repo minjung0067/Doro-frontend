@@ -168,7 +168,8 @@ export const EditPost = () => {
             title="교육문의"
             subtitle="Education inquiry"
             content="궁금하신 점이나 상담을 원하시는 부분은 언제든 문의주시면 신속하게 답변 드리도록 하겠습니다."
-            contentClass="Banner-content Subtitle-2"
+            contentClass="Subtitle-bigFont"
+            rightImg="none"
           />
           <div className="Create-post-content-root">
             <div className="Create-post-title">문의신청정보</div>
