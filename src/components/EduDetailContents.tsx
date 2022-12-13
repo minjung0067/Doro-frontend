@@ -281,7 +281,7 @@ const DetailContents = () => {
       {
         img: 'pygame',
         hash: '#파이썬 #파이게임 #게임개발',
-        title1: '파이썬 모듈 활용',
+        title1: '파이게임 모듈 활용',
         title2: "파이썬 교육",
         link: "/pygame"
 
