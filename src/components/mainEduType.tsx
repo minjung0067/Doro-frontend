@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect} from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components" ;
 
@@ -223,6 +223,26 @@ const Container = styled.div<{ hoverimg:string }>`
 `
 
 const MainEduContent = () => {
+
+    function preloading (imageArray : any) {
+        let n = imageArray.length;
+        for (let i = 0; i < n; i++) {
+            let img = new Image();
+            img.src = imageArray[i];
+        }
+    }
+
+    const imgList : string[] = [
+      type1_photo,
+      type2_photo,
+      type3_photo,
+      type4_photo
+    ]
+
+      useEffect(() => {
+        preloading(imgList)
+    }, [])
+
     const dummyData = [
         {   iconURL : type1,
             title : "찾아가는 현장 교육",
