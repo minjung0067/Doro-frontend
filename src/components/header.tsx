@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
               </li> */}
               <li>
                 <Link to="/showDetailContent" className="Header-link-inquiry">
-                  교육 컨텐츠
+                  교육 콘텐츠
                 </Link>
               </li>
               {/* <li>
