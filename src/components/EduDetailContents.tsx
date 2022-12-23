@@ -611,7 +611,6 @@ const DetailContents = () => {
       <div className={(main4 ? "EduDetail-click" : "EduDetail-click-off")}>
         {contentsMap4}
       </div>
-
     </>
   );
 
