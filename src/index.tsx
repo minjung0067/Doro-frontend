@@ -30,7 +30,6 @@ import "./styles/bannerStyles.css";
 import "./styles/bodyStyles.css";
 import "./styles/createEdu.css";
 
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
