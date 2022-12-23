@@ -21,13 +21,13 @@ export const LearningObjective: React.FC<LearningObjective> = ({
                 </div>
             </div>
 
-            <div style={{ marginTop: "2.444rem"}}>
-                <div className="LearningObjective-content-container">
+            <div className="LearningObjective-container" style={{ marginTop: "2.444rem"}}>
+                <p className="LearningObjective-content-container">
                     {contents1}
-                </div>
-                <div className="LearningObjective-content-container">
+                </p>
+                <p className="LearningObjective-content-container">
                     {contents2}
-                </div>
+                </p>
             </div>
 
         </div>

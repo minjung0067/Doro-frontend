@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LOCALSTORAGE_TOKEN } from './../constants';
+import { LOCALSTORAGE_TOKEN } from "./../constants";
 
 interface Banner {
   route: string;
@@ -10,6 +10,8 @@ interface Banner {
   contentBottom?: string;
   contentClass: string;
   wid: number;
+  contentsImg?: string;
+  rightImg?: string;
 }
 
 export const Banner: React.FC<Banner> = ({
@@ -20,13 +22,12 @@ export const Banner: React.FC<Banner> = ({
   contentBottom,
   contentClass,
   wid,
-
-
-  
+  contentsImg,
+  rightImg,
 }) => (
   <div className="Banner-container">
     <div className="Banner-content-container">
-      <div className="Banner-con">
+      <div className="Banner-contents">
         <img
           src={route}
           alt="route"
@@ -37,8 +38,18 @@ export const Banner: React.FC<Banner> = ({
           <span className="Banner-title Headline-2">{title}</span>
           <span className="Banner-subtitle Body-1">{subtitle}</span>
         </div>
+        <p className={`${contentClass}`}>
+          {content}
+          <br />
+          {contentBottom}
+        </p>
       </div>
-      <p className={`${contentClass}`}>{content}<br/>{contentBottom}</p>
+      <img
+        src={contentsImg}
+        style={{ display: `${rightImg}` }}
+        alt="contentsImg"
+        className="Banner-rightImg"
+      />
     </div>
   </div>
 );
