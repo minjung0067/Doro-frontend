@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LOCALSTORAGE_TOKEN } from './../constants';
 
 interface Banner {
   route: string;
   title: string;
   subtitle: string;
   content: string;
+  contentBottom?: string;
+  contentClass: string;
   wid: number;
 }
 
@@ -14,7 +17,12 @@ export const Banner: React.FC<Banner> = ({
   title,
   subtitle,
   content,
+  contentBottom,
+  contentClass,
   wid,
+
+
+  
 }) => (
   <div className="Banner-container">
     <div className="Banner-content-container">
@@ -30,7 +38,9 @@ export const Banner: React.FC<Banner> = ({
           <span className="Banner-subtitle Body-1">{subtitle}</span>
         </div>
       </div>
-      <h4 className="Banner-content Subtitle-2">{content}</h4>
+      <p className={`${contentClass}`}>{content}<br/>{contentBottom}</p>
     </div>
   </div>
 );
+
+

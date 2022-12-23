@@ -155,6 +155,7 @@ export const Posts = () => {
         title="문의 게시판"
         subtitle="Education inquiry board"
         content="문의 답변을 확인할 수 있습니다."
+        contentClass="Banner-content Subtitle-2"
         wid={10.278}
       />
       {!loading && (

@@ -24,7 +24,15 @@ import "./styles/main8Styles.css";
 import "./styles/main4Styles.css";
 import "./styles/main9Styles.css";
 import "./styles/customswiper.css";
+<<<<<<< HEAD
 import "./styles/createEdu.css";
+=======
+import "./styles/eduContentStyles.css";
+import "./styles/eduDetailContentsStyles.css";
+import "./styles/bannerStyles.css";
+import "./styles/bodyStyles.css";
+
+>>>>>>> 4bb4e1c (feat: 상세페이지 1차)
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
